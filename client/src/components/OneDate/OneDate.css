@@ -1,0 +1,52 @@
+* {
+    font-family: 'Forum', cursive;
+}
+
+
+.text{
+    font-size: 20px;
+}
+
+.middleOneDate{
+    font-size: 20px;
+}
+
+.ant-picker-calendar-date-content {
+    height: 15px unset;
+}
+
+:where(.css-dev-only-do-not-override-fpg3f5).ant-form-item .ant-form-item-label >label {
+    font-size: 20px;
+}
+
+:where(.css-dev-only-do-not-override-fpg3f5).ant-checkbox-wrapper.ant-checkbox-wrapper-in-form-item input[type="checkbox"] {
+    margin-left: 2%;
+    width: ;
+}
+
+:where(.css-dev-only-do-not-override-fpg3f5).ant-checkbox-wrapper.ant-checkbox-wrapper-in-form-item input[type="checkbox"] {
+    margin-left: 2%;
+}
+
+.ant-alert {
+    background-color: #C0D2D8;
+}
+
+
+.colorPrimary {
+    background-color: #466672;
+}
+
+/* .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+    color: #466672;
+    border-color: #466672;
+} */
+
+.img {
+float:left;
+margin-right: 20px;
+}
+
+h1{
+    border-bottom: 1.5px solid #FF5CB8;
+}

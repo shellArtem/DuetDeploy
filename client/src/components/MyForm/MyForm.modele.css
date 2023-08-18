@@ -1,0 +1,29 @@
+.payBtn {
+    height: 5rem;
+    width: 15rem;
+    background: #466672;
+    color: white;
+    margin: 5%;
+}
+
+.payBtn:hover {
+    color: #001628;
+    background: #C0D2D8;
+    border-color: #466672;
+    
+}
+.payBtnForm {
+    display: flex;
+    justify-content: space-around;
+}
+.sendFormBtn{
+    background: #466672;
+    color: white;
+}
+
+.sendFormBtn:hover {
+    color: #001628;
+    background: #C0D2D8;
+    border-color: #466672;
+    
+}

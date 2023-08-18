@@ -1,0 +1,72 @@
+/* @import '~antd/dist/antd.css'; */
+
+/* 
+import { Card, Space } from 'antd'; */
+
+.accBtn {
+    /* background-image: url('../../assets/Varya.png'); */
+    background-size: cover;
+    background-position: center;
+}
+
+.layoutBtn {
+    border-radius: 8px;
+    border: none;
+    background-color: #001628;
+    color: #EFF1F3;
+    /* 1px solid transparent; */
+    font-size: 1em;
+    cursor: pointer;
+    transition: border-color 0.25s;
+    margin: 10px;
+    width: 160px;
+}
+
+.sideBtn {
+    border-radius: 8px;
+    border: none;
+    /* color: #001628; */
+    color: white;
+    background-color: #001628;
+    /* 1px solid transparent; */
+    font-size: 1em;
+    cursor: pointer;
+    transition: border-color 0.25s;
+    width: 160px;
+    margin: 15px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* position: sticky; */
+}
+
+.layoutBtn:hover {
+    border-color: #FF5CB8;
+    filter: drop-shadow(0 0 2em #FF5CB8);
+}
+button:focus,
+button:focus-visible {
+  outline: 4px #FF5CB8;
+  /* filter: drop-shadow(0 0 2em #FF5CB8); */
+  filter: drop-shadow(0 0 2em #ff1c9d6b);
+}
+
+:where(.css-dev-only-do-not-override-fpg3f5).ant-layout .ant-layout-sider {
+    position: fixed;
+}
+
+:where(.css-dev-only-do-not-override-fpg3f5).ant-layout.ant-layout-has-sider >.ant-layout, :where(.css-dev-only-do-not-override-fpg3f5).ant-layout.ant-layout-has-sider >.ant-layout-content{
+    margin-left: 220px;
+    background-color: red
+}
+/* 
+.ant-layout, .ant-layout-has-sider, .css-dev-only-do-not-override-fpg3f5 {
+    background-color: #001628;
+} */
+
+.ant-layout-has-sider {
+    background-color: #001628; 
+}

@@ -1,0 +1,11 @@
+.otherFormBtn {
+    background: #466672;
+    color: white;
+}
+
+.otherFormBtn:hover {
+    color: #001628;
+    background: #C0D2D8;
+    border-color: #466672;
+    
+}

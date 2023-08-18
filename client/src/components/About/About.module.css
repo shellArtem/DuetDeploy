@@ -1,0 +1,168 @@
+*{
+font-family: 'Forum', cursive;
+font-size: medium;
+}
+/* 
+.photo{
+    margin-left: 0%;
+    position: relative;
+} */
+
+.mainPhoto{
+    margin-left: 0%;
+    width: 160px;
+    height: 1880px;
+    margin-top: 3%;
+    position: relative;
+    float: left;
+}
+
+.main{
+    /* background-image: url('/IMG_2491 — копия.JPG') ;
+    background-position: left top; */
+    color:  #001628;
+    display: flex;
+flex-direction: column;
+margin-left: auto;
+font-size: 25px;
+}
+
+.text {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin-left: 17%;
+    margin-top: 5%;
+    line-height: 30px;
+}
+
+.body{
+    width: 80%;
+    margin-left: 10%;
+}
+
+.one{
+    margin-top: 10px;
+    margin-bottom: 10%;
+    border-bottom: 1px solid rgb(0, 90, 128);
+    background: radial-gradient( #ff5cb8a0, #ff5cb865, #eae4f145, #eae4f145 97%);
+    float: left;
+    margin-right: 5px;
+}
+
+.h2{
+font-size: 25px;
+    border-bottom: 1px solid rgb(0, 90, 128);
+    padding-bottom: 3px;
+    margin-top: 2%;
+    width: 40%;
+    margin-left: 26%;
+}
+
+.citati{
+    display: flex;
+    justify-content:start;
+    height: 200px;
+    background: radial-gradient( #ff5cb8a0, #ff5cb865, #eae4f145, #eae4f145 97%);
+    float: left;
+    margin-right: 5px;
+    margin-bottom: 5%;
+    margin-top: 5%;
+}
+
+.credo{
+    margin-left: 20px;
+border-right: 1px solid rgb(0, 90, 128);
+}
+
+
+.two{
+    margin-top: 10px;
+    margin-bottom: 10%;
+    border-bottom: 1px solid rgb(0, 90, 128);
+    background: radial-gradient( #ff5cb8a0, #ff5cb865, #eae4f145, #eae4f145 97%);
+    float: left;
+    margin-right: 5px;
+}
+
+.tree{
+    margin-top: 10px;
+    margin-bottom: 10%;
+    border-bottom: 1px solid rgb(0, 90, 128);
+    background: radial-gradient( #ff5cb8a0, #ff5cb865, #eae4f145, #eae4f145 97%);
+    float: left;
+    margin-right: 5px;
+}
+
+.four{
+    margin-top: 10px;
+    margin-bottom: 10%;
+    border-bottom: 1px solid rgb(0, 90, 128);
+    background: radial-gradient( #ff5cb8a0, #ff5cb865, #eae4f145, #eae4f145 97%);
+    float: left;
+    margin-right: 5px;
+}
+
+.ps{
+    margin-top: 20px;
+    margin-left: -3%;
+    float: left;
+    margin-right: 5px;
+}
+
+.psText{
+    margin-top: 20px;
+    margin-left: 22%;
+    background: radial-gradient( #ff5cb8a0, #ff5cb865, #eae4f145, #eae4f145 97%);
+    float: left;
+    margin-right: 5px;
+    width: 60%;
+    border-bottom: 1px solid rgb(0, 90, 128);
+}
+
+.h1{
+    font-size: 25px;
+    border-bottom: 1px solid rgb(0, 90, 128);
+    padding-bottom: 3px;
+    margin-top: 10%;
+    width: 20%;
+    margin-left: 40%;
+    background: radial-gradient( #ff5cb8a0, #ff5cb865, #eae4f145, #eae4f145 97%);
+    float: left;
+    margin-right: 5px;
+}
+
+.bottom{
+    margin-top: 10%;
+    font-size: 25px;
+}
+
+.logo{
+    width: 140px;
+    height: 120px;
+    margin-left: 40%;
+}
+
+.logo3, .logo4{
+    width: 140px;
+    height: 120px;
+    margin-left: -2%;
+}
+
+.logo5{
+    width: 140px;
+    height: 120px;
+    margin-left: 5%;
+    margin-bottom: 3%;
+}
+
+.map{
+    border: 3px solid #FF5CB8;
+}
+
+.contact{
+    background: radial-gradient( #ff5cb8a0, #ff5cb865, #eae4f145, #eae4f145 97%);
+    float: left;
+    margin-right: 5px;
+}

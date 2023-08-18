@@ -1,0 +1,60 @@
+import { Button, Card, Input } from 'antd'
+import React, { useState } from 'react'
+
+export default function FeedbackAnswer({approveHandler, deleteHandler, el}) {
+
+    const initStateAnswer = {
+        text: "",
+      };
+    
+      const [feedbackAnswer, setFeedbackAnswer] = useState(initStateAnswer)
+
+    const [answer, setAnswer] = useState(false)
+    const answerHandler = () => {
+        setAnswer(() => !answer)
+      }
+
+      const changeHandler = (event) => {
+        console.log(event.target)
+        setFeedbackAnswer((pre) => ({...pre, [event.target.name]:event.target.value}))
+      }
+    
+      const onFinishAnswer = async (id) => {
+        console.log('999999999999999999999999999', feedbackAnswer, id)
+        try {
+          const responce = await fetch("http://localhost:3003/feedbackAnswer", {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({text: feedbackAnswer.text, id}),
+            credentials: "include",
+          });
+          
+        } catch (error) {
+          console.log("register error", error);
+        }
+      };
+
+  return (
+    <div style={{width: '500px', display: 'flex'}} key={el.id}>
+          
+    <Card title={el.name} bordered={false} style={{ width: '94%', marginLeft: '2.5%'}}>
+     <p>{el.body}</p>
+     <Button onClick={() => approveHandler(el.id, el.approved)}> Одобрить </Button>
+     <Button onClick={answerHandler}> Ответить </Button> 
+     <Button onClick={() => deleteHandler(el.id)}> Удалить </Button> 
+
+     {answer &&
+      <div style={{display: 'flex', flexDirection: 'column', gap: '5px', marginTop: '5px'}}>
+        <Input style={{width: "300px"}} name='text' onChange={changeHandler} value={feedbackAnswer.text} type="text" placeholder="Введите ответ на отзыв" />
+        <Button type="primary" onClick={() => onFinishAnswer(el.id)} style={{backgroundColor:'#628191'}}>
+        Отправить
+        </Button>
+        </div>
+     }
+   </Card>
+     <br />
+  </div>
+  )
+}

@@ -1,0 +1,11 @@
+.notFound {
+    background-image: url('/notFound.jpeg');
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-width: 1px;
+    border-style: solid;
+    border-color:#FF5CB8;
+}

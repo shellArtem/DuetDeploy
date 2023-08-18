@@ -1,0 +1,476 @@
+import {
+  Avatar,
+  Button,
+  Card,
+  Checkbox,
+  InputNumber,
+  Input,
+  Form,
+  Modal,
+} from "antd";
+import Meta from "antd/es/card/Meta";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
+import { RootState } from "../../redux/types/state";
+import type { CheckboxChangeEvent } from "antd/es/checkbox";
+import dayjs from "dayjs";
+import "dayjs/locale/zh-cn";
+import dayLocaleData from "dayjs/plugin/localeData";
+import type { Dayjs } from "dayjs";
+import { Alert, Calendar } from "antd";
+import styled from "styled-components";
+import "./OneDate.css";
+// import PhoneInput from "antd-phone-input";
+import PhoneInput from "antd-phone-input/legacy";
+import { useForm } from "antd/es/form/Form";
+import { CheckOutlined } from "@ant-design/icons";
+const { TextArea } = Input;
+
+const initState2 = {
+    otherExtra:''
+}
+
+export default function OneDate() {
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const [inputChange, setInputChange] = useState({ name: "", value: 3 });
+  const [disabledDatesArr, setDisabledDatesArr] = useState([]);
+
+  const [checkboxChecked, setCheckboxChecked] = useState([]);
+  // const [balloon, setBalloon] = useState(1)
+  // const [light, setLight] = useState(1)
+
+  const [oneDate, setOneDate] = useState({});
+
+  const onFinish = (values: any) => {
+    console.log("Success:", values);
+  };
+  const onFinishFailed = (errorInfo: any) => {
+    console.log("Failed:", errorInfo);
+  };
+  type FieldType = {
+    dinner?: string;
+    music?: string;
+    photographer?: string;
+    flowers?: string;
+    balloons?: string;
+    skylights?: string;
+  };
+  const [extraOptions, setExtraOptions] = useState([]);
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await fetch("http://localhost:3003/extra", {
+          method: "GET",
+          headers: { "Content-type": "application/json" },
+        });
+        const result = await response.json();
+        console.log(result);
+        setExtraOptions([...extraOptions, ...result]);
+
+        const resp = await fetch("http://localhost:3003/oneDate", {
+          method: "POST",
+          headers: { "Content-type": "application/json" },
+          body: JSON.stringify({ id }),
+        });
+        const res = await resp.json();
+        console.log(res);
+        setOneDate(res);
+      } catch (error) {
+        console.log("OMG", error);
+      }
+    })();
+  }, []);
+
+  const [value, setValue] = useState(() => dayjs(new Date()));
+  const [selectedValue, setSelectedValue] = useState(() => dayjs(new Date()));
+  const [otherExtra, setOtherExtra] = useState(initState2)
+
+  const otherExtraInputHandler = (event) => {
+    setOtherExtra((pre) => ({...pre, [event.target.name]:event.target.value}))
+}
+
+  const user = useSelector((state: RootState) => state.UserReducer.name);
+  const onSelect = async (newValue: Dayjs) => {
+    setValue(newValue);
+    setSelectedValue(newValue);
+    if (user === "admin") {
+      const response = await fetch("http://localhost:3003/disabledDate", {
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify({
+          date: selectedValue.$d.toLocaleDateString(),
+          isAdmin: true,
+        }),
+      });
+      const result = await response.json();
+      setDisabledDatesArr([...disabledDatesArr, result]);
+      console.log("TUT DOLZHNA BIT NOVAYA DATA NEDOSTUPNAYA", result);
+    }
+  };
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await fetch("http://localhost:3003/disabledDate", {
+          method: "GET",
+          headers: { "Content-type": "application/json" },
+        });
+        const result = await response.json();
+        setDisabledDatesArr(result);
+      } catch (error) {
+        console.log("OMG", error);
+      }
+    })();
+  }, []);
+
+  const disabledDate = (date) => {
+    for (let i = 0; i < disabledDatesArr.length; i += 1) {
+      if (
+        new Date(date).toLocaleDateString() === disabledDatesArr[i].disabledDate
+      ) {
+        return true;
+      }
+    }
+  };
+  const onPanelChange = (newValue: Dayjs) => {
+    setValue(newValue);
+  };
+
+  const [finalPrice, setFinalPrice] = useState(0);
+
+  useEffect(() => {
+    setFinalPrice(oneDate.price);
+  }, [oneDate]);
+
+  const onChange = (e) => {
+    console.log("TUT ETARGET", e.target);
+    if (e.target.checked) {
+      setFinalPrice((finalPrice) => Number(finalPrice) + Number(e.target.id));
+      if (!checkboxChecked.includes(e.target.name)) {
+        setCheckboxChecked((prevChecked) => [...prevChecked, e.target.name]);
+      }
+    } else {
+      setFinalPrice((finalPrice) => Number(finalPrice) - Number(e.target.id));
+      setCheckboxChecked((prevChecked) =>
+        prevChecked.filter((name) => name !== e.target.name)
+      );
+    }
+    console.log(`checked = ${e.target.checked}${e.target.name}`);
+  };
+
+  const StyledWrapper = styled.div`
+    width: 100%;
+    height: 30%;
+    border: 5px solid #f0f0f0;
+    border-radius: 2px;
+    itemActiveBg='#466672'
+    colorPrimary='#466672'
+    colorLink='#466672'
+    colorPrimaryHover='#466672'
+    font-size: 20px;
+  `;
+
+  const initState = {
+    name: "",
+    phone: "",
+  };
+
+  const [open, setOpen] = useState(false);
+  const [confirmLoading, setConfirmLoading] = useState(false);
+  const [inputs, setInputs] = useState(initState);
+
+  const showModal = () => {
+    setOpen(true);
+  };
+
+  const handleCancel = () => {
+    console.log("Clicked cancel button");
+    setOpen(false);
+  };
+
+  const [form] = useForm();
+
+  const validator = (_, { valid }) => {
+    if (valid) {
+      return Promise.resolve();
+    }
+    return Promise.reject("Invalid phone number");
+  };
+  //const [change, setChange] = useState(false)
+
+  const handleSubmit = async (values) => {
+
+    try {
+      const allValues = {
+        dateTitle: oneDate.title,
+        extraOptions: checkboxChecked.join(", "),
+        price: finalPrice,
+        selectedDate: selectedValue.$d.toLocaleDateString(),
+        otherExtra:otherExtra.otherExtra,
+        clientName: values.name || null,
+        phone: values.phone || null,
+      };
+//fetch to  create an order
+      const response = await fetch("http://localhost:3003/order", {
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify(allValues),
+        credentials: "include",
+      });
+//fetch to disable date
+      const result = await response.json();
+      const resp = await fetch("http://localhost:3003/disabledDate", {
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify({ date: selectedValue.$d.toLocaleDateString() }),
+      });
+      const res = await resp.json();
+      setDisabledDatesArr([...disabledDatesArr, res]);
+//oplata
+      const respons = await fetch("http://localhost:3003/pay", {
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify({ allValues }),
+      });
+      const resul = await respons.json();
+      location.href = resul.ssilka;
+
+    } catch (error) {
+      console.log("orderFetchOshibka", error);
+    }
+
+  };
+
+  const deleteHandler = async (id) => {
+    try {
+      const response = await fetch(
+        `http://localhost:3003/createDate/deleteExtra`,
+        {
+          method: "DELETE",
+          headers: { "Content-type": "application/json" },
+          body: JSON.stringify({ id }),
+        }
+      );
+      setExtraOptions(extraOptions.filter((el) => el.id !== id));
+      // const result = await response.json();
+      // dispatch({ type: DELETE_TODOS, payload: id });
+    } catch (error) {
+      console.log(error);
+
+    }
+  };
+
+  return (
+    <>
+    <link href="https://fonts.googleapis.com/css2?family=Arsenal&family=Forum&family=Inconsolata:wght@400;500;600;800&family=Montserrat:ital,wght@1,200&family=Open+Sans:wght@500&family=REM:ital,wght@1,800&family=Roboto:wght@500&display=swap" rel="stylesheet" crossOrigin="anonymous"></link>
+    <div
+      className="oneCardContainer"
+      style={{ display: "flex", flexDirection: "column" }}
+    >
+      <h1 style={{border:'1px solid black', width:'40%', textAlign:'center', borderRadius:'15px', marginLeft:'29%', padding:'15px', marginBottom:'30px', fontSize: '25px',}}>{oneDate.title}</h1>
+      <div className="upperOneDate" style={{ display: "flex", justifyContent: "space-between", width: '900px', marginLeft: 'auto', marginRight:'auto', }}>
+        <div className='imgText' style={{ display: "flex" }}>
+         
+            {/* <img
+            className='img'
+              style={{ width: "400", borderRadius:'15px', marginRight:'10%'}} //marginRight:'100px' 
+              alt="example"
+              src={`http://localhost:3003${oneDate.img}`}
+              height="400px"
+            /> */}
+            {/* <div style={{ display: "flex", flexDirection: "column", textAlign:'left' }}>
+              <h1>Мы подготовим для вас:</h1>
+              <ul
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                //   justifyContent: "left",
+                }}
+              >
+                <li>романтический декор</li>
+                <li>стол, стулья</li>
+                <li>пледы</li>
+                <li>шампанское</li>
+                <li>вода</li>
+                <li>фруктовая тарелка</li>
+              </ul>
+            </div> */}
+      <h2 className='text'> <img
+            className='img'
+              style={{ width: "400", borderRadius:'15px', marginRight:'5%'}} //marginRight:'100px' 
+              alt="example"
+              src={`http://localhost:3003${oneDate.img}`}
+              height="400px"
+            />{oneDate.description}</h2>
+          </div>
+        
+      </div>
+      <div
+        className="middleOneDate"
+        style={{ display: "flex", justifyContent: "space-around" }}
+      >
+         <div style={{ display: "flex", flexDirection: "column", textAlign:'left',  fontSize: '20px' }}>
+              <h1 style={{fontSize: '20px' }}>Мы подготовим для вас:</h1>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                //   justifyContent: "left",
+                }}
+              >
+               <div style={{display: 'flex', gap: '5%'}}><img style={{width: '30px', height: '30px'}} src="/icons8-heart-balloon-64.png"></img><h3 style={{fontSize: '20px' }}> романтический декор</h3></div> 
+               <div style={{display: 'flex', gap: '5%'}}><img style={{width: '30px', height: '30px'}} src="/icons8-table-64.png"></img><h3 style={{fontSize: '20px' }}> стол, стулья</h3></div> 
+               <div style={{display: 'flex', gap: '5%'}}><img style={{width: '30px', height: '30px'}} src="/icons8-fireplace-64.png"></img><h3 style={{fontSize: '20px' }}>пледы</h3></div>
+               <div style={{display: 'flex', gap: '5%'}}><img style={{width: '30px', height: '30px'}} src="/icons8-champagne-64.png"></img><h3 style={{fontSize: '20px' }}> шампанское</h3></div>
+              <div style={{display: 'flex', gap: '5%'}}><img style={{width: '30px', height: '30px'}} src="/icons8-water-64.png"></img><h3 style={{fontSize: '20px' }}>вода</h3></div>
+              <div style={{display: 'flex', gap: '5%'}}><img style={{width: '30px', height: '30px'}} src="/icons8-raspberry-64.png"></img><h3 style={{fontSize: '20px' }}> фруктовая тарелка</h3></div>
+              </div>
+            </div>
+        <Form
+          name="basic"
+          labelCol={{ span: 8 }}
+          wrapperCol={{ span: 16 }}
+          style={{ width: 500, fontSize: '20px' }}
+          initialValues={{ remember: true }}
+          onFinish={onFinish}
+          onFinishFailed={onFinishFailed}
+          autoComplete="off"
+        >
+          <h1 style={{fontSize: '20px' }}>Дополнительные услуги:</h1>
+          {extraOptions.map((extraOption) => (
+            <Form.Item <FieldType>
+              label={extraOption.title}
+              name={extraOption.title}
+              key={extraOption.id}
+            >
+                <div style={{display:'flex', fontSize: '20px'}}>
+              <Checkbox className="checkbox"
+                id={extraOption.price}
+                name={extraOption.title}
+                onChange={onChange}
+                style={{marginRight:'5%'}}
+                />
+                <div>От {extraOption.price} р.</div>
+                </div>
+              {user === "admin" && (
+                  <Button onClick={() => deleteHandler(extraOption.id)}>X</Button>
+                  )}
+            </Form.Item>
+          ))}
+        </Form>
+      </div>
+      <div
+        className="lowerOneDate"
+        style={{
+          marginTop: '10%',
+          display: "flex",
+          height: "300px",
+          gap: "5%",
+          marginBottom: "4rem",
+          alignItems:'center',
+          fontSize: '25px',
+        }}
+      >
+        <div>
+          <Alert
+            message={`Выбранная дата свидания: ${selectedValue?.format(
+              "DD.MM.YYYY"
+            )}`}
+          />
+          <StyledWrapper>
+            <Calendar
+              value={value}
+              fullscreen={false}
+              onSelect={onSelect}
+              disabledDate={disabledDate}
+              onPanelChange={onPanelChange}
+            //   itemActiveBg='#466672'
+            //   colorPrimary='#466672'
+            //   colorLink='#466672'
+            //   colorPrimaryHover='#466672'
+            />
+          </StyledWrapper>
+        </div>
+        <div>
+          <h2 style={{fontSize: '25px',}}>Предварительная итоговая стоимость</h2>
+          <h3 style={{ border: "3px solid black", borderRadius: "10px" }}>
+            {" "}
+            {finalPrice}р.{" "}
+          </h3>
+        </div>
+      </div>
+      <div>
+        <h3 style={{fontSize: '25px',}}>Другие пожелания</h3>
+        <Input.TextArea onChange={otherExtraInputHandler} value={otherExtra.otherExtra} name="otherExtra" placeholder='Пожалуйста, дайте нам знать о предпочтительном для Вас времени проведения свидания, а также сообщите о любых ваших пожеланиях, мы сделаем все возможное, чтобы Ваш праздник был незабываемым.' style={{ height: "8rem" }} />
+      </div>
+      <div>
+        {/* <h2>Подтвердить оформление</h2> */}
+        {user ? (
+          <Button type="primary" onClick={handleSubmit} style={{background:'#466672', height:'80px', width:'30%', fontSize:'28px', marginTop:'20px'}}>
+             Внести предоплату
+          </Button>
+        ) : (
+          <>
+            <Button type="primary" onClick={showModal} style={{background:'#466672', height:'80px', width:'30%', fontSize:'28px', marginTop:'20px'}}>
+            Внести предоплату
+            </Button>
+            <Modal
+              open={open}
+              onOk={form.submit}
+              confirmLoading={confirmLoading}
+              onCancel={handleCancel}
+            >
+              <Form
+                name="basic"
+                labelCol={{ span: 8 }}
+                wrapperCol={{ span: 16 }}
+                style={{ maxWidth: 800 }}
+                initialValues={{ remember: true }}
+                form={form}
+                onFinish={handleSubmit}
+                onFinishFailed={onFinishFailed}
+                autoComplete="off"
+              >
+                <h2>Администратор свяжется с Вами для подтверждения заявки</h2>
+                <Form.Item
+                  label="Имя"
+                  name="name"
+                  className="input"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Пожалуйста, введите Ваше имя!",
+                    },
+                  ]}
+                >
+                  <Input
+                    value={inputs.name}
+                    type="text"
+                    placeholder="Введите имя"
+                  />
+                </Form.Item>
+
+                <Form.Item
+                  name="phone"
+                  label="Телефон"
+                  className="input"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Пожалуйста, введите Ваш номер телефона!",
+                      validator,
+                    },
+                  ]}
+                >
+                  <PhoneInput country="ru" />
+                </Form.Item>
+              </Form>
+            </Modal>
+          </>
+        )}
+      </div>
+    </div>
+    </>
+  );
+ }
