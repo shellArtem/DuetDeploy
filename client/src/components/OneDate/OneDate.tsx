@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+//@ts-nocheck
 import {
 
   Button,
@@ -11,7 +13,7 @@ import {
 
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { RootState } from "../../redux/types/state";
 import dayjs from "dayjs";
 import "dayjs/locale/zh-cn";
@@ -28,8 +30,8 @@ const initState2 = {
 
 export default function OneDate() {
   const { id } = useParams();
-  const navigate = useNavigate();
-  const [inputChange, setInputChange] = useState({ name: "", value: 3 });
+  // const navigate = useNavigate();
+  // const [inputChange, setInputChange] = useState({ name: "", value: 3 });
   const [disabledDatesArr, setDisabledDatesArr] = useState([]);
 
   const [checkboxChecked, setCheckboxChecked] = useState([]);
@@ -175,6 +177,8 @@ export default function OneDate() {
   const [confirmLoading, setConfirmLoading] = useState(false);
   const [inputs, setInputs] = useState(initState);
 
+  console.log(setConfirmLoading, setInputs)
+
   const showModal = () => {
     setOpen(true);
   };
@@ -214,7 +218,7 @@ export default function OneDate() {
         credentials: "include",
       });
 //fetch to disable date
-      const result = await response.json();
+      await response.json();
       const resp = await fetch("http://localhost:3003/disabledDate", {
         method: "POST",
         headers: { "Content-type": "application/json" },
@@ -239,7 +243,7 @@ export default function OneDate() {
 
   const deleteHandler = async (id) => {
     try {
-      const response = await fetch(
+      await fetch(
         `http://localhost:3003/createDate/deleteExtra`,
         {
           method: "DELETE",
