@@ -1,5 +1,5 @@
 .notFound {
-    background-image: url('/notFound.jpeg');
+    /* background-image: url('/notFound.jpeg'); */
     height: 600px;
     display: flex;
     flex-direction: column;

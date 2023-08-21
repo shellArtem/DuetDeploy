@@ -163,7 +163,7 @@ button:hover {
 } */
 
 .mainProfileContainer {
-    background-image: url('/accaunt.jpg') ;
+    /* background-image: url('/accaunt.jpg') ; */
     background-size: 100%;
     backdrop-filter: blur(10px);
     height: 800px;
