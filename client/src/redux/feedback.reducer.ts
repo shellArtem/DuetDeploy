@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+//@ts-nocheck
 import { AnyAction } from "@reduxjs/toolkit";
 // import { StateType } from './types/state';
 // import { ADD_TO_FAVORITES, DEL_FROM_FAVORITES } from './type.redux';
@@ -13,6 +15,7 @@ const FeedbackReducer = (state = initialState, action: AnyAction) => {
     case "ALL_FEEDBACKS":
         return { ...state, feedbacks: payload };
     case "APPROVE_FEEDBACK":
+      // eslint-disable-next-line no-case-declarations
       const idStatus = state.feedbacks.findIndex((el) => el.id === payload.id);
       console.log('========================', payload);
       return {

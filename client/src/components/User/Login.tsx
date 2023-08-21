@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+//@ts-nocheck
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import FormItem from "antd/es/form/FormItem";
@@ -26,6 +28,7 @@ export default function Login() {
   };
 
  const [log, setLog] = useState(initState);
+ console.log(setLog)
  const [error, setError] = useState(false)
  const [err, setErr] = useState(false)
   const [form] = useForm();

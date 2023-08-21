@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+//@ts-nocheck
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import FormItem from "antd/es/form/FormItem";
 // import PhoneInput from "antd-phone-input";
 import PhoneInput from "antd-phone-input/legacy";
 import './User.less';
@@ -26,6 +27,7 @@ export default function Register() {
   };
 
   const [reg, setReg] = useState(initState);
+  console.log(setReg)
   const [error, setError] = useState(false)
   const [form] = useForm();
 

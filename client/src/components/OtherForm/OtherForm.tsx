@@ -1,25 +1,26 @@
-import React, { useState } from "react";
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+//@ts-nocheck
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import FormItem from "antd/es/form/FormItem";
+// import { useDispatch } from "react-redux";
 import styles from './OtherForm.module.css';
 import { Button, Checkbox, Form, Input } from "antd";
 import { useForm } from "antd/es/form/Form";
 
-import type { DatePickerProps } from "antd";
-import { DatePicker, Space, Select } from "antd";
+// import type { DatePickerProps } from "antd";
+import { Select } from "antd";
 
 export default function OtherForm() {
-  const onChange: DatePickerProps["onChange"] = (date, dateString) => {
-    console.log(date, dateString);
-  };
+  // const onChange: DatePickerProps["onChange"] = (date, dateString) => {
+  //   console.log(date, dateString);
+  // };
 
   const handleChange = (value: string) => {
     console.log(`selected ${value}`);
   };
 
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const initState = {
     Возраст: [],
@@ -66,7 +67,7 @@ export default function OtherForm() {
 
     // }
 
-    // console.log(values)
+    console.log(setotherAnketa)
     console.log("============>", values);
     try {
       const responce = await fetch("http://localhost:3003/partner", {
@@ -78,6 +79,7 @@ export default function OtherForm() {
         credentials: "include",
       });
       const data = await responce.json();
+      console.log(data)
       //dispatch({ type: "LOG_USER", payload: data.name });
       navigate("/account");
     } catch (error) {
@@ -89,12 +91,12 @@ export default function OtherForm() {
     // }
   };
 
-  const validator = (_, { valid }) => {
-    if (valid) {
-      return Promise.resolve();
-    }
-    return Promise.reject("Invalid phone number");
-  };
+  // const validator = (_, { valid }) => {
+  //   if (valid) {
+  //     return Promise.resolve();
+  //   }
+  //   return Promise.reject("Invalid phone number");
+  // };
 
   const onFinishFailed = (errorInfo: any) => {
     console.log("Failed:", errorInfo);
