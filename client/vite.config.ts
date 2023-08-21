@@ -12,5 +12,8 @@ export default defineConfig({
         javascriptEnabled: true
       },
     },
-  }
+  },
+  build: {
+    chunkSizeWarningLimit: 1600,
+  },
 })
