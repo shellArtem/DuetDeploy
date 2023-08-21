@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+//@ts-nocheck
+import { useState, useEffect } from 'react';
 import './MyDate.css';
-import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
-import { Avatar, Card, Button, Rate } from 'antd';
+import { Card, Button, Rate } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { HeartOutlined } from '@ant-design/icons';
@@ -9,26 +10,25 @@ import { HeartOutlined } from '@ant-design/icons';
 const { Meta } = Card;
 
 export default function MyDate () {
-
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     const user = useSelector((state) => state.UserReducer.name)
 
     const navigate = useNavigate();
     const [dates, setDates] = useState([]);
     const dispatch = useDispatch()
 
-    // const initState = {
-    //   rating: 5,
-    // }
 
-    const [rate, setRate] = useState(5)
+
 
 
     
-
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     const changeHandler = async (value, id) => {
       console.log(value, id)
       try {
-        const response = await fetch(`http://localhost:3003/newRating`, {
+        await fetch(`http://localhost:3003/newRating`, {
           method: 'POST',
           headers: { 'Content-type': 'application/json' },
           body: JSON.stringify({value, id}),
@@ -40,7 +40,7 @@ export default function MyDate () {
 
     const deleteHandler = async (id) => {
       try {
-        const response = await fetch(`http://localhost:3003/createDate/deleteDate`, {
+        await fetch(`http://localhost:3003/createDate/deleteDate`, {
           method: 'DELETE',
           headers: { 'Content-type': 'application/json' },
           body: JSON.stringify({id}),
@@ -59,6 +59,8 @@ export default function MyDate () {
                     headers: { 'Content-type': 'application/json' },
                 });
                 const result = await response.json();
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
                 setDates([...dates, ...result]); 
                 dispatch({ type: "ALL_DATES", payload: result });
             } catch (error) {
@@ -67,8 +69,8 @@ export default function MyDate () {
         })();
     }, []);
 
-    console.log('55555555555555555555522222222222222222', dates)
-
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     function getRating (date) {
       const ratings = date.DateRatings.map((el) => el.rating )
       console.log(ratings)

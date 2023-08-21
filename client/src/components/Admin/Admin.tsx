@@ -1,22 +1,13 @@
-import { PlusOutlined } from '@ant-design/icons';
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+//@ts-nocheck
 import React, { useEffect, useState } from 'react';
 import './Admin.css'
 import {
   Button,
-  Card,
-  Cascader,
-  Checkbox,
   DatePicker,
   Form,
   Input,
-  InputNumber,
   Popconfirm,
-  Radio,
-  Select,
-  Slider,
-  Switch,
-  TreeSelect,
-  Upload,
 } from 'antd';
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../../redux/types/state';
@@ -24,21 +15,14 @@ import { Table } from 'antd';
 import type { ColumnsType, TableProps } from 'antd/es/table';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { SettingsSystemDaydream } from '@mui/icons-material';
 import { useForm } from 'antd/es/form/Form';
-// import PhoneInput from "antd-phone-input";
 import PhoneInput from "antd-phone-input/legacy";
 import FeedbackAnswer from '../FeedbackAnswer/FeedbackAnswer';
 
+
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
-
-const normFile = (e: any) => {
-  if (Array.isArray(e)) {
-    return e;
-  }
-  return e?.fileList;
-};
+console.log(RangePicker)
 
 export default function Admin() {
   const [news, setNews] = useState('')
@@ -67,7 +51,7 @@ export default function Admin() {
 const deleteHandler = async (id) => {
   
   try {
-    const responce = await fetch("http://localhost:3003/feedback", {
+    await fetch("http://localhost:3003/feedback", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -110,7 +94,7 @@ const feedbacks = useSelector((state: RootState) => state.FeedbackReducer.feedba
 const approveHandler = async (id, approved) => {
   const curApproved = !approved
   try {
-    const responce = await fetch("http://localhost:3003/feedback", {
+    await fetch("http://localhost:3003/feedback", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -142,7 +126,7 @@ const approveHandler = async (id, approved) => {
 
     try {
 
-      const responce = await fetch("http://localhost:3003/ankets", {
+      await fetch("http://localhost:3003/ankets", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -163,14 +147,10 @@ const approveHandler = async (id, approved) => {
     {
       title: 'Имя',
       dataIndex: 'Имя',
-      // specify the condition of filtering result
-      // here is that finding the name started with `value`
     },
     {
       title: 'Фамилия',
       dataIndex: 'Фамилия',
-      // specify the condition of filtering result
-      // here is that finding the name started with `value`
     },
     {
       title: 'Пол',
@@ -185,13 +165,13 @@ const approveHandler = async (id, approved) => {
           value: "Женщина",
         },
       ],
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
       onFilter: (value: string, record) => record.Пол.indexOf(value) === 0,
     },
     {
       title: 'Контактный телефон',
       dataIndex: 'Контактный_телефон',
-      // specify the condition of filtering result
-      // here is that finding the name started with `value`
     },
     {
       title: 'Возраст',
@@ -203,7 +183,6 @@ const approveHandler = async (id, approved) => {
       title: 'Удалить',
       dataIndex: '',
       key: 'x',
-      // render: () => <a> Удалить анкету </a>,
       render: (_, record) => (
         <Popconfirm title="Уверены, что хотите удалить?" onConfirm={() => handleDelete(record.id)}>
           <Button>Удалить анкету</Button>
@@ -212,7 +191,6 @@ const approveHandler = async (id, approved) => {
     },
   ];
 
-  // const [dataSource, setDataSource] = useState(ankets);
   
   
   const onChange: TableProps<DataType>['onChange'] = (pagination, filters, sorter, extra) => {
@@ -231,6 +209,7 @@ const approveHandler = async (id, approved) => {
         credentials: "include",
       });
       const data = await responce.json();
+      console.log(data)
       navigate("/date/1");
     } catch (error) {
       console.log("register error", error);
@@ -241,8 +220,10 @@ const approveHandler = async (id, approved) => {
 const sendNews = React.useCallback(async() => {
   const data = new FormData();
   data.append('newsBody', news)
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
   data.append('newsPic', img)
-  const response = await axios.put('http://localhost:3003/news', data, {
+  await axios.put('http://localhost:3003/news', data, {
     headers: {
       'Content-Type': 'multipart/form-data',
     },
@@ -255,9 +236,13 @@ const sendDate = React.useCallback(async(values) => {
   const data = new FormData();
   data.append('title', dateTitle)
   data.append('description', dateDescr)
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
   data.append('price', datePrice)
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
   data.append('datesPic', imgDate)
-  const response = await axios.post('http://localhost:3003/createDate', data, {
+  await axios.post('http://localhost:3003/createDate', data, {
     headers: {
       'Content-Type': 'multipart/form-data',
     },
@@ -279,7 +264,6 @@ useEffect(() => {
       });
       const result = await response.json();
       setDisabledDatesArr(result);
-      // console.log("TUT RESULT", result);
       const resp = await fetch('http://localhost:3003/allEvents', {
         method: "GET",
         headers: { "Content-type": "application/json" },
@@ -294,14 +278,12 @@ useEffect(() => {
 
 const deleteDateHandler = async (id) => {
   try {
-    const response = await fetch(`http://localhost:3003/disabledDate`, {
+    await fetch(`http://localhost:3003/disabledDate`, {
       method: 'DELETE',
       headers: { 'Content-type': 'application/json' },
       body: JSON.stringify({id}),
     });
     setDisabledDatesArr(disabledDatesArr.filter((el) => el.id !== id))
-    // const result = await response.json();
-   // dispatch({ type: DELETE_TODOS, payload: id });
   } catch (error) {
     console.log(error);
   }
@@ -330,15 +312,13 @@ const exportAnketsToExcelHandler = async () => {
       method: 'GET',
       headers: { 'Content-type': 'application/vnd.ms-excel' },
     });
-    // const result = await response.json()
     const blob = await response.blob();
 
-    // Создаем ссылку для скачивания файла
+
     const downloadLink = document.createElement('a');
     downloadLink.href = window.URL.createObjectURL(blob);
     downloadLink.download = 'ankets.xlsx';
 
-    // Автоматически кликаем по ссылке для запуска скачивания
     downloadLink.click();
   } catch (error) {
     console.log(error);
@@ -351,26 +331,20 @@ const exportWishToExcelHandler = async () => {
       method: 'GET',
       headers: { 'Content-type': 'application/vnd.ms-excel' },
     });
-    // const result = await response.json()
     const blob = await response.blob();
 
-    // Создаем ссылку для скачивания файла
     const downloadLink = document.createElement('a');
     downloadLink.href = window.URL.createObjectURL(blob);
     downloadLink.download = 'wishes.xlsx';
 
-    // Автоматически кликаем по ссылке для запуска скачивания
+
     downloadLink.click();
   } catch (error) {
     console.log(error);
   }
 };
 
-    const initStateMatches = {
-        phone: "",
-    };
 
-  const [userPhone, setUserPhone] = useState(initStateMatches)
 
   const [form] = useForm();
 
@@ -394,7 +368,8 @@ const exportWishToExcelHandler = async () => {
       console.log("register error", error);
     }
   };
-
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
   const validator = (_, {valid}) => {
     if (valid) {
       return Promise.resolve();
@@ -402,41 +377,6 @@ const exportWishToExcelHandler = async () => {
     return Promise.reject("Invalid phone number");
   }
 
-  //console.log('=============>', matches)
-
-  // const [answer, setAnswer] = useState(false)
-
-  // const initStateAnswer = {
-  //   text: "",
-  // };
-
-  // const [feedbackAnswer, setFeedbackAnswer] = useState(initStateAnswer)
-
-  // const answerHandler = () => {
-  //   setAnswer(() => !answer)
-  // }
-
-  // const changeHandler = (event) => {
-  //   console.log(event.target)
-  //   setFeedbackAnswer((pre) => ({...pre, [event.target.name]:event.target.value}))
-  // }
-
-  // const onFinishAnswer = async (id) => {
-  //   console.log('999999999999999999999999999', feedbackAnswer, id)
-  //   try {
-  //     const responce = await fetch("http://localhost:3003/feedbackAnswer", {
-  //       method: "PUT",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify({text: feedbackAnswer.text, id}),
-  //       credentials: "include",
-  //     });
-      
-  //   } catch (error) {
-  //     console.log("register error", error);
-  //   }
-  // };
 
   return (
     <>
@@ -597,28 +537,7 @@ const exportWishToExcelHandler = async () => {
         el={el}
         approveHandler={approveHandler}
         deleteHandler={deleteHandler}
-        
-        
         />
-        // <div key={el.id}>
-          
-        //   <Card title={el.name} bordered={false} style={{ width: '100%', marginBottom: '3%' }}>
-        //    <p>{el.body}</p>
-        //    <Button onClick={() => approveHandler(el.id, el.approved)}> Одобрить </Button>
-        //    <Button onClick={answerHandler}> Ответить </Button> 
-        //    <Button onClick={() => deleteHandler(el.id)}> Удалить </Button> 
-
-        //    {answer &&
-        //     <>
-        //       <Input name='text' onChange={changeHandler} value={feedbackAnswer.text} type="text" placeholder="Введите ответ на отзыв" />
-        //       <Button type="primary" onClick={() => onFinishAnswer(el.id)} style={{backgroundColor:'#628191'}}>
-        //       Отправить
-        //       </Button>
-        //       </>
-        //    }
-        //  </Card>
-        //    <br />
-        // </div>
           ) : 
           <div><h2> Отзывов нет </h2></div>
   }

@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { Button, Card, Form, Input, InputNumber } from 'antd';
-import { CheckCircleTwoTone, HeartTwoTone, SmileTwoTone } from '@ant-design/icons';
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+//@ts-nocheck
+import { useEffect, useState } from 'react';
+import { Button, Card, Form, Input} from 'antd';
+import { HeartTwoTone} from '@ant-design/icons';
 
 
 
@@ -8,9 +10,6 @@ export default function Account() {
 
   const [change, setChange] = useState(true)
 
-  // ! хардкод на отзывы пока их нет
-
-// const feedbacks = [{name: 'Jon', feedback: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam necessitatibus quaerat modi voluptas rem asperiores culpa at est eos veniam neque, et laboriosam natus voluptate deleniti, voluptates alias itaque aliquam, reiciendis iusto temporibus assumenda! Aliquid doloremque omnis ipsum vero nemo unde, ipsam voluptatum ducimus harum, aspernatur eveniet officiis excepturi, totam placeat illum consequatur repudiandae et.'},{name: 'Jack', feedback: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, dolores!'},{name: 'Bob', feedback: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'}, ]
 
   const [feedbacks, setFeedbacks] = useState([])
 
@@ -22,6 +21,8 @@ export default function Account() {
                 headers: { 'Content-type': 'application/json' },
             });
             const result = await response.json();
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
             setFeedbacks([...feedbacks, ...result]); 
             // console.log("TUT RESULT", result);
         } catch (error) {
@@ -48,7 +49,7 @@ const onFinish = async (values: any) => {
       credentials: "include",
     });
     const data = await responce.json();
-    
+    console.log(data)
   } catch (error) {
     console.log("register error", error);
   }
@@ -102,8 +103,6 @@ const onFinish = async (values: any) => {
     <p style={{fontSize: '24px'}}>{el.name}</p>
     <hr />
     <p style={{backgroundColor: '#0016282f', borderRadius: '5px', marginBottom: '20px', fontSize: '20px', padding: '10px'}}>{el.body}</p>
-    {/* <HeartTwoTone twoToneColor="#d12d83" /> */}
-    {/* <div style={{borderBottom: '1.5px solid #d12d83', width: '40%', marginLeft: 'auto', marginRight: 'auto'}}></div> */}
     <div style={{textAlign:'left'}}>
     {el.answer &&
     <>

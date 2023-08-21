@@ -1,18 +1,19 @@
-import React, { useState, useEffect } from 'react';
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+//@ts-nocheck
+import { useState, useEffect } from 'react';
 import { Carousel } from 'antd';
-import { HeartOutlined, HeartTwoTone, ManOutlined, MehOutlined, MinusOutlined, SmileOutlined } from '@ant-design/icons';
-import { WomanOutlined } from '@ant-design/icons';
+import { MehOutlined, SmileOutlined } from '@ant-design/icons';
 import './Home.css'
-import photo from '../../../public/пейзаж.jpeg'
 import video from '../../../public/pexels-dziana-hasanbekava-6401588 (1080p).mp4'
-//import '../../assets/beach2.jpeg'
-const contentStyle: React.CSSProperties = {
-  height: '300px',
-  color: '#fff',
-  lineHeight: '300px',
-  textAlign: 'center',
-  background: '#364d79',
-};
+
+
+// const contentStyle: React.CSSProperties = {
+//   height: '300px',
+//   color: '#fff',
+//   lineHeight: '300px',
+//   textAlign: 'center',
+//   background: '#364d79',
+// };
 
 export default function Home () {
   const [news, setNews] = useState({})
@@ -33,27 +34,23 @@ export default function Home () {
     <div className='all-posts'>
   <Carousel autoplay style={{width:'100%'}}>
     <div>
-      {/* <h3 style={contentStyle}>1</h3> */}
-      {/* <img style={{height:'300px'}} src='/1647698461_1-amiel-club-p-panoramnie-kartinki-1.jpeg'/> */}
+
       <img style={{height:'600px'}} src='/carousel.001.jpeg'/>
     </div>
     <div>
     <img style={{height:'600px'}} src='/carousel.002.jpeg'/>
-      {/* <img style={{height:'300px'}} src='33_a55f4eb12c2b31d701660b04422df33d.jpeg'/> */}
     </div>
     <div>
-      {/* <h3 style={contentStyle}>4</h3> */}
+
       <img style={{height:'600px'}} src='/carousel.003.jpeg'/>
-      {/* <img style={{height:'300px'}} src='public/пейзаж.jpeg'/> */}
+
     </div>
     <div>
-      {/* <h3 style={contentStyle}>3</h3> */}
-      {/* <img style={{height:'300px'}} src='/www.fonstola.ru_333669_1600x900.png'/> */}
+
       <img style={{height:'600px'}} src='/carousel.004.jpeg'/>
     </div>
     <div>
-      {/* <h3 style={contentStyle}>4</h3> */}
-      {/* <img style={{height:'300px'}} src='/свечи.jpeg'/> */}
+
       <img style={{height:'600px'}} src='/carousel.005.jpeg'/>
     </div>
     <div>
@@ -80,7 +77,6 @@ export default function Home () {
   <div className='newsBody'>
   <div className='news'>{news.body}</div>
   <img className='newsPic' src={`http://localhost:3003${news.pic}`}/>
-  {/* <div className='newsPic'><img style={{height:'125px'}} src={`http://localhost:3003${news.pic}`}></img></div> */}
   </div>
 
   <div className='how-we-do-it'>

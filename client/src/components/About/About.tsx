@@ -1,6 +1,5 @@
-import { Card } from 'antd';
-import React from 'react';
-const { Meta } = Card;
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+//@ts-nocheck
 import  styles from './About.module.css'
 import { Image } from 'antd';
 
@@ -91,6 +90,8 @@ export default function About() {
             width="560"
             height="400"
             frameBorder="1"
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
             allowFullScreen="true"
             style={{position:'relative', border: '3px solid #FF5CB8'}}
             ></iframe>

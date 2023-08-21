@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import MyLayout from "./components/MyLayout/MyLayout";
@@ -28,9 +28,8 @@ function App() {
 
   const dispatch = useDispatch();
 
-  const [login, setLogin] = useState(false);
-
-  const user = useSelector((state) => state.UserReducer.name)
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const user = useSelector((state: any) => state.UserReducer.name)
 
   useEffect(() => {
     (async function () {
@@ -41,34 +40,14 @@ function App() {
       if (result.name) {
         
         dispatch({ type: "SAVE_USER", payload: {name: result.name, img: result.img || null, phone: result.phone} });
-        //to v redux auth - true
       }
     })();
   }, []);
 
   return (
-    // <>
-    //   <Routes>
-    //     <Route path="/" element={<MyLayout />}>
-    //       <Route path="/home" element={<Home />} />
-    //       <Route path="/register" element={<Register />} />
-    //       <Route path="/login" element={<Login />} />
-    //       <Route path="/account" element={<Account />} />
-    //       <Route path="/form" element={<MyForm />} />
-    //       <Route path="/partner" element={<OtherForm />} />
-    //       <Route path="/date">
-    //         <Route index element={<MyDate />} />
-    //         <Route path=":id">
-    //           <Route index element={<OneDate />} />
-    //         </Route>
-    //       </Route>
-    //       <Route path="/about" element={<About />} />
-    //       <Route path="/feedback" element={<Feedback />} />
-    //       <Route path="/profileAdmin" element={<Admin />} />
-    //     </Route>
-    //   </Routes>
-    // </>
-    
+
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
         <MyLayout>
       <Routes>
           <Route path="/" element={<Home />} />

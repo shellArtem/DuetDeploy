@@ -1,31 +1,26 @@
 import {
-  Avatar,
+
   Button,
-  Card,
+
   Checkbox,
-  InputNumber,
+
   Input,
   Form,
   Modal,
 } from "antd";
-import Meta from "antd/es/card/Meta";
+
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { RootState } from "../../redux/types/state";
-import type { CheckboxChangeEvent } from "antd/es/checkbox";
 import dayjs from "dayjs";
 import "dayjs/locale/zh-cn";
-import dayLocaleData from "dayjs/plugin/localeData";
 import type { Dayjs } from "dayjs";
 import { Alert, Calendar } from "antd";
 import styled from "styled-components";
 import "./OneDate.css";
-// import PhoneInput from "antd-phone-input";
 import PhoneInput from "antd-phone-input/legacy";
 import { useForm } from "antd/es/form/Form";
-import { CheckOutlined } from "@ant-design/icons";
-const { TextArea } = Input;
 
 const initState2 = {
     otherExtra:''

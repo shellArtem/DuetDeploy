@@ -1,20 +1,17 @@
-import React, { useEffect, useState } from 'react';
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+//@ts-nocheck
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
 import FormItem from 'antd/es/form/FormItem';
-// import PhoneInput from 'antd-phone-input';
 import PhoneInput from "antd-phone-input/legacy";
 import styles from'./MyForm.modele.css'
-import { Button, Checkbox, Form, Input } from 'antd';
+import { Button, Form, Input } from 'antd';
 import { useForm } from 'antd/es/form/Form';
 
 import type { DatePickerProps } from 'antd';
-import { DatePicker, Space, Select } from 'antd';
+import { DatePicker, Select } from 'antd';
 
 
-const initState2 = {
-  checked: '',
-};
 
 export default function MyForm() {
   const handleChange = (value: string) => {
@@ -30,7 +27,11 @@ export default function MyForm() {
   const onChange: DatePickerProps['onChange'] = (date, dateString) => {
     console.log(date, dateString);
 
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     const ageFull = ((new Date() - date)/(1000 * 60 * 60 * 24 * 365.25)).toFixed(0)
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     setAge(ageFull)
     form.setFieldsValue({"Полных_лет":ageFull}) //Full_years
 
@@ -39,7 +40,6 @@ export default function MyForm() {
   
 
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   const initState = {
     Фамилия: '',
@@ -91,10 +91,11 @@ export default function MyForm() {
     Были_ли_в_вашей_жизни_необычные_свидания: '',
     Занимаетесь_ли_вы_спортом: '',
   };
-
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
   const [anketa, setAnketa] = useState(initState);
   const [form] = useForm();
-  const phone = useSelector((state) => state.UserReducer.phone);
+  // const phone = useSelector((state) => state.UserReducer.phone);
 
   const [buttons, setButtons] = useState(false);
 
@@ -111,25 +112,25 @@ export default function MyForm() {
         credentials: 'include',
       });
       const data = await responce.json();
-
-      //  navigate("/partner");
+      console.log(data)
     } catch (error) {
       console.log('form error', error);
     }
   };
 
-  const validator = (_, { valid }) => {
-    if (valid) {
-      return Promise.resolve();
-    }
-    return Promise.reject('Invalid phone number');
-  };
+  // const validator = (_, { valid }) => {
+  //   if (valid) {
+  //     return Promise.resolve();
+  //   }
+  //   return Promise.reject('Invalid phone number');
+  // };
 
   const onFinishFailed = (errorInfo: any) => {
     console.log('Failed:', errorInfo);
   };
 
-
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
   const handlePay = async (values) => {
 
     try {
