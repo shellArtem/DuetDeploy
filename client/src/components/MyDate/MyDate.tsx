@@ -28,7 +28,7 @@ export default function MyDate () {
     const changeHandler = async (value, id) => {
       console.log(value, id)
       try {
-        await fetch(`http://localhost:3003/newRating`, {
+        await fetch(`http://77.222.53.7:3003/newRating`, {
           method: 'POST',
           headers: { 'Content-type': 'application/json' },
           body: JSON.stringify({value, id}),
@@ -40,7 +40,7 @@ export default function MyDate () {
 
     const deleteHandler = async (id) => {
       try {
-        await fetch(`http://localhost:3003/createDate/deleteDate`, {
+        await fetch(`http://77.222.53.7:3003/createDate/deleteDate`, {
           method: 'DELETE',
           headers: { 'Content-type': 'application/json' },
           body: JSON.stringify({id}),
@@ -91,7 +91,7 @@ export default function MyDate () {
     cover={
       <img
         alt="example"
-        src={`http://localhost:3003${date.img}`}
+        src={`http://77.222.53.7:3003${date.img}`}
         height='400px'
       />
     }
