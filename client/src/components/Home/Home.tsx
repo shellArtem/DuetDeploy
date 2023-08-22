@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { Carousel } from 'antd';
 import { MehOutlined, SmileOutlined } from '@ant-design/icons';
 import './Home.css'
-// import video from '../../../image/pexels-dziana-hasanbekava-6401588 (1080p).mp4'
+import video from '../../../image/pexels-dziana-hasanbekava-6401588 (1080p).mp4'
 
 
 // const contentStyle: React.CSSProperties = {
@@ -118,7 +118,7 @@ export default function Home () {
   </div>
   <div className='video'>
     {/* <video> */}
- {/* <div className='video-mp4'> <video id="video"  src={video} width="100%" height="100%" autoPlay loop preload="auto" /> </div> */}
+ <div className='video-mp4'> <video id="video"  src={video} width="100%" height="100%" autoPlay loop preload="auto" /> </div>
   <div className='video-text'> 
   <div className='video-text-title'>Как мы работаем оффлайн?</div>
   <div className='video-text-header'>Брачное агентство значительно повысит ваши шансы на счастливую семейную жизнь. Мы оказываем услуги по поиску кандидата для серьезных отношений и брака. </div>
