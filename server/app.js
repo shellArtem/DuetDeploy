@@ -1,4 +1,5 @@
 require('@babel/register');
+require('dotenv').config()
 
 const YooKassa = require('yookassa');
 const session = require('express-session');
@@ -21,7 +22,7 @@ const profileRouter = require('./routes/profile')
 
 
 const app = express();
-const PORT = 3003;
+const { PORT } = process.env;
 
 const sessionConfig = {
   name: 'Marriage',
