@@ -159,15 +159,15 @@ export default function Home () {
     <div className='two-plus'> Вы имеете серьезные намерения и желание создать семью</div>
     </div>
     <div className='table2'>
-    <img src='icons8-couple-64.png' style={{opacity: "45%"}}  />
+    <img src='http://77.222.53.7:3003/icons8-couple-64.png' style={{opacity: "45%"}}  />
     <div className='tree-plus'> У вас есть четкое представление о том, кто вам нужен</div>
-    <img src='icons8-key-64.png' style={{opacity: "45%"}} /> 
+    <img src='http://77.222.53.7:3003/icons8-key-64.png' style={{opacity: "45%"}} /> 
     <div className='four-plus'>Хотите отношений с надежным и благополучным человеком</div>
     </div>
     <div className='table3'>
-    <img src='icons8-calendar-64.png' style={{opacity: "45%"}} /> 
+    <img src='http://77.222.53.7:3003/icons8-calendar-64.png' style={{opacity: "45%"}} /> 
     <div className='five-plus'> Не хотите тратить время на поиски и общение с людьми, которые вам не подходят</div>
-    <img src='icons8-heart-64.png' style={{opacity: "45%"}} /> 
+    <img src='http://77.222.53.7:3003/icons8-heart-64.png' style={{opacity: "45%"}} /> 
     <div className='six-plus'> Вы цените себя и свое время</div>
     </div>
   </div>

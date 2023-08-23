@@ -31,14 +31,14 @@ export default function Account() {
   useEffect(() => {
     (async function () {
       try {
-        const resp = await fetch('http://localhost:3003/usersEvent', {
+        const resp = await fetch('http://77.222.53.7:3003/usersEvent', {
           method: 'GET',
           credentials: 'include',
         });
         const res = await resp.json();
         setEvents(res);
 
-        const response = await fetch('http://localhost:3003/yookassaFeedback', {
+        const response = await fetch('http://77.222.53.7:3003/yookassaFeedback', {
           method: 'POST',
           credentials: 'include',
         });
@@ -61,7 +61,7 @@ export default function Account() {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     data.append('photo', img);
-    const response = await axios.put('http://localhost:3003/profile', data, {
+    const response = await axios.put('http://77.222.53.7:3003/profile', data, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
@@ -73,7 +73,7 @@ export default function Account() {
     // @ts-ignore
     data2.append('photo2', img2);
     const response2 = await axios.put(
-      'http://localhost:3003/profile/2',
+      'http://77.222.53.7:3003/profile/2',
       data2,
       {
         headers: {
@@ -92,7 +92,7 @@ export default function Account() {
 
   const logoutHandler = async () => {
     try {
-      const response = await fetch('http://localhost:3003/logout', {
+      const response = await fetch('http://77.222.53.7:3003/logout', {
         credentials: 'include',
       });
       dispatch({ type: 'LOGOUT_USER', payload: '' });
@@ -137,7 +137,7 @@ export default function Account() {
                   width: '40%',
                   borderRadius: '10%',
                 }}
-                src={`http://localhost:3003${photo}`}
+                src={`http://77.222.53.7:3003/${photo}`}
                 alt=""
               />
             ) : (
@@ -147,7 +147,7 @@ export default function Account() {
                   width: '40%',
                   borderRadius: '10%',
                 }}
-                src={'/avatar.png'}
+                src={'http://77.222.53.7:3003/avatar.png'}
                 alt=""
               />
             )}

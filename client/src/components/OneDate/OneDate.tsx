@@ -58,7 +58,7 @@ export default function OneDate() {
   useEffect(() => {
     (async () => {
       try {
-        const response = await fetch("http://localhost:3003/extra", {
+        const response = await fetch("http://77.222.53.7:3003/extra", {
           method: "GET",
           headers: { "Content-type": "application/json" },
         });
@@ -66,7 +66,7 @@ export default function OneDate() {
         console.log(result);
         setExtraOptions([...extraOptions, ...result]);
 
-        const resp = await fetch("http://localhost:3003/oneDate", {
+        const resp = await fetch("http://77.222.53.7:3003/oneDate", {
           method: "POST",
           headers: { "Content-type": "application/json" },
           body: JSON.stringify({ id }),
@@ -93,7 +93,7 @@ export default function OneDate() {
     setValue(newValue);
     setSelectedValue(newValue);
     if (user === "admin") {
-      const response = await fetch("http://localhost:3003/disabledDate", {
+      const response = await fetch("http://77.222.53.7:3003/disabledDate", {
         method: "POST",
         headers: { "Content-type": "application/json" },
         body: JSON.stringify({
@@ -109,7 +109,7 @@ export default function OneDate() {
   useEffect(() => {
     (async () => {
       try {
-        const response = await fetch("http://localhost:3003/disabledDate", {
+        const response = await fetch("http://77.222.53.7:3003/disabledDate", {
           method: "GET",
           headers: { "Content-type": "application/json" },
         });
@@ -211,7 +211,7 @@ export default function OneDate() {
         phone: values.phone || null,
       };
 //fetch to  create an order
-      const response = await fetch("http://localhost:3003/order", {
+      const response = await fetch("http://77.222.53.7:3003/order", {
         method: "POST",
         headers: { "Content-type": "application/json" },
         body: JSON.stringify(allValues),
@@ -219,7 +219,7 @@ export default function OneDate() {
       });
 //fetch to disable date
       await response.json();
-      const resp = await fetch("http://localhost:3003/disabledDate", {
+      const resp = await fetch("http://77.222.53.7:3003/disabledDate", {
         method: "POST",
         headers: { "Content-type": "application/json" },
         body: JSON.stringify({ date: selectedValue.$d.toLocaleDateString() }),
@@ -227,7 +227,7 @@ export default function OneDate() {
       const res = await resp.json();
       setDisabledDatesArr([...disabledDatesArr, res]);
 //oplata
-      const respons = await fetch("http://localhost:3003/pay", {
+      const respons = await fetch("http://77.222.53.7:3003/pay", {
         method: "POST",
         headers: { "Content-type": "application/json" },
         body: JSON.stringify({ allValues }),
@@ -244,7 +244,7 @@ export default function OneDate() {
   const deleteHandler = async (id) => {
     try {
       await fetch(
-        `http://localhost:3003/createDate/deleteExtra`,
+        `http://77.222.53.7:3003/createDate/deleteExtra`,
         {
           method: "DELETE",
           headers: { "Content-type": "application/json" },
@@ -299,7 +299,7 @@ export default function OneDate() {
             className='img'
               style={{ width: "400", borderRadius:'15px', marginRight:'5%'}} //marginRight:'100px' 
               alt="example"
-              src={`http://localhost:3003${oneDate.img}`}
+              src={`http://77.222.53.7:3003${oneDate.img}`}
               height="400px"
             />{oneDate.description}</h2>
           </div>
@@ -318,12 +318,12 @@ export default function OneDate() {
                 //   justifyContent: "left",
                 }}
               >
-               <div style={{display: 'flex', gap: '5%'}}><img style={{width: '30px', height: '30px'}} src="/icons8-heart-balloon-64.png"></img><h3 style={{fontSize: '20px' }}> романтический декор</h3></div> 
-               <div style={{display: 'flex', gap: '5%'}}><img style={{width: '30px', height: '30px'}} src="/icons8-table-64.png"></img><h3 style={{fontSize: '20px' }}> стол, стулья</h3></div> 
-               <div style={{display: 'flex', gap: '5%'}}><img style={{width: '30px', height: '30px'}} src="/icons8-fireplace-64.png"></img><h3 style={{fontSize: '20px' }}>пледы</h3></div>
-               <div style={{display: 'flex', gap: '5%'}}><img style={{width: '30px', height: '30px'}} src="/icons8-champagne-64.png"></img><h3 style={{fontSize: '20px' }}> шампанское</h3></div>
-              <div style={{display: 'flex', gap: '5%'}}><img style={{width: '30px', height: '30px'}} src="/icons8-water-64.png"></img><h3 style={{fontSize: '20px' }}>вода</h3></div>
-              <div style={{display: 'flex', gap: '5%'}}><img style={{width: '30px', height: '30px'}} src="/icons8-raspberry-64.png"></img><h3 style={{fontSize: '20px' }}> фруктовая тарелка</h3></div>
+               <div style={{display: 'flex', gap: '5%'}}><img style={{width: '30px', height: '30px'}} src="http://77.222.53.7:3003/icons8-heart-balloon-64.png"></img><h3 style={{fontSize: '20px' }}> романтический декор</h3></div> 
+               <div style={{display: 'flex', gap: '5%'}}><img style={{width: '30px', height: '30px'}} src="http://77.222.53.7:3003/icons8-table-64.png"></img><h3 style={{fontSize: '20px' }}> стол, стулья</h3></div> 
+               <div style={{display: 'flex', gap: '5%'}}><img style={{width: '30px', height: '30px'}} src="http://77.222.53.7:3003/icons8-fireplace-64.png"></img><h3 style={{fontSize: '20px' }}>пледы</h3></div>
+               <div style={{display: 'flex', gap: '5%'}}><img style={{width: '30px', height: '30px'}} src="http://77.222.53.7:3003/icons8-champagne-64.png"></img><h3 style={{fontSize: '20px' }}> шампанское</h3></div>
+              <div style={{display: 'flex', gap: '5%'}}><img style={{width: '30px', height: '30px'}} src="http://77.222.53.7:3003/icons8-water-64.png"></img><h3 style={{fontSize: '20px' }}>вода</h3></div>
+              <div style={{display: 'flex', gap: '5%'}}><img style={{width: '30px', height: '30px'}} src="http://77.222.53.7:3003/icons8-raspberry-64.png"></img><h3 style={{fontSize: '20px' }}> фруктовая тарелка</h3></div>
               </div>
             </div>
         <Form
