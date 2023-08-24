@@ -153,13 +153,13 @@ export default function Home () {
   </div>
   <div className='pluses-body'>
     <div className='table1'>
-    <img style={{opacity: "45%"}} src='https://77.222.53.7:3003/icons8-email-64.png' />
+    <img style={{opacity: "45%"}} src='https://77.222.53.7/icons8-email-64.png' />
     <div className='one-plus'> Сайты знакомств менее эффективны и менее безопасны</div>
-    <img style={{opacity: "45%"}} src='https://77.222.53.7:3003/icons8-rings-64.png' /> 
+    <img style={{opacity: "45%"}} src='https://77.222.53.7:8443/icons8-rings-64.png' /> 
     <div className='two-plus'> Вы имеете серьезные намерения и желание создать семью</div>
     </div>
     <div className='table2'>
-    <img src='https://77.222.53.7:3003/icons8-couple-64.png' style={{opacity: "45%"}}  />
+    <img src='https://duet-marriage.ru/icons8-couple-64.png' style={{opacity: "45%"}}  />
     <div className='tree-plus'> У вас есть четкое представление о том, кто вам нужен</div>
     <img src='https://77.222.53.7:3003/icons8-key-64.png' style={{opacity: "45%"}} /> 
     <div className='four-plus'>Хотите отношений с надежным и благополучным человеком</div>
