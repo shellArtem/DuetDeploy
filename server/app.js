@@ -53,6 +53,17 @@ app.use(cors({
   credentials: true }
 ));
 
+app.use((req, res, next) => {
+  if (!req.secure && req.protocol !== "https") {
+    const { host } = req.headers;
+    const parts = host.split(":");
+    const hostname = parts[0];
+    res.redirect(`https://${hostname}${req.url}`);
+  } else {
+    next();
+  }
+});
+
 app.use('/', router);
 app.use('/register', regRouter);
 app.use('/login', loginRouter);
@@ -93,7 +104,7 @@ app.post('/pay', (req, res) => {
     },
     confirmation: {
         type: 'redirect',
-        return_url: 'http://localhost:5173/',
+        return_url: 'http://77.222.53.7:5173/',
     },
     metadata: {
       dateTitle,
@@ -124,7 +135,7 @@ app.post('/payForm', (req, res) => {
     },
     confirmation: {
         type: 'redirect',
-        return_url: 'http://localhost:5173/',
+        return_url: 'http://77.222.53.7:5173/',
     },
     metadata: {},
     description: 'Оплата анкеты',
@@ -156,6 +167,19 @@ app.post('/yookassaFeedback', (req, resp) => {
 
 
 
-app.listen(PORT, () => {
-  console.log(`Сервак запущен, порт =====>  ${PORT}`);
+const httpsOptions = {
+  key: fs.readFileSync(path.join(__dirname, "/certs/privkey.pem")),
+  cert: fs.readFileSync(path.join(__dirname, "/certs/fullchain.pem")),
+};
+
+// Create the HTTPS server
+const httpsServer = https.createServer(httpsOptions, app);
+
+// Start both HTTP and HTTPS servers to handle both protocols
+http.createServer(app).listen(PORT, () => {
+  console.log(`HTTP server started on PORT: ${PORT}`);
+});
+
+httpsServer.listen(443, () => {
+  console.log(`HTTPS server started on PORT: ${HTTPS_PORT}`);
 });
