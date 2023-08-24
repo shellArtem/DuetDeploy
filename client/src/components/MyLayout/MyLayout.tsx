@@ -48,7 +48,7 @@ const MyLayout: React.FC = ({ children }) => {
       >
         {user ? 
         <>
-          <img onClick={() => navigate("/")} src='http://77.222.53.7:3003/logo2.png' style={{width:'90px', height:'72px', cursor: 'pointer'}}></img>
+          <img onClick={() => navigate("/")} src='https://77.222.53.7:3003/logo2.png' style={{width:'90px', height:'72px', cursor: 'pointer'}}></img>
           <a href="tel:+79201083306">
           <Button className='layoutBtn'>Позвонить нам!</Button>
       
@@ -57,7 +57,7 @@ const MyLayout: React.FC = ({ children }) => {
         </>
         :
         <>
-          <img src='http://77.222.53.7:3003/logo2.png' onClick={() => navigate("/")} style={{width:'90px', height:'72px', cursor: 'pointer'}}></img>
+          <img src='https://77.222.53.7:3003/logo2.png' onClick={() => navigate("/")} style={{width:'90px', height:'72px', cursor: 'pointer'}}></img>
           <a href="tel:+79201083306">
           <Button className='layoutBtn'>Позвонить нам!</Button>
       
@@ -129,9 +129,9 @@ const MyLayout: React.FC = ({ children }) => {
           <div>Телефон: +7 (920) 108-33-06</div>
           </a>
           <div>            
-            <a href="https://wa.me/79201083306"><img  style={{width: '50px'}} src='http://77.222.53.7:3003/WhatsApp_Logo_1_t.png' /></a>
-            <a href="https://vk.com/marriegeagancy?z=article_edit-166046433_72908"> <img style={{width: '37px', marginBottom: '1px'}} src='http://77.222.53.7:3003/free-png.ru-307.png' /></a>
-            <a href="https://t.me/Nadya887"> <img style={{width: '42px'}} src='http://77.222.53.7:3003/telegram_cvet-d23c11fa.png' /></a>
+            <a href="https://wa.me/79201083306"><img  style={{width: '50px'}} src='https://77.222.53.7:3003/WhatsApp_Logo_1_t.png' /></a>
+            <a href="https://vk.com/marriegeagancy?z=article_edit-166046433_72908"> <img style={{width: '37px', marginBottom: '1px'}} src='https://77.222.53.7:3003/free-png.ru-307.png' /></a>
+            <a href="https://t.me/Nadya887"> <img style={{width: '42px'}} src='https://77.222.53.7:3003/telegram_cvet-d23c11fa.png' /></a>
             </div>
           <div className="links"></div>
           </Footer>
