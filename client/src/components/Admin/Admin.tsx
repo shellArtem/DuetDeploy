@@ -51,7 +51,7 @@ export default function Admin() {
 const deleteHandler = async (id) => {
   
   try {
-    await fetch("http://77.222.53.7:3003/feedback", {
+    await fetch("https://77.222.53.7:3003/feedback", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -70,7 +70,7 @@ const feedbacks = useSelector((state: RootState) => state.FeedbackReducer.feedba
   useEffect(() => {
     (async () => {
         try {
-            const response = await fetch('http://77.222.53.7:3003/feedback', {
+            const response = await fetch('https://77.222.53.7:3003/feedback', {
                 method: 'GET',
                 headers: { 'Content-type': 'application/json' },
             });
@@ -78,7 +78,7 @@ const feedbacks = useSelector((state: RootState) => state.FeedbackReducer.feedba
             dispatch({ type: "ALL_FEEDBACKS", payload: result }); //feedbacks
             
 
-            const resp = await fetch('http://77.222.53.7:3003/allAnkets', {
+            const resp = await fetch('https://77.222.53.7:3003/allAnkets', {
                 method: 'GET',
                 headers: { 'Content-type': 'application/json' },
             });
@@ -94,7 +94,7 @@ const feedbacks = useSelector((state: RootState) => state.FeedbackReducer.feedba
 const approveHandler = async (id, approved) => {
   const curApproved = !approved
   try {
-    await fetch("http://77.222.53.7:3003/feedback", {
+    await fetch("https://77.222.53.7:3003/feedback", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -126,7 +126,7 @@ const approveHandler = async (id, approved) => {
 
     try {
 
-      await fetch("http://77.222.53.7:3003/ankets", {
+      await fetch("https://77.222.53.7:3003/ankets", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -200,7 +200,7 @@ const approveHandler = async (id, approved) => {
 
   const onFinishNewExtra = async (values: any) => {
     try {
-      const responce = await fetch("http://77.222.53.7:3003/extra", {
+      const responce = await fetch("https://77.222.53.7:3003/extra", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -223,7 +223,7 @@ const sendNews = React.useCallback(async() => {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
   data.append('newsPic', img)
-  await axios.put('http://77.222.53.7:3003/news', data, {
+  await axios.put('https://77.222.53.7:3003/news', data, {
     headers: {
       'Content-Type': 'multipart/form-data',
     },
@@ -242,7 +242,7 @@ const sendDate = React.useCallback(async(values) => {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
   data.append('datesPic', imgDate)
-  await axios.post('http://77.222.53.7:3003/createDate', data, {
+  await axios.post('https://77.222.53.7:3003/createDate', data, {
     headers: {
       'Content-Type': 'multipart/form-data',
     },
@@ -258,13 +258,13 @@ const [allEvents, setAllEvents] = useState([])
 useEffect(() => {
   (async () => {
     try {
-      const response = await fetch("http://77.222.53.7:3003/disabledDate", {
+      const response = await fetch("https://77.222.53.7:3003/disabledDate", {
         method: "GET",
         headers: { "Content-type": "application/json" },
       });
       const result = await response.json();
       setDisabledDatesArr(result);
-      const resp = await fetch('http://77.222.53.7:3003/allEvents', {
+      const resp = await fetch('https://77.222.53.7:3003/allEvents', {
         method: "GET",
         headers: { "Content-type": "application/json" },
       })
@@ -278,7 +278,7 @@ useEffect(() => {
 
 const deleteDateHandler = async (id) => {
   try {
-    await fetch(`http://77.222.53.7:3003/disabledDate`, {
+    await fetch(`https://77.222.53.7:3003/disabledDate`, {
       method: 'DELETE',
       headers: { 'Content-type': 'application/json' },
       body: JSON.stringify({id}),
@@ -292,7 +292,7 @@ const deleteDateHandler = async (id) => {
 
 const deleteEventHandler = async (id) => {
   try {
-    const response = await fetch(`http://77.222.53.7:3003/allEvents`, {
+    const response = await fetch(`https://77.222.53.7:3003/allEvents`, {
       method: 'DELETE',
       headers: { 'Content-type': 'application/json' },
       body: JSON.stringify({id}),
@@ -308,7 +308,7 @@ const deleteEventHandler = async (id) => {
 
 const exportAnketsToExcelHandler = async () => {
   try {
-    const response = await fetch(`http://77.222.53.7:3003/exportToExcel`, {
+    const response = await fetch(`https://77.222.53.7:3003/exportToExcel`, {
       method: 'GET',
       headers: { 'Content-type': 'application/vnd.ms-excel' },
     });
@@ -327,7 +327,7 @@ const exportAnketsToExcelHandler = async () => {
 
 const exportWishToExcelHandler = async () => {
   try {
-    const response = await fetch(`http://77.222.53.7:3003/exportToExcelWish`, {
+    const response = await fetch(`https://77.222.53.7:3003/exportToExcelWish`, {
       method: 'GET',
       headers: { 'Content-type': 'application/vnd.ms-excel' },
     });
@@ -353,7 +353,7 @@ const exportWishToExcelHandler = async () => {
 
   const onFinish = async (values) => {
     try {
-      const responce = await fetch("http://77.222.53.7:3003/profile/matches", {
+      const responce = await fetch("https://77.222.53.7:3003/profile/matches", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
