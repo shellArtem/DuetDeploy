@@ -14,6 +14,8 @@ const express = require('express');
 const logger = require('morgan');
 const path = require('path');
 
+const fs = require("fs");
+
 const router = require('./routes/index');
 const regRouter = require('./routes/regRouter');
 const loginRouter = require('./routes/loginRouter');
