@@ -33,7 +33,7 @@ export default function Register() {
 
   const onFinish = async (values) => {
     try {
-      const responce = await fetch("https://77.222.53.7:3003/register", {
+      const responce = await fetch("https://duet-marriage.ru/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -43,7 +43,6 @@ export default function Register() {
       });
       const data = await responce.json();
       if(data.err) {
-        console.log('PRIVET ARTEMMMMM')
         setError(() => true)
       } 
       else {
