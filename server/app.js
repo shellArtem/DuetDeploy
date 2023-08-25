@@ -28,7 +28,7 @@ const profileRouter = require('./routes/profile')
 
 const app = express();
 
-const { PORT } = process.env;
+const { PORT, HTTPS_PORT } = process.env;
 
 
 const sessionConfig = {
@@ -182,6 +182,6 @@ http.createServer(app).listen(PORT, () => {
   console.log(`HTTP server started on PORT: ${PORT}`);
 });
 
-httpsServer.listen(443, () => {
+httpsServer.listen(HTTPS_PORT, () => {
   console.log(`HTTPS server started on PORT: ${HTTPS_PORT}`);
 });
