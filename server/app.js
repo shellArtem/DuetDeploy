@@ -1,20 +1,14 @@
 require('@babel/register');
-require('dotenv').config()
 
 const YooKassa = require('yookassa');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
-
-const https = require('https')
-const http = require("http");
 
 const cors = require('cors');
 
 const express = require('express');
 const logger = require('morgan');
 const path = require('path');
-
-const fs = require("fs");
 
 const router = require('./routes/index');
 const regRouter = require('./routes/regRouter');
@@ -27,9 +21,7 @@ const profileRouter = require('./routes/profile')
 
 
 const app = express();
-
-const { PORT, HTTPS_PORT } = process.env;
-
+const PORT = 3003;
 
 const sessionConfig = {
   name: 'Marriage',
@@ -54,17 +46,6 @@ app.use(cors({
   origin: true, //["http://localhost:5173"]
   credentials: true }
 ));
-
-app.use((req, res, next) => {
-  if (!req.secure && req.protocol !== "https") {
-    const { host } = req.headers;
-    const parts = host.split(":");
-    const hostname = parts[0];
-    res.redirect(`https://${hostname}${req.url}`);
-  } else {
-    next();
-  }
-});
 
 app.use('/', router);
 app.use('/register', regRouter);
@@ -106,7 +87,7 @@ app.post('/pay', (req, res) => {
     },
     confirmation: {
         type: 'redirect',
-        return_url: 'http://77.222.53.7:5173/',
+        return_url: 'http://localhost:5173/',
     },
     metadata: {
       dateTitle,
@@ -137,7 +118,7 @@ app.post('/payForm', (req, res) => {
     },
     confirmation: {
         type: 'redirect',
-        return_url: 'http://77.222.53.7:5173/',
+        return_url: 'http://localhost:5173/',
     },
     metadata: {},
     description: 'Оплата анкеты',
@@ -169,19 +150,6 @@ app.post('/yookassaFeedback', (req, resp) => {
 
 
 
-const httpsOptions = {
-  key: fs.readFileSync(path.join(__dirname, "/certs/privkey.pem")),
-  cert: fs.readFileSync(path.join(__dirname, "/certs/fullchain.pem")),
-};
-
-// Create the HTTPS server
-const httpsServer = https.createServer(httpsOptions, app);
-
-// Start both HTTP and HTTPS servers to handle both protocols
-http.createServer(app).listen(PORT, () => {
-  console.log(`HTTP server started on PORT: ${PORT}`);
-});
-
-httpsServer.listen(HTTPS_PORT, () => {
-  console.log(`HTTPS server started on PORT: ${HTTPS_PORT}`);
+app.listen(PORT, () => {
+  console.log(`Сервак запущен, порт =====>  ${PORT}`);
 });
