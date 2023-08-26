@@ -16,7 +16,7 @@ export default function Account() {
   useEffect(() => {
     (async () => {
         try {
-            const response = await fetch('https://localhost:3003/feedbackApp', {
+            const response = await fetch('http://77.222.53.7:3003/feedbackApp', {
                 method: 'GET',
                 headers: { 'Content-type': 'application/json' },
             });
@@ -40,7 +40,7 @@ const layout = {
 const onFinish = async (values: any) => {
   setChange(() => !change)
   try {
-    const responce = await fetch("https://localhost:3003/feedback", {
+    const responce = await fetch("http://77.222.53.7:3003/feedback", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
