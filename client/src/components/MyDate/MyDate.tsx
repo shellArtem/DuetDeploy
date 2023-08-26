@@ -54,7 +54,7 @@ export default function MyDate () {
     useEffect(() => {
         (async () => {
             try {
-                const response = await fetch('https://duet-marriage.ru/dateTypes', {
+                const response = await fetch('https://77.222.53.7:8443/dateTypes', {
                     method: 'GET',
                     headers: { 'Content-type': 'application/json' },
                 });
