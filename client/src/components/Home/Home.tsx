@@ -20,7 +20,7 @@ export default function Home () {
   
   useEffect(() => {
     (async function () {
-      const response = await fetch("https://duet-marriage.ru/news", {
+      const response = await fetch("http://77.222.53.7:3003/news", {
         credentials: "include",
       });
       const result = await response.json();
