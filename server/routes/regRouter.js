@@ -11,7 +11,7 @@ regRouter.post('/', async (req, res) => {
     const userPhone = `+${phone.countryCode}${phone.areaCode}${phone.phoneNumber}`
     const hash = await bcrypt.hash(password, 10);
     const user = await User.findOne({ where: { phone:userPhone } });
-    if (user) {
+    if (user || name === 'admin') {
       res.json({ err: 'Такой пользователь уже существует' });
     } else {
       const newUser = await User.create({ name, phone: userPhone, password: hash });
