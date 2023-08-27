@@ -62,8 +62,8 @@ app.use('/profile', profileRouter)
 
 
 const yooKassa = new YooKassa({
-  shopId: '241916',
-  secretKey: 'test_EeksfWJVORByfQRiTMIY-oDWTAsUmlUf1sygsYZ3PiU',
+  shopId: '240995',
+  secretKey: 'live_dNrB7Yq0u2VZFOChRTMvbwwDiQjPy1VTPGRyPwySH6g',
 })
 
 
@@ -87,7 +87,7 @@ app.post('/pay', (req, res) => {
     },
     confirmation: {
         type: 'redirect',
-        return_url: 'http://localhost:5173/',
+        return_url: 'http://duet-marriage.ru/',
     },
     metadata: {
       dateTitle,
@@ -118,7 +118,7 @@ app.post('/payForm', (req, res) => {
     },
     confirmation: {
         type: 'redirect',
-        return_url: 'http://localhost:5173/',
+        return_url: 'http://duet-marriage.ru/',
     },
     metadata: {},
     description: 'Оплата анкеты',
