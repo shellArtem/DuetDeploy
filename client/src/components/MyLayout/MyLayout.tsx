@@ -53,7 +53,7 @@ const MyLayout: React.FC = ({ children }) => {
           <Button className='layoutBtn'>Позвонить нам!</Button>
       
           </a>
-          <Button className='layoutBtn accBtn' onClick={() => navigate('/account')} style={{borderRadius:'50%', width:'72px', height:'72px', backgroundColor:'white', backgroundImage: `url("http://localhost:3003${photo}")`}}></Button>
+          <Button className='layoutBtn accBtn' onClick={() => navigate('/account')} style={{borderRadius:'50%', width:'72px', height:'72px', backgroundColor:'white', backgroundImage: `url("http://77.222.53.7:3003${photo}")`}}></Button>
         </>
         :
         <>
