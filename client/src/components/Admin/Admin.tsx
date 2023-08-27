@@ -606,7 +606,7 @@ const exportWishToExcelHandler = async () => {
       {matches.length ? matches.map((el) => 
       <div >
       <div style={{border:'solid 2px #ff5cb8', width:'100%', borderRadius:'15px', margin:'5px', overflow:'hidden'}}>
-        <img src={`http://localhost:3003${el.User.photo}`} style={{width:'400px', height:'300px'}}></img>
+        <img src={`http://77.222.53.7:3003${el.User.photo}`} style={{width:'400px', height:'300px'}}></img>
       <div>{el.Фамилия} {el.Имя}</div>
         <p>Телефон: {el.Контактный_телефон}</p>
         <p>Возраст: {el.Полных_лет}</p>

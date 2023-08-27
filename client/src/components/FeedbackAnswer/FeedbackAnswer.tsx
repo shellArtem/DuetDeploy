@@ -26,7 +26,7 @@ export default function FeedbackAnswer({approveHandler, deleteHandler, el}) {
       const onFinishAnswer = async (id) => {
         console.log('999999999999999999999999999', feedbackAnswer, id)
         try {
-          await fetch("http://localhost:3003/feedbackAnswer", {
+          await fetch("http://77.222.53.7:3003/feedbackAnswer", {
             method: "PUT",
             headers: {
               "Content-Type": "application/json",

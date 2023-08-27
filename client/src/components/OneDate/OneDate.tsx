@@ -271,30 +271,6 @@ export default function OneDate() {
       <div className="upperOneDate" style={{ display: "flex", justifyContent: "space-between", width: '900px', marginLeft: 'auto', marginRight:'auto', }}>
         <div className='imgText' style={{ display: "flex" }}>
          
-            {/* <img
-            className='img'
-              style={{ width: "400", borderRadius:'15px', marginRight:'10%'}} //marginRight:'100px' 
-              alt="example"
-              src={`http://localhost:3003${oneDate.img}`}
-              height="400px"
-            /> */}
-            {/* <div style={{ display: "flex", flexDirection: "column", textAlign:'left' }}>
-              <h1>Мы подготовим для вас:</h1>
-              <ul
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                //   justifyContent: "left",
-                }}
-              >
-                <li>романтический декор</li>
-                <li>стол, стулья</li>
-                <li>пледы</li>
-                <li>шампанское</li>
-                <li>вода</li>
-                <li>фруктовая тарелка</li>
-              </ul>
-            </div> */}
       <h2 className='text'> <img
             className='img'
               style={{ width: "400", borderRadius:'15px', marginRight:'5%'}} //marginRight:'100px' 
