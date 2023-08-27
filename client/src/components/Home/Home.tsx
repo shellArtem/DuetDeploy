@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { Carousel } from 'antd';
 import { MehOutlined, SmileOutlined } from '@ant-design/icons';
 import './Home.css'
-import video from '../../../public/pexels-dziana-hasanbekava-6401588 (1080p).mp4'
+import video from '../../../img/pexels-dziana-hasanbekava-6401588 (1080p).mp4'
 
 
 // const contentStyle: React.CSSProperties = {
