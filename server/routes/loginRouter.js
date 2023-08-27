@@ -16,9 +16,9 @@ loginRouter.post('/', async (req, res) => {
       const checkPass = await bcrypt.compare(password, user.password);
       if (checkPass) {
         // req.session.login = user.login;
-        console.log(req.session)
         req.session.login = user.name;
         req.session.phone = user.phone;
+        console.log(req.session)
         req.session.save(() => {
           res.json({ msg: 'Вы успешно авторизованы!', name:user.name, auth:true, img: user.photo });
         });
