@@ -73,8 +73,7 @@ app.post('/pay', (req, res) => {
   const {dateTitle,
         extraOptions,
         price,
-        selectedDate} = req.body.allValues
-  // console.log('3333333333333333333333', req.body.allValues)      
+        selectedDate} = req.body.allValues     
   const prePay = price / 2  
   yooKassa.createPayment({
     amount: {
@@ -100,7 +99,6 @@ app.post('/pay', (req, res) => {
     const { id, confirmation } = resp;
     console.log(id);
     console.log(confirmation.confirmation_url);
-    // console.log(resp);
     res.json({ssilka: confirmation.confirmation_url})
   });
 });
@@ -126,14 +124,12 @@ app.post('/payForm', (req, res) => {
     const { id, confirmation } = resp;
     console.log(id);
     console.log(confirmation.confirmation_url);
-    // console.log(resp);
     res.json({ssilka: confirmation.confirmation_url})
   });
 });
 
 
 app.post('/yookassa', (req, resp) => {
-  // console.log('------------------------', req.body.object.metadata);
   const {event} = req.body
   const {metadata} = req.body.object
   req.app.locals.event = event
@@ -144,7 +140,6 @@ app.post('/yookassa', (req, resp) => {
 app.post('/yookassaFeedback', (req, resp) => {
   const {event} = req.app.locals
   const {metadata} = req.app.locals
-  // console.log('1111111111111111111111111111', req.app.locals)
   resp.json({event, metadata});
 });
 
