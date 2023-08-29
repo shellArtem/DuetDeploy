@@ -26,6 +26,7 @@ router.get("/logout", (req, res) => {
 });
 
 router.get("/user", async (req, res) => {
+  console.log(req.session)
   try {
     const user = await User.findOne({ where: { phone: req.session.phone } });
     res.json({ name: req.session.login, img: user.photo, phone: user.phone });
