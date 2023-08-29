@@ -24,22 +24,13 @@ try {
     console.log('newExtraOption was not created', error)
 }
 })
-//const todayDate = new Date()
-// const allEvents = await Event.findAll({where: { todayDate < new Date(selectedDate)}})
 
 adminRouter.get('/allEvents', async(req,res) => {
     try {
         const allEvents = await Event.findAll()
-        // {
-        //     where: {
-        //         selectedDate: {
-        //         [Op.gt]: new Date()
-        //       }
-        //     }
-        //   });
         res.json(allEvents)
     } catch (error) {
-        console.log('oops', error)
+        console.log('error', error)
     }
 })
 

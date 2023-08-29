@@ -22,7 +22,7 @@ regRouter.post('/', async (req, res) => {
       });
     }
   } catch (error) {
-    console.log('owibka', error);
+    console.log('error', error);
   }
 });
 

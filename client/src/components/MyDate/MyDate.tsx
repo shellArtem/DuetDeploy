@@ -26,7 +26,6 @@ export default function MyDate () {
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     const changeHandler = async (value, id) => {
-      console.log(value, id)
       try {
         await fetch(`http://77.222.53.7:3003/newRating`, {
           method: 'POST',
@@ -64,7 +63,7 @@ export default function MyDate () {
                 setDates([...dates, ...result]); 
                 dispatch({ type: "ALL_DATES", payload: result });
             } catch (error) {
-                console.log('OMG', error);
+                console.log('error', error);
             }
         })();
     }, []);
@@ -73,7 +72,6 @@ export default function MyDate () {
     // @ts-ignore
     function getRating (date) {
       const ratings = date.DateRatings.map((el) => el.rating )
-      console.log(ratings)
        return (ratings.reduce((acc, val) => acc + val, 0)) / ratings.length
     }
 

@@ -63,7 +63,6 @@ export default function OneDate() {
           headers: { "Content-type": "application/json" },
         });
         const result = await response.json();
-        console.log(result);
         setExtraOptions([...extraOptions, ...result]);
 
         const resp = await fetch("http://77.222.53.7:3003/oneDate", {
@@ -72,10 +71,9 @@ export default function OneDate() {
           body: JSON.stringify({ id }),
         });
         const res = await resp.json();
-        console.log(res);
         setOneDate(res);
       } catch (error) {
-        console.log("OMG", error);
+        console.log("error", error);
       }
     })();
   }, []);
@@ -103,7 +101,6 @@ export default function OneDate() {
       });
       const result = await response.json();
       setDisabledDatesArr([...disabledDatesArr, result]);
-      console.log("TUT DOLZHNA BIT NOVAYA DATA NEDOSTUPNAYA", result);
     }
   };
   useEffect(() => {
@@ -116,7 +113,7 @@ export default function OneDate() {
         const result = await response.json();
         setDisabledDatesArr(result);
       } catch (error) {
-        console.log("OMG", error);
+        console.log("error", error);
       }
     })();
   }, []);
@@ -141,7 +138,6 @@ export default function OneDate() {
   }, [oneDate]);
 
   const onChange = (e) => {
-    console.log("TUT ETARGET", e.target);
     if (e.target.checked) {
       setFinalPrice((finalPrice) => Number(finalPrice) + Number(e.target.id));
       if (!checkboxChecked.includes(e.target.name)) {
@@ -153,7 +149,6 @@ export default function OneDate() {
         prevChecked.filter((name) => name !== e.target.name)
       );
     }
-    console.log(`checked = ${e.target.checked}${e.target.name}`);
   };
 
   const StyledWrapper = styled.div`
@@ -184,7 +179,6 @@ export default function OneDate() {
   };
 
   const handleCancel = () => {
-    console.log("Clicked cancel button");
     setOpen(false);
   };
 
@@ -236,7 +230,7 @@ export default function OneDate() {
       location.href = resul.ssilka;
 
     } catch (error) {
-      console.log("orderFetchOshibka", error);
+      console.log("error", error);
     }
 
   };

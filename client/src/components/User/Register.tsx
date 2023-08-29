@@ -63,7 +63,7 @@ export default function Register() {
   }
 
 const onFinishFailed = (errorInfo: any) => {
-  console.log('Failed:', errorInfo);
+  console.log('error:', errorInfo);
 };
 
   return (

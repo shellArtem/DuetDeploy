@@ -4,7 +4,6 @@ interface IPropsRoute {
   redirectTo: string
 }
 export default function ProtectedRoute({ user, redirectTo }: IPropsRoute) {
-  console.log('authUser', user)
   if(!user) {
     return <Navigate to={redirectTo} replace/>
   }

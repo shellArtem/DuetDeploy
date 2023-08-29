@@ -28,7 +28,6 @@ export default function Login() {
   };
 
  const [log, setLog] = useState(initState);
- console.log(setLog)
  const [error, setError] = useState(false)
  const [err, setErr] = useState(false)
   const [form] = useForm();
@@ -48,16 +47,15 @@ export default function Login() {
         setError(() => true)
       } 
       else {
-        dispatch({ type: "LOG_USER", payload: {name: data.name, photo: data.img} });
+        dispatch({ type: "LOG_USER", payload: {name: data.name, photo: data.img, phone: data.phone} });
       navigate("/");
       } 
     } catch (error) {
-      console.log("login error", error);
+      console.log("error", error);
     }
   } else {
     setErr(() => true)
   }
-    console.log(values);
   };
 
   const validator = (_, {valid}) => {
@@ -68,7 +66,7 @@ export default function Login() {
   }
 
 const onFinishFailed = (errorInfo: any) => {
-  console.log('Failed:', errorInfo);
+  console.log('error:', errorInfo);
 };
 
   return (

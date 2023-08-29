@@ -21,7 +21,6 @@ export default function MyForm() {
   const [age, setAge] = useState(0)
 
   useEffect(() => {
-    console.log('===================>',age)
   },[age])
 
   const onChange: DatePickerProps['onChange'] = (date, dateString) => {
@@ -33,7 +32,7 @@ export default function MyForm() {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     setAge(ageFull)
-    form.setFieldsValue({"Полных_лет":ageFull}) //Full_years
+    form.setFieldsValue({"Полных_лет":ageFull}) 
 
   };
 
@@ -95,7 +94,6 @@ export default function MyForm() {
     // @ts-ignore
   const [anketa, setAnketa] = useState(initState);
   const [form] = useForm();
-  // const phone = useSelector((state) => state.UserReducer.phone);
 
   const [buttons, setButtons] = useState(false);
 
@@ -114,16 +112,9 @@ export default function MyForm() {
       const data = await responce.json();
       console.log(data)
     } catch (error) {
-      console.log('form error', error);
+      console.log('error', error);
     }
   };
-
-  // const validator = (_, { valid }) => {
-  //   if (valid) {
-  //     return Promise.resolve();
-  //   }
-  //   return Promise.reject('Invalid phone number');
-  // };
 
   const onFinishFailed = (errorInfo: any) => {
     console.log('Failed:', errorInfo);
@@ -134,7 +125,6 @@ export default function MyForm() {
   const handlePay = async (values) => {
 
     try {
-//oplata
       const respons = await fetch("http://77.222.53.7:3003/payForm", {
         method: "POST",
         headers: { "Content-type": "application/json" },
@@ -143,7 +133,7 @@ export default function MyForm() {
       location.href = resul.ssilka;
 
     } catch (error) {
-      console.log("orderFetchOshibka", error);
+      console.log("error", error);
     }
 
   };
@@ -182,39 +172,29 @@ export default function MyForm() {
           <Input value={anketa.Имя} type="text" />
         </Form.Item>
 
-        <Form.Item label="Отчество" name="Отчество">
+        <Form.Item label="Отчество" name="Отчество"
+        rules={[{ required: true, message: 'Пожалуйста, введите отчество!' }]}>
           <Input value={anketa.Отчество} type="text" />
         </Form.Item>
 
         <FormItem
           name="Контактный_телефон"
           label="Контактный телефон"
-          // rules={[
-          //   {
-          //     required: true,
-          //     message: 'Пожалуйста, введите Ваш номер телефона!',
-          //     validator,
-          //   },
-          // ]}
+          rules={[{ required: true, message: 'Пожалуйста, введите контактный телефон!' }]}
         >
           <PhoneInput country="ru" />
         </FormItem>
 
-        <Form.Item label="еmail" name="еmail">
+        <Form.Item label="еmail" name="еmail"
+        rules={[{ required: true, message: 'Пожалуйста, введите email!' }]}>
           <Input value={anketa.еmail} type="text" />
         </Form.Item>
 
         <Form.Item
           label="Дата рождения"
           name="Дата_рождения"
-          // rules={[
-          //   {
-          //     required: true,
-          //     message: 'Пожалуйста, выберите Вашу дату рождения!',
-          //   },
-          // ]}
+          rules={[{ required: true, message: 'Пожалуйста, введите дату рождения!' }]}
         >
-          {/* <Input value={anketa["Дата рождения"]} type="text" /> */}
           <DatePicker
             style={{ width: '100%', fontSize: '30px' }}
             onChange={onChange}
@@ -224,18 +204,20 @@ export default function MyForm() {
         <Form.Item
           label="Полных лет"
           name="Полных_лет"
-          // rules={[{ required: true, message: 'Пожалуйста, введите свой возраст!' }]}
+          rules={[{ required: true, message: 'Пожалуйста, введите возраст!' }]}
         >
 
           <Input  type="text" value={age} /> 
 
         </Form.Item>
 
-        <Form.Item label="Знак Зодиака" name="Знак_Зодиака">
+        <Form.Item label="Знак Зодиака" name="Знак_Зодиака"
+        rules={[{ required: true, message: 'Пожалуйста, укажите знак зодиака!' }]}>
           <Input value={anketa.Знак_Зодиака} type="text" />
         </Form.Item>
 
-        <Form.Item label="Национальность" name="Национальность">
+        <Form.Item label="Национальность" name="Национальность"
+        rules={[{ required: true, message: 'Пожалуйста, укажите национальность!' }]}>
           <Input value={anketa.Национальность} type="text" />
         </Form.Item>
 
@@ -262,7 +244,7 @@ export default function MyForm() {
         <Form.Item
           label="Рост"
           name="Рост"
-          // rules={[{ required: true, message: 'Пожалуйста, выберите свой рост!' }]}
+          rules={[{ required: true, message: 'Пожалуйста, выберите свой рост!' }]}
         >
           <Select
             defaultValue=""
@@ -280,40 +262,48 @@ export default function MyForm() {
           />
         </Form.Item>
 
-        <Form.Item label="Вес" name="Вес">
+        <Form.Item label="Вес" name="Вес"
+        rules={[{ required: true, message: 'Пожалуйста, введите вес!' }]}>
           <Input value={anketa.Вес} type="text" />
         </Form.Item>
 
-        <Form.Item label="Телосложение" name="Телосложение">
+        <Form.Item label="Телосложение" name="Телосложение"
+        rules={[{ required: true, message: 'Пожалуйста, укажите телосложение!' }]}>
           <Input value={anketa.Телосложение} type="text" />
         </Form.Item>
 
-        <Form.Item label="Цвет глаз" name="Цвет_глаз">
+        <Form.Item label="Цвет глаз" name="Цвет_глаз"
+        rules={[{ required: true, message: 'Пожалуйста, укажите цвет глаз!' }]}>
           <Input value={anketa.Цвет_глаз} type="text" />
         </Form.Item>
 
-        <Form.Item label="Цвет волос" name="Цвет_волос">
+        <Form.Item label="Цвет волос" name="Цвет_волос"
+                rules={[{ required: true, message: 'Пожалуйста, укажите цвет волос!' }]}>
           <Input value={anketa.Цвет_волос} type="text" />
         </Form.Item>
 
-        <Form.Item label="Длина волос" name="Длина_волос">
+        <Form.Item label="Длина волос" name="Длина_волос"
+          rules={[{ required: true, message: 'Пожалуйста, укажите длинну волос!' }]}>
           <Input value={anketa.Длина_волос} type="text" />
         </Form.Item>
 
         <Form.Item
           label="Общее состояние здоровья"
           name="Общее_состояние_здоровья"
+          rules={[{ required: true, message: 'Пожалуйста, укажите состояние здоровья!' }]}
         >
           <Input value={anketa.Общее_состояние_здоровья} type="text" />
         </Form.Item>
 
-        <Form.Item label="Вредные привычки" name="Вредные_привычки">
+        <Form.Item label="Вредные привычки" name="Вредные_привычки"
+                rules={[{ required: true, message: 'Пожалуйста, укажите вредные привычки!' }]}>
           <Input value={anketa.Вредные_привычки} type="text" />
         </Form.Item>
 
         <Form.Item
           label="Место жительства (город, район)"
           name="Место_жительства"
+          rules={[{ required: true, message: 'Пожалуйста, укажите место жительства!' }]}
         >
           <Input value={anketa.Место_жительства} type="text" />
         </Form.Item>
@@ -323,20 +313,24 @@ export default function MyForm() {
           Социальный статус:{' '}
         </h2>
 
-        <Form.Item label="Жилищные условия" name="Жилищные_условия">
+        <Form.Item label="Жилищные условия" name="Жилищные_условия"
+          rules={[{ required: true, message: 'Пожалуйста, укажите жилищные условия!' }]}>
           <Input value={anketa.Жилищные_условия} type="text" />
         </Form.Item>
 
-        <Form.Item label="С кем проживаете" name="С_кем_проживаете">
+        <Form.Item label="С кем проживаете" name="С_кем_проживаете"
+                rules={[{ required: true, message: 'Пожалуйста, укажите с кем проживаете!' }]}>
           <Input value={anketa.С_кем_проживаете} type="text" />
         </Form.Item>
 
-        <Form.Item label="Материальное положение" name="Материальное_положение">
+        <Form.Item label="Материальное положение" name="Материальное_положение"
+                rules={[{ required: true, message: 'Пожалуйста, укажите материальное положение!' }]}>
           <Input value={anketa.Материальное_положение} type="text" />
         </Form.Item>
 
 
-        <Form.Item label="Наличие автомобиля" name="Наличие_автомобиля">
+        <Form.Item label="Наличие автомобиля" name="Наличие_автомобиля"
+                rules={[{ required: true, message: 'Пожалуйста, укажите информацию о наличии автомобиля!' }]}>
           <Select
             defaultValue=""
             style={{ width: "100%" }}
@@ -349,20 +343,17 @@ export default function MyForm() {
           />
         </Form.Item>
 
-
-        {/* <Form.Item label="Наличие автомобиля" name="Наличие_автомобиля">
-          <Input value={anketa.Наличие_автомобиля} type="text" />
-        </Form.Item> */}
-
         <Form.Item
           label="Водительское удостоверение"
           name="Водительское_удостоверение"
+          rules={[{ required: true, message: 'Пожалуйста, укажите информацию о наличии водительского удостоверения!' }]}
         >
           <Input value={anketa.Водительское_удостоверение} type="text" />
         </Form.Item>
 
 
-        <Form.Item label="Образование" name="Образование">
+        <Form.Item label="Образование" name="Образование"
+          rules={[{ required: true, message: 'Пожалуйста, укажите информацию об образовании!' }]}>
           <Select
             defaultValue=""
             style={{ width: "100%" }}
@@ -377,13 +368,15 @@ export default function MyForm() {
           />
         </Form.Item>
 
-        <Form.Item label="Специальность" name="Специальность">
+        <Form.Item label="Специальность" name="Специальность"
+                  rules={[{ required: true, message: 'Пожалуйста, укажите информацию о специальности!' }]}>
           <Input value={anketa.Специальность} type="text" />
         </Form.Item>
 
       
 
-        <Form.Item label="Знание иностранных языков" name="Знание_иностранных_языков">
+        <Form.Item label="Знание иностранных языков" name="Знание_иностранных_языков"
+                  rules={[{ required: true, message: 'Пожалуйста, укажите информацию о знании иностранных языков!' }]}>
           <Select
             defaultValue=""
             style={{ width: "100%" }}
@@ -399,6 +392,7 @@ export default function MyForm() {
         <Form.Item style={{marginLeft: '10px'}}
           label="Ваша деятельность сейчас"
           name="Сфера_деятельности_в_настоящее_время"
+          rules={[{ required: true, message: 'Пожалуйста, укажите информацию о сфере деятельности!' }]}
         >
           <Input
             value={anketa.Сфера_деятельности_в_настоящее_время}
@@ -406,12 +400,14 @@ export default function MyForm() {
           />
         </Form.Item>
 
-        <Form.Item label="Должность" name="Должность">
+        <Form.Item label="Должность" name="Должность"
+                  rules={[{ required: true, message: 'Пожалуйста, укажите информацию о должности!' }]}>
           <Input value={anketa.Должность} type="text" />
         </Form.Item>
 
 
-        <Form.Item label="Семейное положение" name="Семейное_положение">
+        <Form.Item label="Семейное положение" name="Семейное_положение"
+                  rules={[{ required: true, message: 'Пожалуйста, укажите информацию о семейном положении!' }]}>
           <Select
             defaultValue=""
             style={{ width: "100%" }}
@@ -438,7 +434,8 @@ export default function MyForm() {
         </h2>
 
 
-        <Form.Item label="Наличие детей" name="Наличие_детей">
+        <Form.Item label="Наличие детей" name="Наличие_детей"
+                  rules={[{ required: true, message: 'Пожалуйста, укажите информацию о детях!' }]}>
           <Select
             defaultValue=""
             style={{ width: "100%" }}
@@ -467,6 +464,7 @@ export default function MyForm() {
         <Form.Item
           label="Опишите кратко свой характер"
           name="Опишите_кратко_свой_характер"
+          rules={[{ required: true, message: 'Пожалуйста, укажите информацию о характере!' }]}
         >
           <Input value={anketa.Опишите_кратко_свой_характер} type="text" />
         </Form.Item>
@@ -474,7 +472,8 @@ export default function MyForm() {
         
 
 
-        <Form.Item label="Существует любовь с первого взгляда?" name="Верите_ли_вы_в_любовь_с_первого_взгляда">
+        <Form.Item label="Существует любовь с первого взгляда?" name="Верите_ли_вы_в_любовь_с_первого_взгляда"
+                  rules={[{ required: true, message: 'Пожалуйста, ответьте на вопрос о существовании любиви с первого взгляда!' }]}>
           <Select
             defaultValue=""
             style={{ width: "100%" }}
@@ -488,7 +487,8 @@ export default function MyForm() {
         </Form.Item>
 
         
-        <Form.Item label="Уголовная ответственность" name="Привлекались_ли_вы_к_уголовной_ответственности">
+        <Form.Item label="Уголовная ответственность" name="Привлекались_ли_вы_к_уголовной_ответственности"
+                  rules={[{ required: true, message: 'Пожалуйста, укажите информацию о привлечении к уголовной ответственности!' }]}>
           <Select
             defaultValue=""
             style={{ width: "100%" }}
@@ -501,7 +501,8 @@ export default function MyForm() {
           />
         </Form.Item>
 
-        <Form.Item label="Готовы ли вы к переменам?" name="Готовы_ли_вы_к_переменам">
+        <Form.Item label="Готовы ли вы к переменам?" name="Готовы_ли_вы_к_переменам"
+                  rules={[{ required: true, message: 'Пожалуйста, укажите информацию о готовности к переменам!' }]}>
           <Select
             defaultValue=""
             style={{ width: "100%" }}
@@ -517,12 +518,14 @@ export default function MyForm() {
         <Form.Item
           label="Какие качества вы цените в людях?"
           name="Какие_качества_вы_цените_в_людях"
+          rules={[{ required: true, message: 'Пожалуйста, укажите информацию о том, какие качества вы цените в людях!' }]}
         >
           <Input value={anketa.Какие_качества_вы_цените_в_людях} type="text" />
         </Form.Item>
 
 
-        <Form.Item label="Любите ли вы делать сюрпризы?" name="Любите_ли_вы_делать_сюрпризы">
+        <Form.Item label="Любите ли вы делать сюрпризы?" name="Любите_ли_вы_делать_сюрпризы"
+                  rules={[{ required: true, message: 'Пожалуйста, укажите информацию о том, любите ли вы сюрпризы!' }]}>
           <Select
             defaultValue=""
             style={{ width: "100%" }}
@@ -538,6 +541,7 @@ export default function MyForm() {
         <Form.Item
           label="Ваши достоинства и недостатки"
           name="Ваши_достоинства_и_недостатки"
+          rules={[{ required: true, message: 'Пожалуйста, укажите информацию о достоинствах и недостатках!' }]}
         >
           <Input value={anketa.Ваши_достоинства_и_недостатки} type="text" />
         </Form.Item>
@@ -545,16 +549,19 @@ export default function MyForm() {
         <Form.Item
           label="Семейно-бытовые обязанности"
           name="Семейнобытовые_обязанности"
+          rules={[{ required: true, message: 'Пожалуйста, укажите информацию об обязанностях!' }]}
         >
           <Input value={anketa.Семейнобытовые_обязанности} type="text" />
         </Form.Item>
 
-        <Form.Item label="Предпочтения в еде" name="Предпочтения_в_еде">
+        <Form.Item label="Предпочтения в еде" name="Предпочтения_в_еде"
+                  rules={[{ required: true, message: 'Пожалуйста, укажите информацию о предпочтениях в еде!' }]}>
           <Input value={anketa.Предпочтения_в_еде} type="text" />
         </Form.Item>
 
  
-        <Form.Item label="Умеете и любите ли вы готовить?" name="Умеете_и_любите_ли_вы_готовить">
+        <Form.Item label="Умеете и любите ли вы готовить?" name="Умеете_и_любите_ли_вы_готовить"
+                  rules={[{ required: true, message: 'Пожалуйста, укажите информацию о любви к готовке!' }]}>
           <Select
             defaultValue=""
             style={{ width: "100%" }}
@@ -567,12 +574,14 @@ export default function MyForm() {
           />
         </Form.Item>
 
-        <Form.Item label="Увлечения,хобби" name="Увлечения_хобби">
+        <Form.Item label="Увлечения,хобби" name="Увлечения_хобби"
+                  rules={[{ required: true, message: 'Пожалуйста, укажите информацию о хобби!' }]}>
           <Input value={anketa.Увлечения_хобби} type="text" />
         </Form.Item>
 
 
-        <Form.Item label="Вы романтик?" name="Вы_романтик">
+        <Form.Item label="Вы романтик?" name="Вы_романтик"
+                  rules={[{ required: true, message: 'Пожалуйста, укажите информацию о том, романтик ли вы!' }]}>
           <Select
             defaultValue=""
             style={{ width: "100%" }}
@@ -588,6 +597,7 @@ export default function MyForm() {
         <Form.Item
           label="Любите необычные свидания?"
           name="Были_ли_в_вашей_жизни_необычные_свидания"
+          rules={[{ required: true, message: 'Пожалуйста, укажите информацию о необычных свиданиях!' }]}
         >
           <Input
             value={anketa.Были_ли_в_вашей_жизни_необычные_свидания}
@@ -595,7 +605,8 @@ export default function MyForm() {
           />
         </Form.Item>
 
-        <Form.Item label="Занимаетесь ли вы спортом?" name="Занимаетесь_ли_вы_спортом">
+        <Form.Item label="Занимаетесь ли вы спортом?" name="Занимаетесь_ли_вы_спортом"
+                  rules={[{ required: true, message: 'Пожалуйста, укажите информацию о том, занимаетесь ли вы спортом!' }]}>
           <Select
             defaultValue=""
             style={{ width: "100%" }}

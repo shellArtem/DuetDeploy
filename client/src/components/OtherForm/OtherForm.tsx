@@ -2,25 +2,19 @@
 //@ts-nocheck
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import { useDispatch } from "react-redux";
 import styles from './OtherForm.module.css';
-import { Button, Checkbox, Form, Input } from "antd";
+import { Button, Form, Input } from "antd";
 import { useForm } from "antd/es/form/Form";
 
-// import type { DatePickerProps } from "antd";
 import { Select } from "antd";
 
 export default function OtherForm() {
-  // const onChange: DatePickerProps["onChange"] = (date, dateString) => {
-  //   console.log(date, dateString);
-  // };
 
   const handleChange = (value: string) => {
     console.log(`selected ${value}`);
   };
 
   const navigate = useNavigate();
-  // const dispatch = useDispatch();
 
   const initState = {
     Возраст: [],
@@ -51,24 +45,11 @@ export default function OtherForm() {
     Дополнительные_пожелания: "",
   };
 
-  // type FieldType = {
-  //   name?: string;
-  //   phone?: string;
-  //   password?: string;
-  //   remember?: string;
-  // };
-
   const [otherAnketa, setotherAnketa] = useState(initState);
   const [form] = useForm();
   const onFinish = async (values) => {
-    // if (values.name && values.password && values.phone.phoneNumber) {
-    // for (const key in values) {
-    //   key.toString().replace(' ', '_')
-
-    // }
 
     console.log(setotherAnketa)
-    console.log("============>", values);
     try {
       const responce = await fetch("http://77.222.53.7:3003/partner", {
         method: "POST",
@@ -80,29 +61,15 @@ export default function OtherForm() {
       });
       const data = await responce.json();
       console.log(data)
-      //dispatch({ type: "LOG_USER", payload: data.name });
       navigate("/account");
     } catch (error) {
-      console.log("form error", error);
+      console.log("error", error);
     }
-    // }
-    // else {
-    //   setErr(() => true);
-    // }
   };
-
-  // const validator = (_, { valid }) => {
-  //   if (valid) {
-  //     return Promise.resolve();
-  //   }
-  //   return Promise.reject("Invalid phone number");
-  // };
 
   const onFinishFailed = (errorInfo: any) => {
-    console.log("Failed:", errorInfo);
+    console.log("error:", errorInfo);
   };
-
-  console.log(otherAnketa);
 
   return (
     <>
@@ -118,23 +85,14 @@ export default function OtherForm() {
         onFinishFailed={onFinishFailed}
         autoComplete="off"
       >
-        
-        {/* <Form.Item
-          label="Возраст"
-          name="Возраст"
-          //   rules={[{ required: true, message: "Пожалуйста, введите Вашу фамилию!" }]}
-        >
-          <Input value={otherAnketa.Возраст} type="text" />
-        </Form.Item> */}
 
 <Form.Item
           label="Возраст"
           name="Возраст"
-          // rules={[{ required: true, message: 'Пожалуйста, выберите свой возраст!' }]}
+          rules={[{ required: true, message: 'Пожалуйста, заполните поле ответа!' }]}
         >
           <Select
             mode="multiple"
-            // defaultValue=""
             style={{ width: '100%' }}
             onChange={handleChange}
             value={otherAnketa.Возраст}
@@ -155,15 +113,15 @@ export default function OtherForm() {
         </Form.Item>
 
         <Form.Item
-          // <FieldType>
+          rules={[{ required: true, message: 'Пожалуйста, заполните поле ответа!' }]}
           label="Знаки Зодиака"
           name="Знаки_Зодиака"
-          //   rules={[{ required: true, message: "Пожалуйста, введите Ваше имя!" }]}
         >
           <Input value={otherAnketa.Знаки_Зодиака} type="text" />
         </Form.Item>
 
-        <Form.Item label="Национальность" name="Национальность">
+        <Form.Item label="Национальность" name="Национальность"
+                  rules={[{ required: true, message: 'Пожалуйста, заполните поле ответа!' }]}>
           <Input value={otherAnketa.Национальность} type="text" />
         </Form.Item>
 
@@ -172,11 +130,9 @@ export default function OtherForm() {
         <Form.Item
           label="Рост"
           name="Рост"
-          // rules={[{ required: true, message: 'Пожалуйста, выберите свой рост!' }]}
+          rules={[{ required: true, message: 'Пожалуйста, заполните поле ответа!' }]}
         >
           <Select
-            mode="multiple"
-            // defaultValue=""
             style={{ width: '100%' }}
             onChange={handleChange}
             value={otherAnketa.Рост}
@@ -191,23 +147,28 @@ export default function OtherForm() {
           />
         </Form.Item>
 
-        <Form.Item label="Вес" name="Вес">
+        <Form.Item label="Вес" name="Вес"
+                  rules={[{ required: true, message: 'Пожалуйста, заполните поле ответа!' }]}>
           <Input value={otherAnketa.Вес} type="text" />
         </Form.Item>
 
-        <Form.Item label="Телосложение" name="Телосложение">
+        <Form.Item label="Телосложение" name="Телосложение"
+                  rules={[{ required: true, message: 'Пожалуйста, заполните поле ответа!' }]}>
           <Input value={otherAnketa.Телосложение} type="text" />
         </Form.Item>
 
-        <Form.Item label="Цвет волос" name="Цвет_волос">
+        <Form.Item label="Цвет волос" name="Цвет_волос"
+                  rules={[{ required: true, message: 'Пожалуйста, заполните поле ответа!' }]}>
           <Input value={otherAnketa.Цвет_волос} type="text" />
         </Form.Item>
 
-        <Form.Item label="Длина волос" name="Длина_волос">
+        <Form.Item label="Длина волос" name="Длина_волос"
+                  rules={[{ required: true, message: 'Пожалуйста, заполните поле ответа!' }]}>
           <Input value={otherAnketa.Длина_волос} type="text" />
         </Form.Item>
 
-        <Form.Item label="Усы борода" name="Усы_борода">
+        <Form.Item label="Усы борода" name="Усы_борода"
+                  rules={[{ required: true, message: 'Пожалуйста, заполните поле ответа!' }]}>
           <Input value={otherAnketa.Усы_борода} type="text" />
         </Form.Item>
 
@@ -216,11 +177,13 @@ export default function OtherForm() {
         <Form.Item
           label="Наличие вредных привычек"
           name="Наличие_вредных_привычек"
+          rules={[{ required: true, message: 'Пожалуйста, заполните поле ответа!' }]}
         >
           <Input value={otherAnketa.Наличие_вредных_привычек} type="text" />
         </Form.Item>
 
-        <Form.Item label="Совместное проживание" name="Совместное_проживание">
+        <Form.Item label="Совместное проживание" name="Совместное_проживание"
+                  rules={[{ required: true, message: 'Пожалуйста, заполните поле ответа!' }]}>
           <Select
             defaultValue=""
             style={{ width: "100%" }}
@@ -237,6 +200,7 @@ export default function OtherForm() {
         <Form.Item
           label="Материальное положение партнера"
           name="Материальное_положение_партнера"
+          rules={[{ required: true, message: 'Пожалуйста, заполните поле ответа!' }]}
         >
           <Input
             value={otherAnketa.Материальное_положение_партнера}
@@ -244,7 +208,8 @@ export default function OtherForm() {
           />
         </Form.Item>
 
-        <Form.Item label="Автомобиль" name="Автомобиль">
+        <Form.Item label="Автомобиль" name="Автомобиль"
+                  rules={[{ required: true, message: 'Пожалуйста, заполните поле ответа!' }]}>
           <Select
             defaultValue=""
             style={{ width: "100%" }}
@@ -258,7 +223,8 @@ export default function OtherForm() {
           />
         </Form.Item>
 
-        <Form.Item label="Водительское удостоверение" name="Водительское_удостоверение">
+        <Form.Item label="Водительское удостоверение" name="Водительское_удостоверение"
+                  rules={[{ required: true, message: 'Пожалуйста, заполните поле ответа!' }]}>
           <Select
             defaultValue=""
             style={{ width: "100%" }}
@@ -275,14 +241,15 @@ export default function OtherForm() {
         <Form.Item
           label="Профессиональный статус"
           name="Профессиональный_статус"
+          rules={[{ required: true, message: 'Пожалуйста, заполните поле ответа!' }]}
         >
           <Input value={otherAnketa.Профессиональный_статус} type="text" />
         </Form.Item>
 
-        <Form.Item label="Образование" name="Образование">
+        <Form.Item label="Образование" name="Образование"
+                  rules={[{ required: true, message: 'Пожалуйста, заполните поле ответа!' }]}>
           <Select
             mode="multiple"
-            // defaultValue=""
             style={{ width: "100%" }}
             onChange={handleChange}
             value={otherAnketa.Образование}
@@ -299,6 +266,7 @@ export default function OtherForm() {
         <Form.Item
           label="Желаемая сфера деятельности"
           name="Желаемая_сфера_деятельности"
+          rules={[{ required: true, message: 'Пожалуйста, заполните поле ответа!' }]}
         >
           <Input value={otherAnketa.Желаемая_сфера_деятельности} type="text" />
         </Form.Item>
@@ -307,6 +275,7 @@ export default function OtherForm() {
         <Form.Item
           label="Знание иностранных языков"
           name="Знание_иностранных_языков"
+          rules={[{ required: true, message: 'Пожалуйста, заполните поле ответа!' }]}
         >
           <Select
             defaultValue=""
@@ -323,6 +292,7 @@ export default function OtherForm() {
         <Form.Item
           label="Наличие опыта супружеской жизни"
           name="Наличие_опыта_супружеской_жизни"
+          rules={[{ required: true, message: 'Пожалуйста, заполните поле ответа!' }]}
         >
           <Select
             defaultValue=""
@@ -337,7 +307,8 @@ export default function OtherForm() {
           />
         </Form.Item>
 
-        <Form.Item label="Наличие детей" name="Наличие_детей">
+        <Form.Item label="Наличие детей" name="Наличие_детей"
+                  rules={[{ required: true, message: 'Пожалуйста, заполните поле ответа!' }]}>
           <Select
             defaultValue=""
             style={{ width: "100%" }}
@@ -354,6 +325,7 @@ export default function OtherForm() {
         <Form.Item
           label="Пожелания к характеру"
           name="Пожелания_к_характеру"
+          rules={[{ required: true, message: 'Пожалуйста, заполните поле ответа!' }]}
         >
           <Input
             value={otherAnketa.Пожелания_к_характеру}
@@ -365,11 +337,13 @@ export default function OtherForm() {
         <Form.Item
           label="Семейнобытовые обязанности"
           name="Семейнобытовые_обязанности"
+          rules={[{ required: true, message: 'Пожалуйста, заполните поле ответа!' }]}
         >
           <Input value={otherAnketa.Семейнобытовые_обязанности} type="text" />
         </Form.Item>
 
-        <Form.Item label="Важно ли Вам, чтобы партнёр готовил?" name="Важно_ли_Вам_что_бы_партнёр_готовил">
+        <Form.Item label="Важно ли Вам, чтобы партнёр готовил?" name="Важно_ли_Вам_что_бы_партнёр_готовил"
+                  rules={[{ required: true, message: 'Пожалуйста, заполните поле ответа!' }]}>
           <Select
             defaultValue=""
             style={{ width: "100%" }}
@@ -382,13 +356,15 @@ export default function OtherForm() {
           />
         </Form.Item>
 
-        <Form.Item label="Увлечения хобби" name="Увлечения_хобби">
+        <Form.Item label="Увлечения хобби" name="Увлечения_хобби"
+                  rules={[{ required: true, message: 'Пожалуйста, заполните поле ответа!' }]}>
           <Input value={otherAnketa.Увлечения_хобби} type="text" />
         </Form.Item>
 
     
 
-        <Form.Item label="Важно ли, чтобы партнёр занимался спортом?" name="Важно_ли_Вам_чтобы_партнёр_занимался_спортом">
+        <Form.Item label="Важно ли, чтобы партнёр занимался спортом?" name="Важно_ли_Вам_чтобы_партнёр_занимался_спортом"
+                  rules={[{ required: true, message: 'Пожалуйста, заполните поле ответа!' }]}>
           <Select
             defaultValue=""
             style={{ width: "100%" }}
@@ -404,6 +380,7 @@ export default function OtherForm() {
         <Form.Item
           label="Дополнительные пожелания"
           name="Дополнительные_пожелания"
+          rules={[{ required: true, message: 'Пожалуйста, заполните поле ответа!' }]}
         >
           <Input value={otherAnketa.Дополнительные_пожелания} type="text" />
         </Form.Item>
