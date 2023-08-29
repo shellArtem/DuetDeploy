@@ -18,7 +18,7 @@ const items1: MenuProps['items'] = ['Login', 'Register', 'Home'].map((key) => ({
   key,
   label: `${key}`,
 }));
-console.log(items1)
+// console.log(items1)
 
 
 
@@ -27,7 +27,7 @@ const MyLayout: React.FC = ({ children }) => {
     token: { colorBgContainer },
   } = theme.useToken();
 
-  console.log(colorBgContainer)
+  // console.log(colorBgContainer)
   const navigate = useNavigate();
 
 
