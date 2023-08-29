@@ -66,7 +66,38 @@ button:focus-visible {
 .ant-layout, .ant-layout-has-sider, .css-dev-only-do-not-override-fpg3f5 {
     background-color: #001628;
 } */
-
 .ant-layout-has-sider {
     background-color: #001628; 
 }
+
+@media only screen and (max-width: 360px) {
+    .ant-layout-has-sider {
+        background-color: #001628; 
+        width: 0%;
+    }
+
+    .layoutBtn {
+      width: 100%;
+      margin: 10px 0;
+    }
+    
+    .sideBtn {
+      width: 100%;
+      margin: 10px 0;
+      height: auto;
+    }
+    
+    :where(.css-dev-only-do-not-override-fpg3f5).ant-layout .ant-layout-sider {
+      position: static;
+    }
+    
+    :where(.css-dev-only-do-not-override-fpg3f5).ant-layout.ant-layout-has-sider >.ant-layout, :where(.css-dev-only-do-not-override-fpg3f5).ant-layout.ant-layout-has-sider >.ant-layout-content{
+      margin-left: 0;
+      background-color: initial;
+    }
+  }
+  @media only screen and (max-width: 450px) {
+    :where(.css-dev-only-do-not-override-fpg3f5).ant-layout.ant-layout-has-sider >.ant-layout, :where(.css-dev-only-do-not-override-fpg3f5).ant-layout.ant-layout-has-sider >.ant-layout-content{
+        margin-left: 0%;
+    }
+  }

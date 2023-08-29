@@ -6,15 +6,6 @@ import { MehOutlined, SmileOutlined } from '@ant-design/icons';
 import './Home.css'
 import video from '../../../public/pexels-dziana-hasanbekava-6401588 (1080p).mp4'
 
-
-// const contentStyle: React.CSSProperties = {
-//   height: '300px',
-//   color: '#fff',
-//   lineHeight: '300px',
-//   textAlign: 'center',
-//   background: '#364d79',
-// };
-
 export default function Home () {
   const [news, setNews] = useState({})
   

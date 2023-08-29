@@ -77,9 +77,7 @@ export default function MyDate () {
 
     return (
       <div>
-          <div className='text' style={{borderWidth: '3px 3px 1.5px',
-    borderStyle: 'solid',
-    borderColor:'#FF5CB8', width: '1000px', marginLeft: 'auto', marginRight: 'auto', marginBottom: '3%', fontSize: '28px'}}>Здесь вы можете ознакомиться со всеми вариантами свиданий и мероприятиями, которые мы можем организовать. Для того, чтобы узнать больше подробностей, нажмите на кнопку "запланировать".</div>
+          <div className='text'>Здесь вы можете ознакомиться со всеми вариантами свиданий и мероприятиями, которые мы можем организовать. Для того, чтобы узнать больше подробностей, нажмите на кнопку "запланировать".</div>
       <div style={{display:'flex', flexWrap:'wrap', gap:'15px', justifyContent:'space-around'}}>
 {dates.map((date) => 
     <Card
