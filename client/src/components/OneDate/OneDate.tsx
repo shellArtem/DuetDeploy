@@ -261,13 +261,12 @@ export default function OneDate() {
       className="oneCardContainer"
       style={{ display: "flex", flexDirection: "column" }}
     >
-      <h1 style={{border:'1px solid black', width:'40%', textAlign:'center', borderRadius:'15px', marginLeft:'29%', padding:'15px', marginBottom:'30px', fontSize: '25px',}}>{oneDate.title}</h1>
-      <div className="upperOneDate" style={{ display: "flex", justifyContent: "space-between", width: '900px', marginLeft: 'auto', marginRight:'auto', }}>
+      <h1 className="oneDateTitle">{oneDate.title}</h1>
+      <div className="upperOneDate">
         <div className='imgText' style={{ display: "flex" }}>
          
       <h2 className='text'> <img
             className='img'
-              style={{ width: "400", borderRadius:'15px', marginRight:'5%'}} //marginRight:'100px' 
               alt="example"
               src={`http://77.222.53.7:3003${oneDate.img}`}
               height="400px"
@@ -277,15 +276,13 @@ export default function OneDate() {
       </div>
       <div
         className="middleOneDate"
-        style={{ display: "flex", justifyContent: "space-around" }}
       >
          <div style={{ display: "flex", flexDirection: "column", textAlign:'left',  fontSize: '20px' }}>
-              <h1 style={{fontSize: '20px' }}>Мы подготовим для вас:</h1>
+              <h1 style={{fontSize: '20px',  }}>Мы подготовим для вас:</h1>
               <div
                 style={{
                   display: "flex",
                   flexDirection: "column",
-                //   justifyContent: "left",
                 }}
               >
                <div style={{display: 'flex', gap: '5%'}}><img style={{width: '30px', height: '30px'}} src="http://77.222.53.7:3003/icons8-heart-balloon-64.png"></img><h3 style={{fontSize: '20px' }}> романтический декор</h3></div> 
@@ -300,13 +297,13 @@ export default function OneDate() {
           name="basic"
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 16 }}
-          style={{ width: 500, fontSize: '20px' }}
+          style={{fontSize: '20px' }}
           initialValues={{ remember: true }}
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
           autoComplete="off"
         >
-          <h1 style={{fontSize: '20px' }}>Дополнительные услуги:</h1>
+          <h1 style={{fontSize: '20px', textAlign:'left', marginRight: '5%' }}>Дополнительные услуги:</h1>
           {extraOptions.map((extraOption) => (
             <Form.Item <FieldType>
               label={extraOption.title}
@@ -331,16 +328,14 @@ export default function OneDate() {
       </div>
       <div
         className="lowerOneDate"
-        style={{
-          marginTop: '10%',
-          display: "flex",
-          height: "300px",
-          gap: "5%",
-          marginBottom: "4rem",
-          alignItems:'center',
-          fontSize: '25px',
-        }}
       >
+                <div className="price">
+          <h2 style={{fontSize: '20px',}}>Предварительная итоговая стоимость</h2>
+          <h3 style={{ border: "3px solid black", borderRadius: "10px" }}>
+            {" "}
+            {finalPrice}р.{" "}
+          </h3>
+        </div>
         <div>
           <Alert
             message={`Выбранная дата свидания: ${selectedValue?.format(
@@ -354,19 +349,8 @@ export default function OneDate() {
               onSelect={onSelect}
               disabledDate={disabledDate}
               onPanelChange={onPanelChange}
-            //   itemActiveBg='#466672'
-            //   colorPrimary='#466672'
-            //   colorLink='#466672'
-            //   colorPrimaryHover='#466672'
             />
           </StyledWrapper>
-        </div>
-        <div>
-          <h2 style={{fontSize: '25px',}}>Предварительная итоговая стоимость</h2>
-          <h3 style={{ border: "3px solid black", borderRadius: "10px" }}>
-            {" "}
-            {finalPrice}р.{" "}
-          </h3>
         </div>
       </div>
       <div>
@@ -381,7 +365,7 @@ export default function OneDate() {
           </Button>
         ) : (
           <>
-            <Button type="primary" onClick={showModal} style={{background:'#466672', height:'80px', width:'30%', fontSize:'28px', marginTop:'20px'}}>
+            <Button className='btn-pay' type="primary" onClick={showModal}>
             Внести предоплату
             </Button>
             <Modal

@@ -128,7 +128,7 @@ const MyLayout: React.FC = ({ children }) => {
           <div style={{width: "220px", backgroundColor: 'red'}}></div>
           <Content
             style={{
-              padding: 24,
+              padding: '5%',
               margin: 0,
               color: "black",
               minHeight: 280,

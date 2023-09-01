@@ -2,11 +2,6 @@
 font-family: 'Forum', cursive;
 font-size: medium;
 }
-/* 
-.photo{
-    margin-left: 0%;
-    position: relative;
-} */
 
 .mainPhoto{
     margin-left: 0%;
@@ -18,8 +13,6 @@ font-size: medium;
 }
 
 .main{
-    /* background-image: url('/IMG_2491 — копия.JPG') ;
-    background-position: left top; */
     color:  #001628;
     display: flex;
 flex-direction: column;
@@ -136,6 +129,8 @@ border-right: 1px solid rgb(0, 90, 128);
 .bottom{
     margin-top: 10%;
     font-size: 25px;
+    position:relative;
+    overflow: hidden;
 }
 
 .logo{
@@ -166,3 +161,73 @@ border-right: 1px solid rgb(0, 90, 128);
     float: left;
     margin-right: 5px;
 }
+
+.contact-map{
+    display: flex;
+    flex-direction: row;
+}
+
+@media only screen and (max-width: 450px) {
+    .mainPhoto {
+        /* width: 50px;
+        height: 700px; */
+        display: none;
+    }
+
+    .logo, .logo2, .logo3, .logo4, .logo5 {
+        width: 30%;
+        height: 26%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .h2, .h1{
+        font-size: 20px;
+        width: 70%;
+        margin-left: 16%;
+        margin-bottom: 0%;
+    }
+
+    .citati{
+        margin-top: 0%;
+        flex-direction: column;
+        margin-bottom: 0%;
+    }
+
+    .credo{
+        margin-top: 0%;
+        border-right: transparent;
+        border-bottom:  1px solid rgb(0, 90, 128);
+        margin-bottom: 0%;
+    }
+    
+    .text{
+        position: relative;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .cel{
+        margin-top: 0%;
+        margin-bottom: 3%;
+    }
+
+    .one{
+        margin-top: 3%;
+        float: none;
+    }
+
+    .body{
+        margin-top: 50%;
+    }
+
+    .contact-map{
+        flex-direction: column;
+    }
+
+    .map {
+        width: 100%;
+        border: transparent;
+    }
+    }

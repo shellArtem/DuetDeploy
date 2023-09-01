@@ -55,8 +55,8 @@ export default function About() {
     />
   </Image.PreviewGroup>
       </div>
-        <div className={styles.bottom} style={{position:'relative',overflow:'hidden'}}>
-      <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+        <div className={styles.bottom}>
+      <div className="contact-map">
         <div className={styles.contact}>
           <h3>Контакты</h3>
           <a href="tel:+79201083306">

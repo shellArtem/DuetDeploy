@@ -2,13 +2,10 @@
     font-family: 'Forum', cursive;
 }
 
-
-.text{
-    font-size: 20px;
-}
-
 .middleOneDate{
     font-size: 20px;
+    display: flex;
+    justify-content: space-around;
 }
 
 .ant-picker-calendar-date-content {
@@ -21,7 +18,6 @@
 
 :where(.css-dev-only-do-not-override-fpg3f5).ant-checkbox-wrapper.ant-checkbox-wrapper-in-form-item input[type="checkbox"] {
     margin-left: 2%;
-    width: ;
 }
 
 :where(.css-dev-only-do-not-override-fpg3f5).ant-checkbox-wrapper.ant-checkbox-wrapper-in-form-item input[type="checkbox"] {
@@ -37,16 +33,81 @@
     background-color: #466672;
 }
 
-/* .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
-    color: #466672;
-    border-color: #466672;
-} */
+.price{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 .img {
 float:left;
 margin-right: 20px;
+width: 400px;
+border-radius:15px; 
+margin-right: 5%;
 }
 
 h1{
     border-bottom: 1.5px solid #FF5CB8;
+}
+
+.btn-pay{
+    background:#466672; 
+    height:80px; 
+    width:30%; 
+    font-size:28px; 
+    margin-top:20px;
+}
+
+.upperOneDate{
+    display: flex; 
+    width: 90%;
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+.oneDateTitle{
+    border:1px solid black; 
+    width:40%;
+    text-align:center;
+    border-radius: 15px;
+    margin-left: 29%;
+    padding:15px;
+    margin-bottom: 30px;
+    font-size: 25px;
+}
+
+@media only screen and (max-width: 450px) {
+    .btn-pay, .oneDateTitle{
+       width: 70%;
+       height: 25%;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       margin-left: auto;
+       margin-right: auto;
+       font-size: 20px;
+    }
+    .middleOneDate{
+        flex-direction: column;
+    }
+    .img{
+        width: 100%;
+        height: 30%;
+        margin-top: 2%;
+        margin-bottom: 2%;
+    }
+
+    .imgText{
+        width: 100%;
+    }
+
+    .text{
+        width: 100%;
+        font-size: 20px;
+    }
+
+    .upperOneDate{
+width: 100%;
+    }
 }
