@@ -1,3 +1,7 @@
+.welcome{
+    font-size: 300%;
+}
+
 .fillFormBtn, .eventBtn {
     border-radius: 8px;
     border: none;
@@ -54,7 +58,11 @@
     justify-content: space-around;
     backdrop-filter: blur(3px);
     margin: auto;
+    margin-top: 5%;
     width: 800px;
+    display: flex;
+    gap: 5%;
+    height: 800px;
 }
 
 .info-btn {
@@ -237,4 +245,24 @@ button:hover {
 .eventPost{
     background-color: rgba(255, 255, 255, 0.471);
     height: 146px;
+}
+
+@media only screen and (max-width: 450px) {
+    .welcome{
+        font-size: 25px;
+    }
+    .avatar{
+
+    }
+
+    .photo-info-content {
+        flex-direction:column;
+        height: 100%;
+        width: 100%;
+        gap: 0%;
+    }
+
+    .instr{
+        width: 100%;
+    }
 }
