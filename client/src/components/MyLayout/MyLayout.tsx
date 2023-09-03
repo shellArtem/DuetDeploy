@@ -130,7 +130,7 @@ const MyLayout: React.FC = ({ children }) => {
           <Content
             className="contentLayout"
             style={{
-              padding: 24,
+              padding: '5%',
               margin: 0,
               color: "black",
               minHeight: 280,
