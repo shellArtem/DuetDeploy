@@ -10,7 +10,7 @@
 }
 
 .welcomeText {
-    width: 1000px;
+    width: 100%;
 /* <<<<<<< any
     margin-top: 15%;
     margin-left: 6%;
@@ -87,7 +87,7 @@ color: #001628;
     background-color: #ff5cb82a;
     border-radius: 20px;
     height: 60px;
-    width: 600px;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -106,7 +106,7 @@ margin-right: auto;
     margin-bottom: 1%;
     border-bottom: 1.5px solid #FF5CB8;
     background-color: #ff5cb82a;
-    height: 60px;
+    height: 8%;
 }
 
 .title-our-dates{
@@ -316,3 +316,25 @@ margin-right: 2%;
     /* background-color: #2c6e9239; */
 }
 
+.imgCarousel {
+    height: 600px;
+}
+
+@media only screen and (max-width: 450px) {
+    
+    .imgCarousel {
+        height: 8rem;
+    }
+
+    .imgCarousel {
+        width: initial;
+    }
+
+    .prosAndCons {
+        height: 17%;
+    }
+
+    .img-how-we-do-it {
+        
+    }
+  }

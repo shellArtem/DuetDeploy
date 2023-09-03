@@ -18,7 +18,7 @@ const items1: MenuProps['items'] = ['Login', 'Register', 'Home'].map((key) => ({
   key,
   label: `${key}`,
 }));
-console.log(items1)
+// console.log(items1)
 
 
 
@@ -27,7 +27,7 @@ const MyLayout: React.FC = ({ children }) => {
     token: { colorBgContainer },
   } = theme.useToken();
 
-  console.log(colorBgContainer)
+  // console.log(colorBgContainer)
   const navigate = useNavigate();
 
 
@@ -42,6 +42,7 @@ const MyLayout: React.FC = ({ children }) => {
   return (
     <Layout>
       <Header
+        className="headerLayout"
         style={{
           display: "flex",
           alignItems: "center",
@@ -127,6 +128,7 @@ const MyLayout: React.FC = ({ children }) => {
         <Layout style={{ padding: "0 24px 24px", backgroundColor: "#FF5CB8" }}>
           <div style={{width: "220px", backgroundColor: 'red'}}></div>
           <Content
+            className="contentLayout"
             style={{
               padding: 24,
               margin: 0,

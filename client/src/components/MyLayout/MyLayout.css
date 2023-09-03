@@ -71,6 +71,11 @@ button:focus-visible {
 }
 
 @media only screen and (max-width: 360px) {
+
+    
+
+    
+
     .ant-layout-has-sider {
         background-color: #001628; 
         width: 0%;
@@ -100,4 +105,9 @@ button:focus-visible {
     :where(.css-dev-only-do-not-override-fpg3f5).ant-layout.ant-layout-has-sider >.ant-layout, :where(.css-dev-only-do-not-override-fpg3f5).ant-layout.ant-layout-has-sider >.ant-layout-content{
         margin-left: 0%;
     }
+
+    :where(.css-dev-only-do-not-override-fpg3f5).ant-layout-header {
+      padding-inline: 0px;
+    }
+
   }

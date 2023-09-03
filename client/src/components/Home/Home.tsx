@@ -26,35 +26,35 @@ export default function Home () {
   <Carousel autoplay style={{width:'100%'}}>
     <div>
 
-      <img style={{height:'600px'}} src='http://duet-marriage.ru/carousel.001.jpeg'/>
+      <img className='imgCarousel' src='http://duet-marriage.ru/carousel.001.jpeg'/>
     </div>
     <div>
-    <img style={{height:'600px'}} src='http://duet-marriage.ru/carousel.002.jpeg'/>
-    </div>
-    <div>
-
-      <img style={{height:'600px'}} src='http://duet-marriage.ru/carousel.003.jpeg'/>
-
+    <img className='imgCarousel' src='http://duet-marriage.ru/carousel.002.jpeg'/>
     </div>
     <div>
 
-      <img style={{height:'600px'}} src='http://duet-marriage.ru/carousel.004.jpeg'/>
+      <img className='imgCarousel' src='http://duet-marriage.ru/carousel.003.jpeg'/>
+
     </div>
     <div>
 
-      <img style={{height:'600px'}} src='http://duet-marriage.ru/carousel.005.jpeg'/>
+      <img className='imgCarousel' src='http://duet-marriage.ru/carousel.004.jpeg'/>
     </div>
     <div>
-      <img style={{height:'600px'}} src='http://duet-marriage.ru/carousel.008.jpeg'/>
+
+      <img className='imgCarousel' src='http://duet-marriage.ru/carousel.005.jpeg'/>
     </div>
     <div>
-      <img style={{height:'600px'}} src='http://duet-marriage.ru/carousel.006.jpeg'/>
+      <img className='imgCarousel' src='http://duet-marriage.ru/carousel.008.jpeg'/>
     </div>
     <div>
-      <img style={{height:'600px'}} src='http://duet-marriage.ru/carousel.007.jpeg'/>
+      <img className='imgCarousel' src='http://duet-marriage.ru/carousel.006.jpeg'/>
     </div>
     <div>
-      <img style={{height:'600px'}} src='http://duet-marriage.ru/carousel.009.jpg'/>
+      <img className='imgCarousel' src='http://duet-marriage.ru/carousel.007.jpeg'/>
+    </div>
+    <div>
+      <img className='imgCarousel' src='http://duet-marriage.ru/carousel.009.jpg'/>
     </div>
   </Carousel>
   <div className='welcomeText'>
@@ -91,19 +91,19 @@ export default function Home () {
   <div className='about-dates'>
   <div className='our-dates' style={{fontSize:'20px'}}>
     <p className='title-our-dates'>Самостоятельная организация свидания:</p>
-    <MehOutlined style={{color: '#FF5CB8'}}/><p>Много деталей, которые нужно принять во внимание</p>
-    <MehOutlined style={{color: '#FF5CB8'}}/><p>Трата времени на поиск букета, музыкантов, места и т.д</p>
-    <MehOutlined style={{color: '#FF5CB8'}}/><p>Невозможно расслабиться и получить удовольствие, потому что стараешься контролировать ситуацию</p>
-    <MehOutlined style={{color: '#FF5CB8'}}/><p>Ограниченное количество вариантов локаци</p>
-    <MehOutlined style={{color: '#FF5CB8'}}/><p>Сложно придумать необычное свидание</p>
+    <MehOutlined style={{color: '#FF5CB8'}}/><p className='prosAndCons'>Много деталей, которые нужно принять во внимание</p>
+    <MehOutlined style={{color: '#FF5CB8'}}/><p className='prosAndCons'>Трата времени на поиск букета, музыкантов, места и т.д</p>
+    <MehOutlined style={{color: '#FF5CB8'}}/><p className='prosAndCons'>Невозможно расслабиться и получить удовольствие, потому что стараешься контролировать ситуацию</p>
+    <MehOutlined style={{color: '#FF5CB8'}}/><p className='prosAndCons'>Ограниченное количество вариантов локаци</p>
+    <MehOutlined style={{color: '#FF5CB8'}}/><p className='prosAndCons'>Сложно придумать необычное свидание</p>
   </div>
   <div className='your-dates' style={{fontSize:'20px'}}>
   <p className='title-your-dates'>Организация свидания нашими силами:</p>
-  <SmileOutlined style={{color: '#FF5CB8'}}/><p>Опыт организации свиданий позволяет нам предусмотреть любые мелочи</p>
-  <SmileOutlined style={{color: '#FF5CB8'}}/><p>Наши партнеры выполнят любые ваши пожелания</p>
-  <SmileOutlined style={{color: '#FF5CB8'}}/><p>Наша команда контролирует процесс организации и подготовки</p>
-  <SmileOutlined style={{color: '#FF5CB8'}}/><p>Множество локаций, которые мы вам предлагаем, недоступны при самостоятельной организации</p>
-  <SmileOutlined style={{color: '#FF5CB8'}}/><p>Мы можем предложить креативные свидания и индивидуально подходим к каждому клиенту</p>
+  <SmileOutlined style={{color: '#FF5CB8'}}/><p className='prosAndCons'>Опыт организации свиданий позволяет нам предусмотреть любые мелочи</p>
+  <SmileOutlined style={{color: '#FF5CB8'}}/><p className='prosAndCons'>Наши партнеры выполнят любые ваши пожелания</p>
+  <SmileOutlined style={{color: '#FF5CB8'}}/><p className='prosAndCons'>Наша команда контролирует процесс организации и подготовки</p>
+  <SmileOutlined style={{color: '#FF5CB8'}}/><p className='prosAndCons'>Множество локаций, которые мы вам предлагаем, недоступны при самостоятельной организации</p>
+  <SmileOutlined style={{color: '#FF5CB8'}}/><p className='prosAndCons'>Мы можем предложить креативные свидания и индивидуально подходим к каждому клиенту</p>
   </div>
   </div>
   </div>
