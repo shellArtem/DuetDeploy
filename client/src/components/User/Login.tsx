@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import FormItem from "antd/es/form/FormItem";
 // import PhoneInput from "antd-phone-input";
 import PhoneInput from "antd-phone-input/legacy";
-//import './index.css';
+import './Login.css';
 import { Button, Checkbox, Form, Input } from "antd";
 import { useForm } from "antd/es/form/Form";
 
@@ -76,7 +76,6 @@ const onFinishFailed = (errorInfo: any) => {
         name="basic"
         labelCol={{ span: 8 }}
         wrapperCol={{ span: 16 }}
-        style={{ maxWidth: "75%"}}
         initialValues={{ remember: true }}
         form={form}
         onFinish={onFinish}
@@ -85,6 +84,7 @@ const onFinishFailed = (errorInfo: any) => {
         >
         
         <Form.Item<FieldType>
+          className="loginForm"
           label="Имя"
           name="name"
           rules={[{ required: true, message: "Пожалуйста, введите Ваше имя!" }]}
@@ -93,6 +93,7 @@ const onFinishFailed = (errorInfo: any) => {
         </Form.Item>
 
         <FormItem
+        className="loginForm"
          name="phone" 
          label="Телефон"
          rules={[{ required: true, message: "Пожалуйста, введите Ваш номер телефона!" , validator}]}>
@@ -102,6 +103,7 @@ const onFinishFailed = (errorInfo: any) => {
         </FormItem>
 
         <Form.Item<FieldType>
+          className="loginForm"
           label="Пароль"
           name="password"
           rules={[{ required: true, message: "Пожалуйста, введите Ваш пароль!" }]}
@@ -112,9 +114,10 @@ const onFinishFailed = (errorInfo: any) => {
             placeholder="Введите пароль"
           />
         </Form.Item>
-        <p onClick={() => navigate("/register")} style={{marginLeft:'30%'}}>Если у Вас ещё нет аккаунта - <Button className='' onClick={() => navigate("/register")}>Зарегистрироваться</Button> </p>
+        <p onClick={() => navigate("/register")} style={{marginLeft:'auto'}}>Если у Вас ещё нет аккаунта - <Button className='' onClick={() => navigate("/register")}>Зарегистрироваться</Button> </p>
         
         <Form.Item<FieldType>
+           className="loginForm"
           name="remember"
           valuePropName="checked"
           wrapperCol={{ offset: 8, span: 16 }}
@@ -122,7 +125,7 @@ const onFinishFailed = (errorInfo: any) => {
           <Checkbox>Запомнить меня</Checkbox>
         </Form.Item>
 
-        <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+        <Form.Item wrapperCol={{ offset: 8, span: 16 }}  className="loginForm">
           <Button type="primary" htmlType="submit" style={{backgroundColor:'#628191'}}>
           Отправить
           </Button>
