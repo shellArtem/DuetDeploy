@@ -335,6 +335,13 @@ margin-right: 2%;
     }
 
     .img-how-we-do-it {
-        
+        display: none;
+    }
+
+    .how-we-do-it-text {
+        width: 26.5%;
+        height: 30%;
+        background-color: #46667277;
+        border-radius: 15px;
     }
   }
