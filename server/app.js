@@ -97,8 +97,6 @@ app.post('/pay', (req, res) => {
     description: 'Предоплата организации свидания',
   }).then(resp => {
     const { id, confirmation } = resp;
-    console.log(id);
-    console.log(confirmation.confirmation_url);
     res.json({ssilka: confirmation.confirmation_url})
   });
 });
@@ -122,8 +120,6 @@ app.post('/payForm', (req, res) => {
     description: 'Оплата анкеты',
   }).then(resp => {
     const { id, confirmation } = resp;
-    console.log(id);
-    console.log(confirmation.confirmation_url);
     res.json({ssilka: confirmation.confirmation_url})
   });
 });

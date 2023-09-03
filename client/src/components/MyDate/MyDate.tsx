@@ -26,7 +26,6 @@ export default function MyDate () {
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     const changeHandler = async (value, id) => {
-      console.log(value, id)
       try {
         await fetch(`http://77.222.53.7:3003/newRating`, {
           method: 'POST',
@@ -64,7 +63,7 @@ export default function MyDate () {
                 setDates([...dates, ...result]); 
                 dispatch({ type: "ALL_DATES", payload: result });
             } catch (error) {
-                console.log('OMG', error);
+                console.log('error', error);
             }
         })();
     }, []);
@@ -73,15 +72,12 @@ export default function MyDate () {
     // @ts-ignore
     function getRating (date) {
       const ratings = date.DateRatings.map((el) => el.rating )
-      console.log(ratings)
        return (ratings.reduce((acc, val) => acc + val, 0)) / ratings.length
     }
 
     return (
       <div>
-          <div className='text' style={{borderWidth: '3px 3px 1.5px',
-    borderStyle: 'solid',
-    borderColor:'#FF5CB8', width: '1000px', marginLeft: 'auto', marginRight: 'auto', marginBottom: '3%', fontSize: '28px'}}>Здесь вы можете ознакомиться со всеми вариантами свиданий и мероприятиями, которые мы можем организовать. Для того, чтобы узнать больше подробностей, нажмите на кнопку "запланировать".</div>
+          <div className='text'>Здесь вы можете ознакомиться со всеми вариантами свиданий и мероприятиями, которые мы можем организовать. Для того, чтобы узнать больше подробностей, нажмите на кнопку "запланировать".</div>
       <div style={{display:'flex', flexWrap:'wrap', gap:'15px', justifyContent:'space-around'}}>
 {dates.map((date) => 
     <Card

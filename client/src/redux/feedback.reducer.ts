@@ -17,12 +17,10 @@ const FeedbackReducer = (state = initialState, action: AnyAction) => {
     case "APPROVE_FEEDBACK":
       // eslint-disable-next-line no-case-declarations
       const idStatus = state.feedbacks.findIndex((el) => el.id === payload.id);
-      console.log('========================', payload);
       return {
         ...state,
         feedbacks: state.feedbacks.map((el, i) => {
           if (idStatus === i) {
-            console.log(el)
             return { ...el, approved: payload.curApproved };
           }
           return el;

@@ -86,7 +86,7 @@ const feedbacks = useSelector((state: RootState) => state.FeedbackReducer.feedba
             setAnkets(res)
 
         } catch (error) {
-            console.log('OMG', error);
+            console.log(error);
         }
     })();
 }, []);
@@ -102,7 +102,6 @@ const approveHandler = async (id, approved) => {
       body: JSON.stringify({id}),
       credentials: "include",
     });
-    console.log(id, curApproved)
     dispatch({ type: "APPROVE_FEEDBACK", payload: { id: id, curApproved: curApproved}});
     navigate('/feedback')
   } catch (error) {
@@ -271,7 +270,7 @@ useEffect(() => {
       const res = await resp.json()
       setAllEvents(res);
     } catch (error) {
-      console.log("OMG", error);
+      console.log("error", error);
     }
   })();
 }, []);
@@ -365,7 +364,7 @@ const exportWishToExcelHandler = async () => {
       setMatches(result)
       
     } catch (error) {
-      console.log("register error", error);
+      console.log("error", error);
     }
   };
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment

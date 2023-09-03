@@ -53,7 +53,7 @@ feedBackRouter.put('/feedback', async (req, res) => {
     await Feedback.update({approved: true}, {where: {id}})
     res.sendStatus(200)
   } catch (error) {
-    console.log('oooops, error', error)
+    console.log('error', error)
   }
 
 })
@@ -64,7 +64,7 @@ feedBackRouter.put('/feedbackAnswer', async (req, res) => {
     await Feedback.update({answer: text}, {where: {id}})
     res.sendStatus(200)
   } catch (error) {
-    console.log('oooops, error', error)
+    console.log('error', error)
   }
 
 })
@@ -75,7 +75,7 @@ feedBackRouter.delete('/feedback', async (req, res) => {
     await Feedback.destroy({where: {id}})
     res.sendStatus(200)
   } catch (error) {
-    console.log('oooops, error', error)
+    console.log('error', error)
   }
 
 })

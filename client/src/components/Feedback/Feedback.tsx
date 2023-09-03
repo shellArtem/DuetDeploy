@@ -24,9 +24,8 @@ export default function Account() {
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
             setFeedbacks([...feedbacks, ...result]); 
-            // console.log("TUT RESULT", result);
         } catch (error) {
-            console.log('OMG', error);
+            console.log('error', error);
         }
     })();
 }, []);
@@ -51,13 +50,9 @@ const onFinish = async (values: any) => {
     const data = await responce.json();
     console.log(data)
   } catch (error) {
-    console.log("register error", error);
+    console.log("error", error);
   }
 };
-  console.log(feedbacks)
-
-
-
   return (
 
     <div>

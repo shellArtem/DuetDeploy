@@ -19,12 +19,10 @@ export default function FeedbackAnswer({approveHandler, deleteHandler, el}) {
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
       const changeHandler = (event) => {
-        console.log(event.target)
         setFeedbackAnswer((pre) => ({...pre, [event.target.name]:event.target.value}))
       }
     
       const onFinishAnswer = async (id) => {
-        console.log('999999999999999999999999999', feedbackAnswer, id)
         try {
           await fetch("http://77.222.53.7:3003/feedbackAnswer", {
             method: "PUT",

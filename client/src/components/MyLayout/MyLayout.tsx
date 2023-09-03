@@ -34,7 +34,10 @@ const MyLayout: React.FC = ({ children }) => {
   const user = useSelector((state: any) => state.UserReducer.name);
   const photo = useSelector((state:any) => state.UserReducer.img);
 
-  
+  // function toggleSidebar() {
+  //   const sidebar = document.querySelector('.ant-layout .ant-layout-sider');
+  //   sidebar.classList.toggle('show');
+  // }
 
   return (
     <Layout>
@@ -51,9 +54,13 @@ const MyLayout: React.FC = ({ children }) => {
           <img onClick={() => navigate("/")} src='http://duet-marriage.ru/logo2.png' style={{width:'90px', height:'72px', cursor: 'pointer'}}></img>
           <a href="tel:+79201083306">
           <Button className='layoutBtn'>Позвонить нам!</Button>
-      
           </a>
           <Button className='layoutBtn accBtn' onClick={() => navigate('/account')} style={{borderRadius:'50%', width:'72px', height:'72px', backgroundColor:'white', backgroundImage: `url("http://77.222.53.7:3003${photo}")`}}></Button>
+          {/* <div className="burgerMenu" onclick={toggleSidebar()}>
+          <span></span>
+          <span></span>
+          <span></span>
+          </div> */}
         </>
         :
         <>
@@ -63,14 +70,22 @@ const MyLayout: React.FC = ({ children }) => {
       
           </a>
           <Button className='layoutBtn' onClick={() => navigate("/login")}>Войти</Button>
-          
+          {/* <div className="burgerMenu" onclick={toggleSidebar()}>
+          <span></span>
+          <span></span>
+          <span></span>
+          </div> */}
         </>
       }
       </Header>
       <Layout>
         <Sider 
-
-        width={220} style={{ background: "#001628"}}
+        breakpoint='md'
+        collapsible={true}
+        defaultCollapsed={false}
+        collapsedWidth={0}
+        // width={220} 
+        // style={{ background: "#001628"}}
         >
           {user ? (
           <>

@@ -43,7 +43,6 @@ export default function Account() {
           credentials: 'include',
         });
         const result = await response.json();
-        console.log('88888888888888888888888', result);
         const string = `Вы внесли предоплату в размере ${
           result.metadata.price / 2
         }р. за ${result.metadata.dateTitle}, которое состоится ${
@@ -87,8 +86,6 @@ export default function Account() {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
   }, [img, img2]);
-
-  console.log(img, img2);
 
   const logoutHandler = async () => {
     try {

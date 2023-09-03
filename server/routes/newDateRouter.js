@@ -23,7 +23,7 @@ const storage = multer.diskStorage({
         const newDate = await DateType.create({title: title, description: description, img: `/uploads/dates/${photoFileName}`, price: price })
         res.json(newDate)
     } catch (error) {
-        console.log('Еррор', error);
+        console.log('error', error);
     }
 })
 

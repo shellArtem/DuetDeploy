@@ -1,3 +1,14 @@
 :where(.css-dev-only-do-not-override-fpg3f5).ant-card .ant-card-meta-title {
     font-size: 24px;
 }
+
+.text{
+        border-width: 3px 3px 1.5px;
+        border-style: solid;
+        border-color:#FF5CB8;
+        width: 90%; 
+        margin-left: auto; 
+        margin-right: auto;
+        margin-bottom: 3%;
+        font-size: 28px;
+}

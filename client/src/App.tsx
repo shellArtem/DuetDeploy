@@ -37,7 +37,6 @@ function App() {
         credentials: "include",
       });
       const result = await response.json();
-      console.log('1111111111111111111111111', result)
       if (result.name) {
         
         dispatch({ type: "SAVE_USER", payload: {name: result.name, img: result.img || null, phone: result.phone} });

@@ -26,12 +26,11 @@ router.get("/logout", (req, res) => {
 });
 
 router.get("/user", async (req, res) => {
-  console.log(req.session)
   try {
     const user = await User.findOne({ where: { phone: req.session.phone } });
     res.json({ name: req.session.login, img: user.photo, phone: user.phone });
   } catch (error) {
-    console.log("owibka", error);
+    console.log("error", error);
   }
 });
 
@@ -425,9 +424,9 @@ router.post("/form", async (req, res) => {
 
   transporter.sendMail(mailData, (error, info) => {
     if (error) {
-      return console.log("==========", error);
+      return console.log("error", error);
     }
-    console.log("письмо отправлено");
+    console.log("Письмо отправлено");
     res.status(200).send({ message: "Mail send", message_id: info.messageId });
   });
   try {
@@ -484,7 +483,7 @@ router.post("/form", async (req, res) => {
     });
     res.json(newAnketa);
   } catch (error) {
-    console.log("owibka", error);
+    console.log("error", error);
   }
 });
 
@@ -559,9 +558,8 @@ router.post("/partner", async (req, res) => {
 
     transporter.sendMail(mailData, (error, info) => {
       if (error) {
-        return console.log("==========", error);
+        return console.log("error", error);
       }
-      console.log("pismo otpravleno");
       res
         .status(200)
         .send({ message: "Mail send", message_id: info.messageId });
@@ -572,7 +570,6 @@ const ageRange3 = ageRange2.map((el) => Number(el))
 const min = Math.min(...ageRange3)
 const max = Math.max(...ageRange3)
 const ageArrRange = [min, max]
-//console.log("============================> ", ageRange3, min, max)
 
     const newWish = await Wish.create({
       Возраст: ageArrRange.join(', '),
@@ -605,20 +602,18 @@ const ageArrRange = [min, max]
     });
     res.json(newWish);
   } catch (error) {
-    console.log("oshibka", error);
+    console.log("error", error);
   }
 });
 
 router.get("/dateTypes", async (req, res) => {
   const dateTypes = await DateType.findAll({include: "DateRatings"});
-  console.log('11111111111122222222222222222', dateTypes)
   res.json(dateTypes);
 });
 
 
 router.post('/newRating', async (req, res) => {
   const {value, id} = req.body
-  console.log('87878787878778787878787878787878787', value)
   const newRating = await DateRating.create({
     rating: value,
     dateType_id: id
@@ -635,7 +630,7 @@ router.get("/usersEvent", async (req, res) => {
     const events = await Event.findAll({ where: { clientPhone: phone } });
     res.json(events);
   } catch (error) {
-    console.log("ooooooooooops", error);
+    console.log("error", error);
   }
 });
 
@@ -677,9 +672,9 @@ router.post("/order", async (req, res) => {
     };
     transporter.sendMail(mailData, (error, info) => {
       if (error) {
-        return console.log("==========", error);
+        return console.log("error", error);
       }
-      console.log("письмо отправлено");
+      console.log("Письмо отправлено");
       res
         .status(200)
         .send({ message: "Mail send", message_id: info.messageId });
@@ -720,9 +715,8 @@ router.post("/order", async (req, res) => {
     };
     transporter.sendMail(mailData, (error, info) => {
       if (error) {
-        return console.log("==========", error);
+        return console.log("error", error);
       }
-      console.log("письмо отправлено");
       res
         .status(200)
         .send({ message: "Mail send", message_id: info.messageId });
