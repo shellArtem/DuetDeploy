@@ -108,7 +108,7 @@ export default function Account() {
         crossOrigin="anonymous"
         rel="stylesheet" 
       ></link>
-      <h1 style={{ fontSize: '300%' }}>
+      <h1 className='welcome' >
         {' '}
         Добро пожаловать в брачное агентство "ДУЭТ"{' '}
       </h1>
@@ -117,15 +117,7 @@ export default function Account() {
         style={{ display: 'flex', justifyContent: 'space-around' }}
       >
         <div
-          className="photo-info-content"
-          style={{
-            display: 'flex',
-            gap: '5%',
-            border: '3px solid #FF5CB8',
-            width: '800%',
-            height: '800px',
-          }}
-        >
+          className="photo-info-content">
           <div className="avatar">
             {photo ? (
               <img
@@ -191,19 +183,6 @@ export default function Account() {
                 </div>
               </form>
 
-              {/* <input
-                name="photo"
-                type="file"
-                onChange={(e) => setImg(e.target.files[0])}
-              
-              /> */}
-              {/* <input
-                name="photo2"
-                type="file"
-                onChange={(e) => setImg2(e.target.files[0])}
-
-              /> */}
-
               <button className="addImg" onClick={sendFile}>
                 добавить фото
               </button>
@@ -255,12 +234,6 @@ export default function Account() {
           </h1>
         )}
       </div>
-            {/* <Button
-              onClick={() => navigate('/partner')}
-              className="eventBtn"
-            >
-              Запланированные события
-            </Button> */}
           </div>
         </div>
       </div>
