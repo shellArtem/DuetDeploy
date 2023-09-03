@@ -8,6 +8,7 @@ import PhoneInput from "antd-phone-input/legacy";
 import './User.less';
 import { Button, Checkbox, Form, Input } from "antd";
 import { useForm } from "antd/es/form/Form";
+import './Register.css'
 
 export default function Register() {
   const navigate = useNavigate();
@@ -73,7 +74,6 @@ const onFinishFailed = (errorInfo: any) => {
         name="basic"
         labelCol={{ span: 8 }}
         wrapperCol={{ span: 16 }}
-        style={{ maxWidth: "75%" }}
         initialValues={{ remember: true }}
         form={form}
         onFinish={onFinish}
@@ -82,6 +82,7 @@ const onFinishFailed = (errorInfo: any) => {
         >
         
         <Form.Item<FieldType>
+          className="regForm"
           label="Имя"
           name="name"
           className="input"
@@ -91,6 +92,7 @@ const onFinishFailed = (errorInfo: any) => {
         </Form.Item>
 
         <Form.Item<FieldType>
+           className="regForm"
         name="phone" 
         label="Телефон"
         className="input"
@@ -99,6 +101,7 @@ const onFinishFailed = (errorInfo: any) => {
         </Form.Item>
 
         <Form.Item<FieldType>
+           className="regForm"
           label="Пароль"
           name="password"
           className="input"
@@ -112,6 +115,7 @@ const onFinishFailed = (errorInfo: any) => {
         </Form.Item>
 
         <Form.Item<FieldType>
+           className="regForm"
           name="remember"
           valuePropName="checked"
           wrapperCol={{ offset: 8, span: 16 }}
@@ -119,7 +123,7 @@ const onFinishFailed = (errorInfo: any) => {
           <Checkbox>Запомнить меня</Checkbox>
         </Form.Item>
 
-        <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+        <Form.Item wrapperCol={{ offset: 8, span: 16 }}  className="regForm">
           <Button type="primary" htmlType="submit" style={{backgroundColor:'#628191'}}>
           Отправить
           </Button>

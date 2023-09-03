@@ -1,0 +1,14 @@
+.regForm {
+    max-width: 75%;
+}
+
+
+@media only screen and (max-width: 450px) {
+
+    .regForm {
+        max-width: 100%;
+    }
+    :where(.css-dev-only-do-not-override-fpg3f5).ant-col-offset-8 {
+        margin-inline-start: 0;
+    }
+}
