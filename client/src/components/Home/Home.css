@@ -298,6 +298,7 @@ margin-right: 2%;
 .pluses-body{
     display: flex;
     flex-direction: row;
+    /* flex-wrap: wrap; */
 }
 
 .table1, .table2, .table3{
@@ -332,6 +333,7 @@ margin-right: 2%;
 
     .prosAndCons {
         height: 17%;
+        padding: 3px;
     }
 
     .img-how-we-do-it {
@@ -343,5 +345,66 @@ margin-right: 2%;
         height: 30%;
         background-color: #46667277;
         border-radius: 15px;
+    }
+
+    .pluses-body{
+        flex-wrap: wrap;
+    }
+
+    .pluses-container {
+        height: max-content;
+        border-radius: 10px;
+        margin-top: 200%;
+    }
+
+    .video-mp4 {
+       display: none;
+    }
+
+    .about-dates {
+        height: 50%;
+    }
+    .video {
+        width: 100%;
+        margin-top: 300px;
+        
+    }
+    .video-text-steps {
+        flex-direction: column;
+    }
+
+    .video-text-one-step {
+        width: auto;
+        margin-right: 0px;
+        padding: 3px;
+        border-radius: 15px;
+    }
+
+    .video-text-two-step {
+        width: auto;
+        margin-left: 0px;
+        padding: 3px;
+        border-radius: 15px;
+    } 
+
+    .video-text-header, .video-text-end {
+        width: auto;
+        border-radius: 10px;
+        background-color: #466672c9;
+    }
+    .video-text-title {
+        width: auto;
+        color: #001628;
+        border-radius: 5px;
+    }
+
+    .welcomeText{
+        padding: 3px;
+    }
+    .video-text-header {
+      margin-bottom: 10px;
+    }
+    .video-text-end {
+        margin-top: 10px;
     }
   }

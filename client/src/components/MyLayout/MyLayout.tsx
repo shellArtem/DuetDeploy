@@ -125,7 +125,7 @@ const MyLayout: React.FC = ({ children }) => {
           </>
         )}
         </Sider>
-        <Layout style={{ padding: "0 24px 24px", backgroundColor: "#FF5CB8" }}>
+        <Layout className="contentPadding">
           <div style={{width: "220px", backgroundColor: 'red'}}></div>
           <Content
             className="contentLayout"
