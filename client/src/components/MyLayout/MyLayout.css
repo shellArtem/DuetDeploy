@@ -60,7 +60,7 @@ button:focus-visible {
 
 :where(.css-dev-only-do-not-override-fpg3f5).ant-layout.ant-layout-has-sider >.ant-layout, :where(.css-dev-only-do-not-override-fpg3f5).ant-layout.ant-layout-has-sider >.ant-layout-content{
     margin-left: 220px;
-    background-color: red
+    /* background-color: red */
 }
 /* 
 .ant-layout, .ant-layout-has-sider, .css-dev-only-do-not-override-fpg3f5 {
@@ -68,6 +68,11 @@ button:focus-visible {
 } */
 .ant-layout-has-sider {
     background-color: #001628; 
+}
+
+.contentPadding {
+  padding: 0 24px 24px;
+  background-color: #FF5CB8
 }
 
 @media only screen and (max-width: 360px) {
@@ -108,6 +113,10 @@ button:focus-visible {
 
     :where(.css-dev-only-do-not-override-fpg3f5).ant-layout-header {
       padding-inline: 0px;
+    }
+
+    .contentPadding {
+      padding: 0 7px 7px;
     }
 
   }

@@ -138,6 +138,7 @@ export default function Home () {
 </div>
 <div className='video-text-end'>Далее мы анализируем вашу анкету, предпочтения и пожелания. После анализа мы пришлем вам фото кандидатов. </div>
 </div>
+</div>
 <div className='pluses-container'>
   <div className='pluses-title'>
     Почему к нам обращаются?
@@ -162,7 +163,6 @@ export default function Home () {
     <div className='six-plus'> Вы цените себя и свое время</div>
     </div>
   </div>
-</div>
 </div>
   </div>
   )
