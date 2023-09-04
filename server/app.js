@@ -33,6 +33,8 @@ const sessionConfig = {
   cookie: {
     maxAge: 9999999, // * время жизни в мс (ms)
     httpOnly: true,
+    domain: 'duet-marriage.ru', // установка домена
+    path: '/', // установка пути
   },
 };
 
