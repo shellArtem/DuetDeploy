@@ -19,9 +19,9 @@ const newDateRouter = require('./routes/newDateRouter')
 
 const profileRouter = require('./routes/profile')
 
-app.set('trust proxy', 1); 
 
 const app = express();
+app.set('trust proxy', 1); 
 const PORT = 3003;
 
 const sessionConfig = {
