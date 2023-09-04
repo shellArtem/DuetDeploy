@@ -33,7 +33,6 @@ const sessionConfig = {
   cookie: {
     maxAge: 9999999, // * время жизни в мс (ms)
     httpOnly: true,
-    secure: true,
   },
 };
 
