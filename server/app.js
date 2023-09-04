@@ -19,6 +19,7 @@ const newDateRouter = require('./routes/newDateRouter')
 
 const profileRouter = require('./routes/profile')
 
+app.set('trust proxy', 1); 
 
 const app = express();
 const PORT = 3003;
@@ -32,6 +33,7 @@ const sessionConfig = {
   cookie: {
     maxAge: 9999999, // * время жизни в мс (ms)
     httpOnly: true,
+    secure: true,
   },
 };
 
