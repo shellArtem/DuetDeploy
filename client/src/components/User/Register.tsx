@@ -82,29 +82,26 @@ const onFinishFailed = (errorInfo: any) => {
         >
         
         <Form.Item<FieldType>
-          className="regForm"
+          className="regForm input"
           label="Имя"
           name="name"
-          className="input"
           rules={[{ required: true, message: "Пожалуйста, введите Ваше имя!" }]}
         >
           <Input value={reg.name} type="text" placeholder="Введите имя" />
         </Form.Item>
 
         <Form.Item<FieldType>
-           className="regForm"
+           className="regForm input"
         name="phone" 
         label="Телефон"
-        className="input"
         rules={[{ required: true, message: "Пожалуйста, введите Ваш номер телефона!" , validator}]}>
           <PhoneInput country="ru" />
         </Form.Item>
 
         <Form.Item<FieldType>
-           className="regForm"
+           className="regForm input"
           label="Пароль"
           name="password"
-          className="input"
           rules={[{ required: true, message: "Пожалуйста, введите Ваш пароль!" }]}
         >
           <Input.Password
