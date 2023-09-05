@@ -44,6 +44,8 @@ function App() {
     })();
   }, []);
 
+  console.log(user)
+
   return (
 
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment

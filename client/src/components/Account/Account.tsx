@@ -126,7 +126,7 @@ export default function Account() {
                   width: '40%',
                   borderRadius: '10%',
                 }}
-                src={`http://77.222.53.7:3003/${photo}`}
+                src={`http://77.222.53.7:3003${photo}`}
                 alt=""
               />
             ) : (
