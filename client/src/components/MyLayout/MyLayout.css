@@ -9,6 +9,13 @@ import { Card, Space } from 'antd'; */
     background-position: center;
 }
 
+.headerLayout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 8rem;
+}
+
 .layoutBtn {
     border-radius: 8px;
     border: none;
@@ -77,10 +84,6 @@ button:focus-visible {
 
 @media only screen and (max-width: 360px) {
 
-    
-
-    
-
     .ant-layout-has-sider {
         background-color: #001628; 
         width: 0%;
@@ -95,6 +98,7 @@ button:focus-visible {
       width: 100%;
       margin: 10px 0;
       height: auto;
+      
     }
     
     :where(.css-dev-only-do-not-override-fpg3f5).ant-layout .ant-layout-sider {
@@ -119,4 +123,16 @@ button:focus-visible {
       padding: 0 7px 7px;
     }
 
+    .sider {
+      z-index: 100000;
+    }
+
+    .headerLayout {
+      height: 6rem;
+      padding: 4%;
+    }
+
+    .layoutBtn {
+      margin: 0%;
+    }
   }
