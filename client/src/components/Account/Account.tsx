@@ -214,7 +214,7 @@ export default function Account() {
         ): (
           ''
         )}
-        <h2 style={{ fontSize: '25px', borderBottom: '1.5px solid #46667281', width:'200px', marginLeft: 'auto', marginRight:'auto'}}>Ваши события: </h2>
+        <h3 className= 'event-title' style={{ fontSize: '25px'}}>Ваши события: </h3>
         {events.length ? (
           events.map((event) => (
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
