@@ -116,7 +116,7 @@
     align-items: center;
     justify-content: center;
     word-wrap: break-word;
-    width: 40%;
+    width: auto;
     margin-left: auto;
     margin-bottom: 7%;
 }
