@@ -53,7 +53,7 @@ export default function MyDate () {
     useEffect(() => {
         (async () => {
             try {
-                const response = await fetch('http://77.222.53.7:3003/dateTypes', {
+                const response = await fetch('http://duet-marriage.ru/dateTypes', {
                     method: 'GET',
                     headers: { 'Content-type': 'application/json' },
                 });
