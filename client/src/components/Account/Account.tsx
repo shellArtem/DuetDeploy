@@ -60,7 +60,9 @@ export default function Account() {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     data.append('photo', img);
-    const response = await axios.put('http://77.222.53.7:3003/profile', data, {
+    console.log('FFFFFFF1');
+    
+    const response = await axios.put('http://duet-marriage.ru/profile', data, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
@@ -68,11 +70,12 @@ export default function Account() {
     });
     dispatch({ type: 'CHANGE_IMG', payload: { photo: response.data } });
     const data2 = new FormData();
+    console.log('FFFFFFF2');
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     data2.append('photo2', img2);
     const response2 = await axios.put(
-      'http://77.222.53.7:3003/profile/2',
+      'http://duet-marriage.ru/profile/2',
       data2,
       {
         headers: {
@@ -82,6 +85,7 @@ export default function Account() {
       }
     );
     console.log(response2)
+    console.log('FFFFFFF3');
 
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
