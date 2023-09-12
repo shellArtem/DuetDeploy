@@ -62,7 +62,7 @@ export default function Account() {
     data.append('photo', img);
     console.log('FFFFFFF1');
     
-    const response = await axios.put('http://duet-marriage.ru/profile', data, {
+    const response = await axios.put('http://77.222.53.7:3003/profile', data, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
@@ -75,7 +75,7 @@ export default function Account() {
     // @ts-ignore
     data2.append('photo2', img2);
     const response2 = await axios.put(
-      'http://duet-marriage.ru/profile/2',
+      'http://77.222.53.7:3003/profile/2',
       data2,
       {
         headers: {
