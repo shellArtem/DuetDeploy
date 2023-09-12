@@ -248,8 +248,8 @@ button:hover {
 .event-title{
 border-bottom: 1.5px solid #46667281; 
 width:200px; 
-margin-left: auto; 
-margin-right: auto;
+margin-left: 'auto'; 
+margin-right: 'auto';
 }
 
 @media only screen and (max-width: 450px) {
