@@ -607,6 +607,7 @@ const ageArrRange = [min, max]
 });
 
 router.get("/dateTypes", async (req, res) => {
+  console.log('tyt')
   const dateTypes = await DateType.findAll({include: "DateRatings"});
   res.json(dateTypes);
 });
