@@ -34,7 +34,7 @@ export default function Login() {
   const onFinish = async (values) => {
     if (values.name && values.password && values.phone.phoneNumber) {
     try {
-      const responce = await fetch("http://77.222.53.7:3003/login", {
+      const responce = await fetch("http://duet-marriage.ru/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
