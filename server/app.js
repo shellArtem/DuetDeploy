@@ -23,6 +23,7 @@ const profileRouter = require('./routes/profile')
 const app = express();
 app.set('trust proxy', 1); 
 const PORT = 3003;
+const host = 'duet-marriage.ru';
 
 const sessionConfig = {
   name: 'Marriage',
@@ -144,6 +145,6 @@ app.post('/yookassaFeedback', (req, resp) => {
 
 
 
-app.listen(PORT, () => {
-  console.log(`Сервак запущен, порт =====>  ${PORT}`);
+app.listen(PORT, host, () => {
+  console.log(`Server listens http://${host}:${PORT}`);
 });
