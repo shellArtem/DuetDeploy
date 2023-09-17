@@ -53,7 +53,7 @@ export default function MyDate () {
     useEffect(() => {
         (async () => {
             try {
-                const response = await fetch('http://duet-marriage.ru/dateTypes', {
+                const response = await fetch('http://duet-marriage.ru:3003/dateTypes', {
                     method: 'GET',
                     headers: { 'Content-type': 'application/json' },
                 });
