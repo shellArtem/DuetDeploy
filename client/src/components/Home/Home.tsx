@@ -11,7 +11,7 @@ export default function Home () {
   
   useEffect(() => {
     (async function () {
-      const response = await fetch("http://77.222.53.7:3003/news", {
+      const response = await fetch("http://duet-marriage.ru:3003/news", {
         credentials: "include",
       });
       const result = await response.json();
@@ -67,7 +67,7 @@ export default function Home () {
   <h3 style={{fontSize:'30px', marginTop: '10%', marginBottom: '5%'}}>Наши события и новости</h3>
   <div className='newsBody'>
   <div className='news'>{news.body}</div>
-  <img className='newsPic' src={`http://77.222.53.7:3003${news.pic}`}/>
+  <img className='newsPic' src={`http://duet-marriage.ru:3003${news.pic}`}/>
   </div>
 
   <div className='how-we-do-it'>

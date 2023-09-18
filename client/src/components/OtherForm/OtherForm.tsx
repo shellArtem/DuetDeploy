@@ -51,7 +51,7 @@ export default function OtherForm() {
 
     console.log(setotherAnketa)
     try {
-      const responce = await fetch("http://77.222.53.7:3003/partner", {
+      const responce = await fetch("http://duet-marriage.ru:3003/partner", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

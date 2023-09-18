@@ -24,7 +24,7 @@ export default function FeedbackAnswer({approveHandler, deleteHandler, el}) {
     
       const onFinishAnswer = async (id) => {
         try {
-          await fetch("http://77.222.53.7:3003/feedbackAnswer", {
+          await fetch("http://duet-marriage.ru:3003/feedbackAnswer", {
             method: "PUT",
             headers: {
               "Content-Type": "application/json",
