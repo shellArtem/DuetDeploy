@@ -66,9 +66,9 @@ export default function Home () {
 </div>
   <h3 style={{fontSize:'30px', marginTop: '10%', marginBottom: '5%'}}>Наши события и новости</h3>
   <div className='newsBody'>
-  <div className='news'>{news.body}</div>
-  <img className='newsPic' src={`http://duet-marriage.ru:3003${news.pic}`}/>
-  </div>
+
+  <div className='news'> <img className='newsPic' src={`http://duet-marriage.ru:3003${news.pic}`}/> {news.body}</div>
+   </div>
 
   <div className='how-we-do-it'>
     <div className='how-we-do-it-text'> 

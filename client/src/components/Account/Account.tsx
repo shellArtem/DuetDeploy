@@ -60,6 +60,7 @@ export default function Account() {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     data.append('photo', img);
+
     const response = await axios.put('http://duet-marriage.ru:3003/profile', data, {
       headers: {
         'Content-Type': 'multipart/form-data',
@@ -68,6 +69,7 @@ export default function Account() {
     });
     dispatch({ type: 'CHANGE_IMG', payload: { photo: response.data } });
     const data2 = new FormData();
+    console.log('FFFFFFF2');
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     data2.append('photo2', img2);
@@ -82,6 +84,7 @@ export default function Account() {
       }
     );
     console.log(response2)
+    console.log('FFFFFFF3');
 
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
@@ -214,7 +217,7 @@ export default function Account() {
         ): (
           ''
         )}
-        <h2 style={{ fontSize: '25px', borderBottom: '1.5px solid #46667281', width:'200px', marginLeft: 'auto', marginRight:'auto'}}>Ваши события: </h2>
+        <h3 className= 'event-title' style={{ fontSize: '25px'}}>Ваши события: </h3>
         {events.length ? (
           events.map((event) => (
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment

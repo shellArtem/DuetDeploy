@@ -360,7 +360,7 @@ export default function OneDate() {
       <div>
         {/* <h2>Подтвердить оформление</h2> */}
         {user ? (
-          <Button type="primary" onClick={handleSubmit} style={{background:'#466672', height:'80px', width:'30%', fontSize:'28px', marginTop:'20px'}}>
+          <Button type="primary" className='btn-pay' onClick={handleSubmit} >
              Внести предоплату
           </Button>
         ) : (
