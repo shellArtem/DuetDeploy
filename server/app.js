@@ -34,8 +34,8 @@ const sessionConfig = {
   cookie: {
     maxAge: 9999999, // * время жизни в мс (ms)
     httpOnly: true,
-    // domain: 'duet-marriage.ru', // установка домена
-    // path: '/', // установка пути
+    domain: 'duet-marriage.ru', // установка домена
+    path: '/', // установка пути
   },
 };
 
@@ -81,7 +81,7 @@ app.post('/pay', (req, res) => {
   const prePay = price / 2  
   yooKassa.createPayment({
     amount: {
-        value: prePay,
+        value: 1,
         currency: 'RUB',
     },
     capture: true,
