@@ -73,7 +73,7 @@ export default function OtherForm() {
 
   return (
     <>
-    <h1 style={{ height: '50px', fontSize: '45px', marginLeft: '0%' }}>ПОЖЕЛАНИЯ К ПАРТНЕРУ</h1>
+    <h1 className={styles.title} style={{ height: '50px', fontSize: '25px', }}>ПОЖЕЛАНИЯ К ПАРТНЕРУ</h1>
       <Form
         name="basic"
         labelCol={{ span: 8 }}
@@ -125,7 +125,7 @@ export default function OtherForm() {
           <Input value={otherAnketa.Национальность} type="text" />
         </Form.Item>
 
-        <h2 style={{ height: '50px', fontSize: '30px', width: '80%', textAlign:"left", marginLeft: '40%'  }}>Визуальные качества:</h2>
+        <h2 className={styles.h2} style={{ height: '50px', fontSize: '25px', width: '80%'}}>Визуальные качества:</h2>
     
         <Form.Item
           label="Рост"
@@ -172,7 +172,7 @@ export default function OtherForm() {
           <Input value={otherAnketa.Усы_борода} type="text" />
         </Form.Item>
 
-        <h2 style={{ height: '50px', fontSize: '30px', width: '80%', textAlign:"left", marginLeft: '40%'  }}>Другие предпочтения:</h2>
+        <h2 className={styles.h2} style={{ height: '50px', fontSize: '25px', width: '80%'}}>Другие предпочтения:</h2>
 
         <Form.Item
           label="Наличие вредных привычек"
@@ -342,7 +342,7 @@ export default function OtherForm() {
           <Input value={otherAnketa.Семейнобытовые_обязанности} type="text" />
         </Form.Item>
 
-        <Form.Item label="Важно ли Вам, чтобы партнёр готовил?" name="Важно_ли_Вам_что_бы_партнёр_готовил"
+        <Form.Item label="Важно ли, чтобы партнёр готовил?" name="Важно_ли_Вам_что_бы_партнёр_готовил"
                   rules={[{ required: true, message: 'Пожалуйста, заполните поле ответа!' }]}>
           <Select
             defaultValue=""
@@ -363,8 +363,9 @@ export default function OtherForm() {
 
     
 
-        <Form.Item label="Важно ли, чтобы партнёр занимался спортом?" name="Важно_ли_Вам_чтобы_партнёр_занимался_спортом"
-                  rules={[{ required: true, message: 'Пожалуйста, заполните поле ответа!' }]}>
+        <Form.Item label="Важен спорт в жизни партнера?" name="Важно_ли_Вам_чтобы_партнёр_занимался_спортом"
+                  rules={[{ required: true, message: 'Пожалуйста, заполните поле ответа!' }]}
+                  >
           <Select
             defaultValue=""
             style={{ width: "100%" }}

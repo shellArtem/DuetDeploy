@@ -42,14 +42,7 @@ const MyLayout: React.FC = ({ children }) => {
   return (
     <Layout>
       <Header
-        className="headerLayout"
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          height: '8rem',
-        }}
-      >
+        className="headerLayout">
         {user ? 
         <>
           <img onClick={() => navigate("/")} src='http://duet-marriage.ru/logo2.png' style={{width:'90px', height:'72px', cursor: 'pointer'}}></img>
@@ -85,7 +78,8 @@ const MyLayout: React.FC = ({ children }) => {
         collapsible={true}
         defaultCollapsed={false}
         collapsedWidth={0}
-        // width={220} 
+        className="sider"
+        // width={'85%'} 
         // style={{ background: "#001628"}}
         >
           {user ? (

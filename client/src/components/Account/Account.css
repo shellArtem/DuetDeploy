@@ -90,7 +90,7 @@
 }
 
 .avatar {
-    width: 50%;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
     display: flex;
@@ -116,7 +116,7 @@
     align-items: center;
     justify-content: center;
     word-wrap: break-word;
-    width: 40%;
+    width: auto;
     margin-left: auto;
     margin-bottom: 7%;
 }
@@ -143,15 +143,13 @@ button:hover {
     background-image: url('/accaunt.jpg') ;
     background-size: 100%;
     backdrop-filter: blur(10px);
-    height: 800px;
+    height: max-content;
 }
 
 * {
     font-family: 'Forum', cursive;
     font-size: medium;
 }
-
-
 
 
 .input-file-row {
@@ -247,6 +245,13 @@ button:hover {
     height: 146px;
 }
 
+.event-title{
+border-bottom: 1.5px solid #46667281; 
+width:200px; 
+margin-left: auto; 
+margin-right: auto;
+}
+
 @media only screen and (max-width: 450px) {
     .welcome{
         font-size: 25px;
@@ -263,6 +268,28 @@ button:hover {
     }
 
     .instr{
+        width: 100%;
+    }
+
+    .formsBtnsContainer {
+        width: 100%;
+        align-items: center;
+    }
+
+    .fillFormBtn, .eventBtn {
+        width: 90%;
+    }
+
+    .logoutBtn {
+        margin-right: auto;
+    }
+
+
+    .eventPost{
+        margin-bottom: 3%;
+    }
+
+    .infoName, .infoTel {
         width: 100%;
     }
 }

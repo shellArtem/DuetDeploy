@@ -140,19 +140,19 @@ export default function MyForm() {
 
   return (
     <>
-      <h1 className={styles.title} style={{ height: '50px', fontSize: '45px', }}>АНКЕТА ПРЕТЕНДЕНТА</h1>
+      <h1 className={styles.title} style={{ height: '50px', fontSize: '25px', }}>АНКЕТА ПРЕТЕНДЕНТА</h1>
       <Form
         name="basic"
         labelCol={{ span: 8 }}
         wrapperCol={{ span: 16 }}
-        style={{ maxWidth: '100%' }}
+        style={{ maxWidth: '100%'}}
         initialValues={{ remember: true }}
         form={form}
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
         autoComplete="off"
       >
-        <h2 style={{ height: '50px', fontSize: '30px', width: '50%', textAlign:"left", marginLeft: '30%' }}>Личная информация:</h2>
+        <h2 className={styles.h2} style={{ height: '50px', fontSize: '25px', width: '80%'}}>Личная информация:</h2>
         <Form.Item
           label="Фамилия"
           name="Фамилия"
@@ -196,7 +196,7 @@ export default function MyForm() {
           rules={[{ required: true, message: 'Пожалуйста, введите дату рождения!' }]}
         >
           <DatePicker
-            style={{ width: '100%', fontSize: '30px' }}
+            style={{ width: '100%', fontSize: '25px' }}
             onChange={onChange}
           />
         </Form.Item>
@@ -238,7 +238,7 @@ export default function MyForm() {
           />
         </Form.Item>
 
-        <h2 style={{ height: '50px', fontSize: '30px', width: '80%', textAlign:"left", marginLeft: '40%' }}> Внешний вид: </h2>
+        <h2 className={styles.h2} style={{ height: '50px', fontSize: '25px', width: '80%'}}> Внешний вид: </h2>
 
 
         <Form.Item
@@ -308,7 +308,7 @@ export default function MyForm() {
           <Input value={anketa.Место_жительства} type="text" />
         </Form.Item>
 
-        <h2 style={{ height: '50px', fontSize: '30px', width: '80%', textAlign:"left", marginLeft: '40%' }}>
+        <h2 className={styles.h2} style={{ height: '50px', fontSize: '25px', width: '80%'}}>
           {' '}
           Социальный статус:{' '}
         </h2>
@@ -389,7 +389,7 @@ export default function MyForm() {
           />
         </Form.Item>
 
-        <Form.Item style={{marginLeft: '10px'}}
+        <Form.Item
           label="Ваша деятельность сейчас"
           name="Сфера_деятельности_в_настоящее_время"
           rules={[{ required: true, message: 'Пожалуйста, укажите информацию о сфере деятельности!' }]}
@@ -428,7 +428,7 @@ export default function MyForm() {
         </Form.Item>
 
 
-        <h2 style={{ height: '50px', fontSize: '30px', width: '80%', textAlign:"left", marginLeft: '40%'}}>
+        <h2 className={styles.h2} style={{ height: '50px', fontSize: '25px', width: '80%'}}>
           {' '}
           Информация о детях:{' '}
         </h2>
@@ -456,7 +456,7 @@ export default function MyForm() {
           <Input value={anketa.Возраст_детей} type="text" />
         </Form.Item>
 
-        <h2 style={{ height: '50px', fontSize: '30px', width: '80%', textAlign:"left", marginLeft: '40%'}}>
+        <h2 className={styles.h2} style={{ height: '50px', fontSize: '25px', width: '80%'}}>
           {' '}
           Иные важные вопросы:{' '}
         </h2>
@@ -472,11 +472,11 @@ export default function MyForm() {
         
 
 
-        <Form.Item label="Существует любовь с первого взгляда?" name="Верите_ли_вы_в_любовь_с_первого_взгляда"
+        <Form.Item label="Любовь с первого взгляда есть?" name="Верите_ли_вы_в_любовь_с_первого_взгляда"
                   rules={[{ required: true, message: 'Пожалуйста, ответьте на вопрос о существовании любиви с первого взгляда!' }]}>
           <Select
             defaultValue=""
-            style={{ width: "100%" }}
+            style={{ width: "100%"}}
             onChange={handleChange}
             value={anketa.Верите_ли_вы_в_любовь_с_первого_взгляда}
             options={[
