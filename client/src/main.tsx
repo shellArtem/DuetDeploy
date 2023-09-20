@@ -7,39 +7,39 @@ import './index.css'
 import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux';
 import store from './redux/store.js';
-// import { hydrate, render } from "react-dom";
+import { hydrate, render } from "react-dom";
 
 
-// const rootElement: HTMLElement | null = document.getElementById("root")
-// if (rootElement.hasChildNodes()) { 
-//   hydrate(<Provider store={store}>
-//      <BrowserRouter>
-//        <React.StrictMode>
+const rootElement: HTMLElement | null = document.getElementById("root")
+if (rootElement.hasChildNodes()) { 
+  hydrate(<Provider store={store}>
+     <BrowserRouter>
+       <React.StrictMode>
     
-//          <App />
-//        </React.StrictMode>
-//        </BrowserRouter>
-//        </Provider>, rootElement); 
-// } else { 
-//   render(<Provider store={store}>
-//      <BrowserRouter>
-//        <React.StrictMode>
+         <App />
+       </React.StrictMode>
+       </BrowserRouter>
+       </Provider>, rootElement); 
+} else { 
+  render(<Provider store={store}>
+     <BrowserRouter>
+       <React.StrictMode>
     
-//          <App />
-//        </React.StrictMode>
-//        </BrowserRouter>
-//        </Provider>, rootElement);
-// }
+         <App />
+       </React.StrictMode>
+       </BrowserRouter>
+       </Provider>, rootElement);
+}
 
 
 
- ReactDOM.createRoot(document.getElementById('root')!).render(
-   <Provider store={store}>
- <BrowserRouter>
-   <React.StrictMode>
+//  ReactDOM.createRoot(document.getElementById('root')!).render(
+//    <Provider store={store}>
+//  <BrowserRouter>
+//    <React.StrictMode>
 
-     <App />
-   </React.StrictMode>
-   </BrowserRouter>
-   </Provider>
- )
+//      <App />
+//    </React.StrictMode>
+//    </BrowserRouter>
+//    </Provider>
+//  )
