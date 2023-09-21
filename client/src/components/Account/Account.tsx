@@ -218,7 +218,7 @@ export default function Account() {
           ''
         )}
         <h3 className= 'event-title' style={{ fontSize: '25px'}}>Ваши события: </h3>
-        {events.length ? (
+        {events.length && (
           events.map((event) => (
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
@@ -231,11 +231,13 @@ export default function Account() {
               </div>
             </div>
           ))
-        ) : (
-          <h1 style={{ cursor: 'help', border:'3px solid #466672', width: '300px', margin: 'auto', borderBottom: '1.5px solid #46667281', fontSize: '15px' }} onClick={() => navigate('/date')}>
-            У вас пока не запланировано никаких событий
-          </h1>
-        )}
+        ) 
+        // : (
+        //   <h1 style={{ cursor: 'help', border:'3px solid #466672', width: '300px', margin: 'auto', borderBottom: '1.5px solid #46667281', fontSize: '15px' }} onClick={() => navigate('/date')}>
+        //     У вас пока не запланировано никаких событий
+        //   </h1>
+        // )
+      }
       </div>
           </div>
         </div>
