@@ -125,7 +125,6 @@ button:hover {
     border-color: #FF5CB8;
     filter: drop-shadow(0 0 2em #FF5CB8);
 }
-
 .fileBtn {
     font-size: 1em;
     cursor: pointer;
@@ -242,7 +241,7 @@ button:hover {
 
 .eventPost{
     background-color: rgba(255, 255, 255, 0.471);
-    height: 146px;
+    height: auto;
 }
 
 .event-title{
