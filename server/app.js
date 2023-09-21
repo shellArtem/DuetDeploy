@@ -81,7 +81,7 @@ app.post('/pay', (req, res) => {
   const prePay = price / 2  
   yooKassa.createPayment({
     amount: {
-        value: 1,
+        value: prePay,
         currency: 'RUB',
     },
     capture: true,
