@@ -132,7 +132,7 @@ button:hover {
 }
 
 .expectation {
-    background-color: rgba(255, 255, 255, 0.471);
+    /* background-color: rgba(255, 255, 255, 0.471); */
     height: 150px;
     background-size: 110%;
     backdrop-filter: blur(30px); 
