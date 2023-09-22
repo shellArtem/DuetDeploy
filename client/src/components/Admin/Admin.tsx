@@ -512,7 +512,7 @@ const exportWishToExcelHandler = async () => {
         </div>
        
         <Form.Item style={{margin: '5%', width: '47rem'}}>
-        <TextArea className='news-body' placeholder='Текст новости' name='newsBody' style={{height: '8rem', marginLeft: 'auto', marginRight: 'auto'}} onChange={(e) => setNews(e.target.value)}/>
+        <TextArea className='news-body' placeholder='Текст новости' name='newsBody' onChange={(e) => setNews(e.target.value)}/>
         </Form.Item>
 
         {/* <button className='addImg' >добавить новость</button> */}
@@ -521,7 +521,7 @@ const exportWishToExcelHandler = async () => {
       </Form>
       <div className='feetback-filter'>
       <h2 style={{fontSize: '20px', margin:'5%'}}> Модерация отзывов </h2>
-        <div>
+        <div className='feedbacks'>
 
         {feedbacks.length ? feedbacks.map((el) => 
         <FeedbackAnswer

@@ -50,6 +50,12 @@ justify-content: space-around;
     flex-direction: column;
 }
 
+.news-body {
+    height: 8rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .adminAddBtn {
     border-radius: 8px;
     border: none;
@@ -107,5 +113,12 @@ justify-content: space-around;
 
     .all-anketas, .number {
         display: none;
+    }
+
+    .feedbacks{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 97%;
     }
 }
