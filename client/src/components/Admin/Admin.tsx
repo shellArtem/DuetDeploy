@@ -484,7 +484,7 @@ const exportWishToExcelHandler = async () => {
             borderStyle: 'solid',
             borderColor:'#FF5CB8'}}>
     
-              <h2>У вас новый заказ свидания от: {event.clientName}, номер телефона: {event.clientPhone}</h2>
+              <h2 style={{marginLeft: 'auto'}}>У вас новый заказ свидания от: {event.clientName}, номер телефона: {event.clientPhone}</h2>
               <div>{event.dateTitle}</div>
               <div>{event.extraOptions}</div>
               <div>{event.price}</div>
@@ -529,7 +529,7 @@ const exportWishToExcelHandler = async () => {
         el={el}
         approveHandler={approveHandler}
         deleteHandler={deleteHandler}
-        style={{width: '100%'}}
+        className='feedback-ans'
         />
           ) : 
           <div><h2> Отзывов нет </h2></div>
