@@ -25,7 +25,7 @@ justify-content: space-around;
     display: flex;
     justify-content: space-around; 
     margin-top: 5%;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .form-news {
@@ -54,6 +54,10 @@ justify-content: space-around;
     height: 8rem;
     margin-left: auto;
     margin-right: auto;
+}
+
+.feedback-ans{
+    width: 100%;
 }
 
 .adminAddBtn {
@@ -107,10 +111,6 @@ justify-content: space-around;
         align-items: center;
     }
 
-    .news-body {
-        width: 80%;
-    }
-
     .all-anketas, .number {
         display: none;
     }
@@ -120,5 +120,19 @@ justify-content: space-around;
     flex-direction: column;
     align-items: center;
     width: 97%;
+    }
+
+    .dates-info{
+        height: 600px;
+    }
+
+    :where(.css-fpg3f5).ant-input:placeholder-shown {
+        width: 40%;
+    }
+
+    .feedback-ans{
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
