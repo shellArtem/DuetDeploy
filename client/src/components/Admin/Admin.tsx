@@ -529,6 +529,7 @@ const exportWishToExcelHandler = async () => {
         el={el}
         approveHandler={approveHandler}
         deleteHandler={deleteHandler}
+        style={{width: '100%'}}
         />
           ) : 
           <div><h2> Отзывов нет </h2></div>
