@@ -16,7 +16,7 @@ loginRouter.post('/', async (req, res) => {
     if (user) {
       const checkPass = await bcrypt.compare(password, user.password);
       if (checkPass) {
-        // req.session.login = user.name;
+        req.session.login = user.name;
         req.session.phone = user.phone;
         req.session.save(() => {
           // res.json({ msg: 'Вы успешно авторизованы!', name:user.name, auth:true, img: user.photo, phone: user.phone });
