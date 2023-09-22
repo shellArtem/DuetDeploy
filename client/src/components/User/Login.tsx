@@ -15,13 +15,13 @@ export default function Login() {
   const dispatch = useDispatch();
 
   const initState = {
-    // name: "",
+    name: "",
     phone: "",
     password: "",
   };
 
   type FieldType = {
-    // name?: string;
+    name?: string;
     phone?: string;
     password?: string;
     remember?: string;
@@ -48,8 +48,7 @@ export default function Login() {
         setError(() => true)
       } 
       else {
-        // dispatch({ type: "LOG_USER", payload: {name: data.name, photo: data.img, phone: data.phone} });
-        dispatch({ type: "LOG_USER", payload: {photo: data.img, phone: data.phone} });
+        dispatch({ type: "LOG_USER", payload: {name: data.name, photo: data.img, phone: data.phone} });
       navigate("/");
       } 
     } catch (error) {
