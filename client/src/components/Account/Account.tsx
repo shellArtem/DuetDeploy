@@ -211,7 +211,7 @@ export default function Account() {
         {/* <h1 style={{ fontSize: '2rem' }}>{message}</h1> */}
         {events.length 
         ? (
-        <h2 style={{ cursor: 'help', width: '350px', margin: 'auto', fontSize: '20px', border:'1.5px solid #FF5CB8', marginTop: '3px' }}>
+        <h2 style={{ cursor: 'help', width: '350px', margin: 'auto'3, fontSize: '20px', border:'1.5px solid #FF5CB8', marginTop: '3px' }}>
           {' '}
           В ближайшее время с Вами обязательно свяжется администрация агентства{' '}
         </h2>
