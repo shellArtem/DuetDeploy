@@ -15,13 +15,13 @@ export default function Login() {
   const dispatch = useDispatch();
 
   const initState = {
-    name: "",
+    // name: "",
     phone: "",
     password: "",
   };
 
   type FieldType = {
-    name?: string;
+    // name?: string;
     phone?: string;
     password?: string;
     remember?: string;
@@ -32,7 +32,8 @@ export default function Login() {
  const [err, setErr] = useState(false)
   const [form] = useForm();
   const onFinish = async (values) => {
-    if (values.name && values.password && values.phone.phoneNumber) {
+    // if (values.name && values.password && values.phone.phoneNumber) {
+      if (values.password && values.phone.phoneNumber) {
     try {
       const responce = await fetch("http://duet-marriage.ru:3003/login", {
         method: "POST",
@@ -47,7 +48,8 @@ export default function Login() {
         setError(() => true)
       } 
       else {
-        dispatch({ type: "LOG_USER", payload: {name: data.name, photo: data.img, phone: data.phone} });
+        // dispatch({ type: "LOG_USER", payload: {name: data.name, photo: data.img, phone: data.phone} });
+        dispatch({ type: "LOG_USER", payload: {photo: data.img, phone: data.phone} });
       navigate("/");
       } 
     } catch (error) {
@@ -83,14 +85,14 @@ const onFinishFailed = (errorInfo: any) => {
         autoComplete="off"
         >
         
-        <Form.Item<FieldType>
+        {/* <Form.Item<FieldType>
           className="loginForm"
           label="Имя"
           name="name"
           rules={[{ required: true, message: "Пожалуйста, введите Ваше имя!" }]}
         >
           <Input value={log.name} type="text" placeholder="Введите имя" />
-        </Form.Item>
+        </Form.Item> */}
 
         <FormItem
         className="loginForm"

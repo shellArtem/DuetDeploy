@@ -382,7 +382,7 @@ const exportWishToExcelHandler = async () => {
     <h1 style={{fontSize: '20px'}}>Личный кабинет администратора</h1>
     {user === 'admin' ? 
     <>
-      <div style={{display: 'flex', justifyContent:'space-around'}}>
+      <div className='btns'>
         
         {addNewDate ? 
 
@@ -393,8 +393,8 @@ const exportWishToExcelHandler = async () => {
         labelCol={{ span: 4 }}
         wrapperCol={{ span: 14 }}
         layout="horizontal"
-        style={{ width: 600 }}
         onFinish={sendDate}
+        className='inputsDate'
         name='inputsDate'
       >
         <h2 style={{fontSize: '20px'}}>Новый вид свидания</h2>
@@ -436,8 +436,8 @@ const exportWishToExcelHandler = async () => {
         labelCol={{ span: 4 }}
         wrapperCol={{ span: 14 }}
         layout="horizontal"
-        style={{ width: 600 }}
         onFinish={onFinishNewExtra}
+        className='inputs-dop'
       >
         <h2 style={{fontSize: '20px'}}>Новая дополнительная услуга</h2>
        
@@ -463,9 +463,9 @@ const exportWishToExcelHandler = async () => {
       }
 
       </div >
-      <div style={{overflowY:'scroll', height:'300px', display:'flex', justifyContent:'space-around', alignItems:'baseline'}}>
+      <div className='dates-info'>
 
-    <ul style={{overflowY:'scroll', height:'300px', width:'30%'}}>
+    <ul className='unavailable'>
        <h1 style={{fontSize: '20px'}}>Занятые даты</h1>
       {disabledDatesArr.map((disabledDate) => 
              disabledDate.isAdmin
@@ -498,14 +498,12 @@ const exportWishToExcelHandler = async () => {
       </div>
       </div>
       </div>
-      <div style={{display:'flex', justifyContent:'space-around', marginTop:'5%', alignItems: "center"}}>
+      <div className='news-feetback'>
       <Form
         labelCol={{ span: 4 }}
         wrapperCol={{ span: 14 }}
         layout="horizontal"
-        style={{ width: 500, borderWidth: '3px 3px 1.5px',
-        borderStyle: 'solid',
-        borderColor:'#FF5CB8'}}
+        className='form-news'
       >
         <h2 style={{margin: '5%', fontSize: '20px'}}>Поменять новость</h2>
         <div className='photoNews'>
@@ -514,19 +512,14 @@ const exportWishToExcelHandler = async () => {
         </div>
        
         <Form.Item style={{margin: '5%', width: '47rem'}}>
-        <TextArea placeholder='Текст новости' name='newsBody' style={{height: '8rem', marginLeft: 'auto', marginRight: 'auto'}} onChange={(e) => setNews(e.target.value)}/>
+        <TextArea className='news-body' placeholder='Текст новости' name='newsBody' style={{height: '8rem', marginLeft: 'auto', marginRight: 'auto'}} onChange={(e) => setNews(e.target.value)}/>
         </Form.Item>
 
         {/* <button className='addImg' >добавить новость</button> */}
         <button style={{marginBottom: '3%'}} className='addImg' onClick={sendNews} >Добавить новость</button>
         
       </Form>
-      <div style={{display:'flex', flexDirection:'column', borderWidth: '3px 3px 1.5px',
-    borderStyle: 'solid',
-    borderColor:'#FF5CB8',
-    width: '500px',
-    minHeight: '335.77px',
-    }}>
+      <div className='feetback-filter'>
       <h2 style={{fontSize: '20px', margin:'5%'}}> Модерация отзывов </h2>
         <div>
 
@@ -545,7 +538,7 @@ const exportWishToExcelHandler = async () => {
       </div>
       
 
-      <div>
+      <div className='all-anketas'>
         <div>
         <h2 style={{fontSize: '20px'}}>Все анкеты</h2>
         <Table columns={columns} dataSource={ankets} onChange={onChange} pagination={{ pageSize: 50 }} scroll={{ y: 240 }}
@@ -563,7 +556,7 @@ const exportWishToExcelHandler = async () => {
 
       </div>
 
-      <div style={{display: 'flex', flexDirection: 'column'}}>
+      <div className='number'>
         <p style={{fontSize: '20px'}}> Необходимо ввести номер телефона пользователя для подбора пары </p>
         <Form
         name="basic"
