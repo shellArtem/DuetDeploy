@@ -8,7 +8,6 @@ const { User } = require('../db/models');
 
 
 loginRouter.post('/', async (req, res) => {
-  // const { name, phone, password, remember } = req.body;
   const { phone, password, remember } = req.body;
   const userPhone = `+${phone.countryCode}${phone.areaCode}${phone.phoneNumber}`
   try {
@@ -19,8 +18,7 @@ loginRouter.post('/', async (req, res) => {
         req.session.login = user.name;
         req.session.phone = user.phone;
         req.session.save(() => {
-          // res.json({ msg: 'Вы успешно авторизованы!', name:user.name, auth:true, img: user.photo, phone: user.phone });
-          res.json({ msg: 'Вы успешно авторизованы!', auth:true, img: user.photo, phone: user.phone });
+          res.json({ msg: 'Вы успешно авторизованы!', name:user.name, auth:true, img: user.photo, phone: user.phone });
         });
       } else {
         res.json({ err: 'Пароль неверный' });
@@ -29,7 +27,7 @@ loginRouter.post('/', async (req, res) => {
       res.json({ err: 'Такой пользователь не найден' });
     }
   } catch (error) {
-    res.send('Чтото пошло не так', error);
+    res.send('Что-то пошло не так', error);
   }
 });
 
