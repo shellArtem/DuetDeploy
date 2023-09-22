@@ -19,8 +19,7 @@ const UserReducer = (state = initialState, action: AnyAction) => {
     case "LOGOUT_USER":
       return { ...state, name: payload, auth: false, img: '' };
     case "LOG_USER":
-      // return { ...state, name: payload.name, auth: true, img: payload.photo, phone: payload.phone};
-      return { ...state, auth: true, img: payload.photo, phone: payload.phone};
+      return { ...state, name: payload.name, auth: true, img: payload.photo, phone: payload.phone};
       case "SAVE_USER":
       return { ...state, name: payload.name, img: payload.img, phone: payload.phone, auth: true };
       case "CHANGE_IMG":
