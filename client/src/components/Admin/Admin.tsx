@@ -51,7 +51,7 @@ export default function Admin() {
 const deleteHandler = async (id) => {
   
   try {
-    await fetch("http://77.222.53.7:3003/feedback", {
+    await fetch("http://duet-marriage.ru:3003/feedback", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -70,7 +70,7 @@ const feedbacks = useSelector((state: RootState) => state.FeedbackReducer.feedba
   useEffect(() => {
     (async () => {
         try {
-            const response = await fetch('http://77.222.53.7:3003/feedback', {
+            const response = await fetch('http://duet-marriage.ru:3003/feedback', {
                 method: 'GET',
                 headers: { 'Content-type': 'application/json' },
             });
@@ -78,7 +78,7 @@ const feedbacks = useSelector((state: RootState) => state.FeedbackReducer.feedba
             dispatch({ type: "ALL_FEEDBACKS", payload: result }); //feedbacks
             
 
-            const resp = await fetch('http://77.222.53.7:3003/allAnkets', {
+            const resp = await fetch('http://duet-marriage.ru:3003/allAnkets', {
                 method: 'GET',
                 headers: { 'Content-type': 'application/json' },
             });
@@ -94,7 +94,7 @@ const feedbacks = useSelector((state: RootState) => state.FeedbackReducer.feedba
 const approveHandler = async (id, approved) => {
   const curApproved = !approved
   try {
-    await fetch("http://77.222.53.7:3003/feedback", {
+    await fetch("http://duet-marriage.ru:3003/feedback", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -125,7 +125,7 @@ const approveHandler = async (id, approved) => {
 
     try {
 
-      await fetch("http://77.222.53.7:3003/ankets", {
+      await fetch("http://duet-marriage.ru:3003/ankets", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -199,7 +199,7 @@ const approveHandler = async (id, approved) => {
 
   const onFinishNewExtra = async (values: any) => {
     try {
-      const responce = await fetch("http://77.222.53.7:3003/extra", {
+      const responce = await fetch("http://duet-marriage.ru:3003/extra", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -222,7 +222,7 @@ const sendNews = React.useCallback(async() => {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
   data.append('newsPic', img)
-  await axios.put('http://77.222.53.7:3003/news', data, {
+  await axios.put('http://duet-marriage.ru:3003/news', data, {
     headers: {
       'Content-Type': 'multipart/form-data',
     },
@@ -241,7 +241,7 @@ const sendDate = React.useCallback(async(values) => {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
   data.append('datesPic', imgDate)
-  await axios.post('http://77.222.53.7:3003/createDate', data, {
+  await axios.post('http://duet-marriage.ru:3003/createDate', data, {
     headers: {
       'Content-Type': 'multipart/form-data',
     },
@@ -257,13 +257,13 @@ const [allEvents, setAllEvents] = useState([])
 useEffect(() => {
   (async () => {
     try {
-      const response = await fetch("http://77.222.53.7:3003/disabledDate", {
+      const response = await fetch("http://duet-marriage.ru:3003/disabledDate", {
         method: "GET",
         headers: { "Content-type": "application/json" },
       });
       const result = await response.json();
       setDisabledDatesArr(result);
-      const resp = await fetch('http://77.222.53.7:3003/allEvents', {
+      const resp = await fetch('http://duet-marriage.ru:3003/allEvents', {
         method: "GET",
         headers: { "Content-type": "application/json" },
       })
@@ -277,7 +277,7 @@ useEffect(() => {
 
 const deleteDateHandler = async (id) => {
   try {
-    await fetch(`http://77.222.53.7:3003/disabledDate`, {
+    await fetch(`http://duet-marriage.ru:3003/disabledDate`, {
       method: 'DELETE',
       headers: { 'Content-type': 'application/json' },
       body: JSON.stringify({id}),
@@ -291,7 +291,7 @@ const deleteDateHandler = async (id) => {
 
 const deleteEventHandler = async (id) => {
   try {
-    const response = await fetch(`http://77.222.53.7:3003/allEvents`, {
+    const response = await fetch(`http://duet-marriage.ru:3003/allEvents`, {
       method: 'DELETE',
       headers: { 'Content-type': 'application/json' },
       body: JSON.stringify({id}),
@@ -307,7 +307,7 @@ const deleteEventHandler = async (id) => {
 
 const exportAnketsToExcelHandler = async () => {
   try {
-    const response = await fetch(`http://77.222.53.7:3003/exportToExcel`, {
+    const response = await fetch(`http://duet-marriage.ru:3003/exportToExcel`, {
       method: 'GET',
       headers: { 'Content-type': 'application/vnd.ms-excel' },
     });
@@ -326,7 +326,7 @@ const exportAnketsToExcelHandler = async () => {
 
 const exportWishToExcelHandler = async () => {
   try {
-    const response = await fetch(`http://77.222.53.7:3003/exportToExcelWish`, {
+    const response = await fetch(`http://duet-marriage.ru:3003/exportToExcelWish`, {
       method: 'GET',
       headers: { 'Content-type': 'application/vnd.ms-excel' },
     });
@@ -352,7 +352,7 @@ const exportWishToExcelHandler = async () => {
 
   const onFinish = async (values) => {
     try {
-      const responce = await fetch("http://77.222.53.7:3003/profile/matches", {
+      const responce = await fetch("http://duet-marriage.ru:3003/profile/matches", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -382,7 +382,7 @@ const exportWishToExcelHandler = async () => {
     <h1 style={{fontSize: '20px'}}>Личный кабинет администратора</h1>
     {user === 'admin' ? 
     <>
-      <div style={{display: 'flex', justifyContent:'space-around'}}>
+      <div className='btns'>
         
         {addNewDate ? 
 
@@ -393,8 +393,8 @@ const exportWishToExcelHandler = async () => {
         labelCol={{ span: 4 }}
         wrapperCol={{ span: 14 }}
         layout="horizontal"
-        style={{ width: 600 }}
         onFinish={sendDate}
+        className='inputsDate'
         name='inputsDate'
       >
         <h2 style={{fontSize: '20px'}}>Новый вид свидания</h2>
@@ -436,8 +436,8 @@ const exportWishToExcelHandler = async () => {
         labelCol={{ span: 4 }}
         wrapperCol={{ span: 14 }}
         layout="horizontal"
-        style={{ width: 600 }}
         onFinish={onFinishNewExtra}
+        className='inputs-dop'
       >
         <h2 style={{fontSize: '20px'}}>Новая дополнительная услуга</h2>
        
@@ -463,9 +463,9 @@ const exportWishToExcelHandler = async () => {
       }
 
       </div >
-      <div style={{overflowY:'scroll', height:'300px', display:'flex', justifyContent:'space-around', alignItems:'baseline'}}>
+      <div className='dates-info'>
 
-    <ul style={{overflowY:'scroll', height:'300px', width:'30%'}}>
+    <ul className='unavailable'>
        <h1 style={{fontSize: '20px'}}>Занятые даты</h1>
       {disabledDatesArr.map((disabledDate) => 
              disabledDate.isAdmin
@@ -498,14 +498,12 @@ const exportWishToExcelHandler = async () => {
       </div>
       </div>
       </div>
-      <div style={{display:'flex', justifyContent:'space-around', marginTop:'5%', alignItems: "center"}}>
+      <div className='news-feetback'>
       <Form
         labelCol={{ span: 4 }}
         wrapperCol={{ span: 14 }}
         layout="horizontal"
-        style={{ width: 500, borderWidth: '3px 3px 1.5px',
-        borderStyle: 'solid',
-        borderColor:'#FF5CB8'}}
+        className='form-news'
       >
         <h2 style={{margin: '5%', fontSize: '20px'}}>Поменять новость</h2>
         <div className='photoNews'>
@@ -514,19 +512,14 @@ const exportWishToExcelHandler = async () => {
         </div>
        
         <Form.Item style={{margin: '5%', width: '47rem'}}>
-        <TextArea placeholder='Текст новости' name='newsBody' style={{height: '8rem', marginLeft: 'auto', marginRight: 'auto'}} onChange={(e) => setNews(e.target.value)}/>
+        <TextArea className='news-body' placeholder='Текст новости' name='newsBody' style={{height: '8rem', marginLeft: 'auto', marginRight: 'auto'}} onChange={(e) => setNews(e.target.value)}/>
         </Form.Item>
 
         {/* <button className='addImg' >добавить новость</button> */}
         <button style={{marginBottom: '3%'}} className='addImg' onClick={sendNews} >Добавить новость</button>
         
       </Form>
-      <div style={{display:'flex', flexDirection:'column', borderWidth: '3px 3px 1.5px',
-    borderStyle: 'solid',
-    borderColor:'#FF5CB8',
-    width: '500px',
-    minHeight: '335.77px',
-    }}>
+      <div className='feetback-filter'>
       <h2 style={{fontSize: '20px', margin:'5%'}}> Модерация отзывов </h2>
         <div>
 
@@ -545,7 +538,7 @@ const exportWishToExcelHandler = async () => {
       </div>
       
 
-      <div>
+      <div className='all-anketas'>
         <div>
         <h2 style={{fontSize: '20px'}}>Все анкеты</h2>
         <Table columns={columns} dataSource={ankets} onChange={onChange} pagination={{ pageSize: 50 }} scroll={{ y: 240 }}
@@ -563,7 +556,7 @@ const exportWishToExcelHandler = async () => {
 
       </div>
 
-      <div style={{display: 'flex', flexDirection: 'column'}}>
+      <div className='number'>
         <p style={{fontSize: '20px'}}> Необходимо ввести номер телефона пользователя для подбора пары </p>
         <Form
         name="basic"
@@ -605,7 +598,7 @@ const exportWishToExcelHandler = async () => {
       {matches.length ? matches.map((el) => 
       <div >
       <div style={{border:'solid 2px #ff5cb8', width:'100%', borderRadius:'15px', margin:'5px', overflow:'hidden'}}>
-        <img src={`http://77.222.53.7:3003${el.User.photo}`} style={{width:'400px', height:'300px'}}></img>
+        <img src={`http://duet-marriage.ru:3003${el.User.photo}`} style={{width:'400px', height:'300px'}}></img>
       <div>{el.Фамилия} {el.Имя}</div>
         <p>Телефон: {el.Контактный_телефон}</p>
         <p>Возраст: {el.Полных_лет}</p>

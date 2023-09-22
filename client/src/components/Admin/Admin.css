@@ -1,3 +1,55 @@
+.btns {
+display: flex;
+justify-content: space-around;
+}
+
+.dates-info {
+    overflow-y: scroll; 
+    height: 300px; 
+    display: flex; 
+    justify-content: space-around; 
+    align-items: baseline;
+}
+
+.unavailable {
+    overflow-y: scroll; 
+    height: 300px; 
+    width: 30%;
+}
+
+.inputsDate, .inputs-dop {
+    width: 600px;
+}
+
+.news-feetback {
+    display: flex;
+    justify-content: space-around; 
+    margin-top: 5%;
+    align-items: center;
+}
+
+.form-news {
+    width: 500;
+    border-width: 3px 3px 1.5px;
+        border-style: solid;
+        border-color: #FF5CB8;
+}
+
+.feetback-filter{
+    display: flex;
+    flex-direction: column;
+    border-width: 3px 3px 1.5px;
+    border-style: solid;
+    border-color: #FF5CB8;
+    width: 500px;
+    min-height: 335.77px;
+}
+
+.number {
+    display: flex;
+    flex-direction: column;
+}
+
 .adminAddBtn {
     border-radius: 8px;
     border: none;
@@ -32,4 +84,28 @@
     height: 50px;
     transition: border-color 0.25s;
     margin: 5%;
+}
+
+@media only screen and (max-width: 450px) {
+    .btns, .dates-info, .news-feetback {
+        flex-direction: column;
+    }
+
+    .unavailable, .inputsDate, .form-news, .feetback-filter {
+        width: 100%;
+    }
+
+    .form-news {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .news-body {
+        width: 80%;
+    }
+
+    .all-anketas, .number {
+        display: none;
+    }
 }

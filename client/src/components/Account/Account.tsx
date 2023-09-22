@@ -31,14 +31,14 @@ export default function Account() {
   useEffect(() => {
     (async function () {
       try {
-        const resp = await fetch('http://77.222.53.7:3003/usersEvent', {
+        const resp = await fetch('http://duet-marriage.ru:3003/usersEvent', {
           method: 'GET',
           credentials: 'include',
         });
         const res = await resp.json();
         setEvents(res);
 
-        const response = await fetch('http://77.222.53.7:3003/yookassaFeedback', {
+        const response = await fetch('http://duet-marriage.ru:3003/yookassaFeedback', {
           method: 'POST',
           credentials: 'include',
         });
@@ -60,9 +60,8 @@ export default function Account() {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     data.append('photo', img);
-    console.log('FFFFFFF1');
-    
-    const response = await axios.put('http://77.222.53.7:3003/profile', data, {
+
+    const response = await axios.put('http://duet-marriage.ru:3003/profile', data, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
@@ -75,7 +74,7 @@ export default function Account() {
     // @ts-ignore
     data2.append('photo2', img2);
     const response2 = await axios.put(
-      'http://77.222.53.7:3003/profile/2',
+      'http://duet-marriage.ru:3003/profile/2',
       data2,
       {
         headers: {
@@ -93,7 +92,7 @@ export default function Account() {
 
   const logoutHandler = async () => {
     try {
-      const response = await fetch('http://77.222.53.7:3003/logout', {
+      const response = await fetch('http://duet-marriage.ru:3003/logout', {
         credentials: 'include',
       });
       dispatch({ type: 'LOGOUT_USER', payload: '' });
@@ -130,7 +129,7 @@ export default function Account() {
                   width: '40%',
                   borderRadius: '10%',
                 }}
-                src={`http://77.222.53.7:3003/${photo}`}
+                src={`http://duet-marriage.ru:3003${photo}`}
                 alt=""
               />
             ) : (
@@ -140,7 +139,7 @@ export default function Account() {
                   width: '40%',
                   borderRadius: '10%',
                 }}
-                src={'http://77.222.53.7:3003/avatar.png'}
+                src={'http://duet-marriage.ru:3003/avatar.png'}
                 alt=""
               />
             )}
@@ -211,7 +210,7 @@ export default function Account() {
         {/* <h1 style={{ fontSize: '2rem' }}>{message}</h1> */}
         {events.length 
         ? (
-        <h2 style={{ cursor: 'help', width: '350px', margin: 'auto'3, fontSize: '20px', border:'1.5px solid #FF5CB8', marginTop: '3px' }}>
+        <h2 style={{ cursor: 'help', width: '300px', margin: 'auto', fontSize: '20px', border:'1.5px solid #FF5CB8', marginTop: '3px' }}>
           {' '}
           В ближайшее время с Вами обязательно свяжется администрация агентства{' '}
         </h2>
@@ -224,19 +223,19 @@ export default function Account() {
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
             <div className="expectation" key={event.id}>
-              <div className="dateInfo">
                 <div style={{ fontSize: '25px'}}> {event.dateTitle} </div>
                 <div>Дополнительные услуги: {event.extraOptions}</div>
                 <div>Предварительная цена: {event.price}p</div>
                 <div >Выбранная дата события: {event.selectedDate}</div>
-              </div>
             </div>
           ))
-        ) : (
+        ) 
+        : (
           <h1 style={{ cursor: 'help', border:'3px solid #466672', width: '300px', margin: 'auto', borderBottom: '1.5px solid #46667281', fontSize: '15px' }} onClick={() => navigate('/date')}>
             У вас пока не запланировано никаких событий
           </h1>
-        )}
+        )
+      }
       </div>
           </div>
         </div>

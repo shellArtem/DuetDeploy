@@ -33,7 +33,7 @@ function App() {
 
   useEffect(() => {
     (async function () {
-      const response = await fetch("http://77.222.53.7:3003/user", {
+      const response = await fetch("http://duet-marriage.ru:3003/user", {
         credentials: "include",
       });
       const result = await response.json();
@@ -43,6 +43,8 @@ function App() {
       }
     })();
   }, []);
+
+  console.log(user)
 
   return (
 
