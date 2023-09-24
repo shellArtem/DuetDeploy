@@ -26,35 +26,35 @@ export default function Home () {
   <Carousel autoplay style={{width:'100%'}}>
     <div>
 
-      <img className='imgCarousel' src='http://duet-marriage.ru/carousel.001.jpeg'/>
+      <img alt='индивидуальный подход к каждому клиенту' className='imgCarousel' src='http://duet-marriage.ru/carousel.001.jpeg'/>
     </div>
     <div>
-    <img className='imgCarousel' src='http://duet-marriage.ru/carousel.002.jpeg'/>
-    </div>
-    <div>
-
-      <img className='imgCarousel' src='http://duet-marriage.ru/carousel.003.jpeg'/>
-
+    <img alt='соблюдение конфидециальности' className='imgCarousel' src='http://duet-marriage.ru/carousel.002.jpeg'/>
     </div>
     <div>
 
-      <img className='imgCarousel' src='http://duet-marriage.ru/carousel.004.jpeg'/>
+      <img alt='найти свою вторую половинку' className='imgCarousel' src='http://duet-marriage.ru/carousel.003.jpeg'/>
+
     </div>
     <div>
 
-      <img className='imgCarousel' src='http://duet-marriage.ru/carousel.005.jpeg'/>
+      <img alt='слышим пожелания каждого клиента' className='imgCarousel' src='http://duet-marriage.ru/carousel.004.jpeg'/>
     </div>
     <div>
-      <img className='imgCarousel' src='http://duet-marriage.ru/carousel.008.jpeg'/>
+
+      <img alt='объединяем одинокие сердца' className='imgCarousel' src='http://duet-marriage.ru/carousel.005.jpeg'/>
     </div>
     <div>
-      <img className='imgCarousel' src='http://duet-marriage.ru/carousel.006.jpeg'/>
+      <img alt='организуем незабываемое свидание' className='imgCarousel' src='http://duet-marriage.ru/carousel.008.jpeg'/>
     </div>
     <div>
-      <img className='imgCarousel' src='http://duet-marriage.ru/carousel.007.jpeg'/>
+      <img alt='мы ценим ваше доверие' className='imgCarousel' src='http://duet-marriage.ru/carousel.006.jpeg'/>
     </div>
     <div>
-      <img className='imgCarousel' src='http://duet-marriage.ru/carousel.009.jpg'/>
+      <img alt='большая база клиентов' className='imgCarousel' src='http://duet-marriage.ru/carousel.007.jpeg'/>
+    </div>
+    <div>
+      <img alt='найти любовь' className='imgCarousel' src='http://duet-marriage.ru/carousel.009.jpg'/>
     </div>
   </Carousel>
   <div className='welcomeText'>
@@ -62,12 +62,12 @@ export default function Home () {
       <p style={{fontSize:'20px'}}>Брачное агентство - это о чувствах, это о любви. Наше агентство единственное в городе, и мы гордимся тем, как мы помогли уже десяткам людей обрести свое счастье и найти истинную любовь. Наши клиенты - не только одинокие мужчины и женщины из Рыбинска, но и из других городов, включая Ярославль, Москву и область.</p><br/>
       <p style={{fontSize:'20px'}}>Большая база клиентов, которые обратились к нам, позволит выбирать из множества потенциальных кандидатов. Мы верим, что любовь не знает границ и возраста, поэтому мы. Можем похвастаться разнообразие клиентов от 25 до 73 лет.</p><br/>
       <p style={{fontSize:'20px'}}>А если вы уже нашли свою Любовь, то мы предлагаем вам услуги организации романтических свиданий! Множество локаций и приятных сюрпризов позволяют провести самое запоминающееся свидание с вашей половинкой, чтобы добавить немного романтики в повседневную жизнь и наполнить любовью каждый миг, проведенный вместе.</p>
-      <img className='logo' src='http://duet-marriage.ru/Прозрачный фон (1).png'/>
+      <img alt='брачное агентство "Дуэт" Рыбинск' className='logo' src='http://duet-marriage.ru/Прозрачный фон (1).png'/>
 </div>
   <h3 style={{fontSize:'30px', marginTop: '10%', marginBottom: '5%'}}>Наши события и новости</h3>
   <div className='newsBody'>
 
-  <div className='news'> <img className='newsPic' src={`http://duet-marriage.ru:3003${news.pic}`}/> {news.body}</div>
+  <div className='news'> <img alt='новость брачного агентства' className='newsPic' src={`http://duet-marriage.ru:3003${news.pic}`}/> {news.body}</div>
    </div>
 
   <div className='how-we-do-it'>
@@ -83,7 +83,7 @@ export default function Home () {
  <p>⁃ Внесите оплату, чтобы специальсты начали работу по поиску потенциальных партнеров</p>
  </div>
 </div>
-<img className='img-how-we-do-it' src='http://duet-marriage.ru/home.jpg'/>
+<img alt='Сделайте первый шаг навстречу любви' className='img-how-we-do-it' src='http://duet-marriage.ru/home.jpg'/>
   </div>
   <div className='our-work'></div>
   <div className='container-dates'>
@@ -144,21 +144,21 @@ export default function Home () {
   </div>
   <div className='pluses-body'>
     <div className='table1'>
-    <img style={{opacity: "45%"}} src='http://duet-marriage.ru/icons8-email-64.png' />
+    <img alt='лучше сайта знакомств' style={{opacity: "45%"}} src='http://duet-marriage.ru/icons8-email-64.png' />
     <div className='one-plus'> Сайты знакомств менее эффективны и менее безопасны</div>
-    <img style={{opacity: "45%"}} src='http://duet-marriage.ru/icons8-rings-64.png' /> 
+    <img alt='создание семьи' style={{opacity: "45%"}} src='http://duet-marriage.ru/icons8-rings-64.png' /> 
     <div className='two-plus'> Вы имеете серьезные намерения и желание создать семью</div>
     </div>
     <div className='table2'>
-    <img src='http://duet-marriage.ru/icons8-couple-64.png' style={{opacity: "45%"}}  />
+    <img alt='поиск пары' src='http://duet-marriage.ru/icons8-couple-64.png' style={{opacity: "45%"}}  />
     <div className='tree-plus'> У вас есть четкое представление о том, кто вам нужен</div>
-    <img src='http://duet-marriage.ru/icons8-key-64.png' style={{opacity: "45%"}} /> 
+    <img alt='серьезные отношения' src='http://duet-marriage.ru/icons8-key-64.png' style={{opacity: "45%"}} /> 
     <div className='four-plus'>Хотите отношений с надежным и благополучным человеком</div>
     </div>
     <div className='table3'>
-    <img src='http://duet-marriage.ru/icons8-calendar-64.png' style={{opacity: "45%"}} /> 
+    <img alt='найти вторую половину' src='http://duet-marriage.ru/icons8-calendar-64.png' style={{opacity: "45%"}} /> 
     <div className='five-plus'> Не хотите тратить время на поиски и общение с людьми, которые вам не подходят</div>
-    <img src='http://duet-marriage.ru/icons8-heart-64.png' style={{opacity: "45%"}} /> 
+    <img alt='найти партнёра' src='http://duet-marriage.ru/icons8-heart-64.png' style={{opacity: "45%"}} /> 
     <div className='six-plus'> Вы цените себя и свое время</div>
     </div>
   </div>
