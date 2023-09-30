@@ -1,5 +1,21 @@
 require('@babel/register');
 
+export const botUserAgents = [
+  'googlebot',
+  'bingbot',
+  'linkedinbot',
+  'mediapartners-google',
+];
+
+isPrerenderedUA = userAgent.matches(botUserAgents)
+isMobileUA = userAgent.matches(['mobile', 'android'])
+
+
+if (!isPrerenderedUA) {
+} else {
+  servePreRendered(isMobileUA)
+}
+
 const YooKassa = require('yookassa');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
