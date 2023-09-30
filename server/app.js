@@ -1,5 +1,8 @@
 require('@babel/register');
 
+
+let userAgent = req.headers['user-agent'];
+
 const botUserAgents = [
   'googlebot',
   'bingbot',
