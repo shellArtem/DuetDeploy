@@ -108,7 +108,6 @@ export default function Home () {
   </div>
   </div>
   <div className='video'>
- <div className='video-mp4'> <video id="video"  src={video} width="100%" height="100%" autoPlay loop preload="auto" /> </div>
   <div className='video-text'> 
   <div className='video-text-title'>Как мы работаем оффлайн?</div>
   <div className='video-text-header'>Брачное агентство значительно повысит ваши шансы на счастливую семейную жизнь. Мы оказываем услуги по поиску кандидата для серьезных отношений и брака. </div>
