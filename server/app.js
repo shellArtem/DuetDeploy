@@ -1,23 +1,23 @@
 require('@babel/register');
 
 
-let userAgent = req.headers['user-agent'];
+// let userAgent = req.headers['user-agent'];
 
-const botUserAgents = [
-  'googlebot',
-  'bingbot',
-  'linkedinbot',
-  'mediapartners-google',
-];
+// const botUserAgents = [
+//   'googlebot',
+//   'bingbot',
+//   'linkedinbot',
+//   'mediapartners-google',
+// ];
 
-isPrerenderedUA = userAgent.matches(botUserAgents)
-isMobileUA = userAgent.matches(['mobile', 'android'])
+// isPrerenderedUA = userAgent.matches(botUserAgents)
+// isMobileUA = userAgent.matches(['mobile', 'android'])
 
 
-if (!isPrerenderedUA) {
-} else {
-  servePreRendered(isMobileUA)
-}
+// if (!isPrerenderedUA) {
+// } else {
+//   servePreRendered(isMobileUA)
+// }
 
 const YooKassa = require('yookassa');
 const session = require('express-session');
