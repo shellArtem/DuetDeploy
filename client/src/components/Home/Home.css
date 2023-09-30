@@ -196,15 +196,13 @@ margin-left: 5%;
     margin-left: 0%;
 margin-right: auto;
 width: 100%;
+background-image: url('/lovers.png');
+background-size: 100%;
+height: max-content;
 }
 
 .video-mp4 {
-    /* margin-top: 1%;
-    margin-right: 0%;
-    float: right; */
     position: absolute;
-    /* top: 0; 
-    right: 0; */
     z-index: 1; 
 }
 
@@ -215,6 +213,7 @@ width: 100%;
     /* width: 100%;
     position: sticky; */
     z-index: 2; 
+    background-color: #fbfbfb4a;
     /* color: #001628;
     margin-bottom: 5%;
     max-width: max-content;
@@ -326,6 +325,96 @@ margin-right: 2%;
 }
 
 @media only screen and (max-width: 450px) {
+    
+    .imgCarousel {
+        height: 10rem;
+    }
+
+    .prosAndCons {
+        height: 17%;
+        padding: 3px;
+    }
+
+    .newsPic {
+        height: 60%;
+        width: 60%;
+    }
+
+    .img-how-we-do-it {
+        display: none;
+    }
+
+    .how-we-do-it-text {
+        width: 100%;
+        height: 30%;
+        background-color: #46667277;
+        border-radius: 15px;
+    }
+
+    .pluses-body{
+        flex-wrap: wrap;
+    }
+
+    .pluses-container {
+        height: max-content;
+        border-radius: 10px;
+        margin-top: auto;
+    }
+
+    video {
+       display: none;
+    }
+
+    .about-dates {
+        height: 50%;
+    }
+    .video {
+        width: 100%;
+        margin-top: 300px;
+        background-image: none;
+        
+    }
+    .video-text-steps {
+        flex-direction: column;
+    }
+
+    .video-text-one-step {
+        width: auto;
+        margin-right: 0px;
+        padding: 3px;
+        border-radius: 15px;
+    }
+
+    .video-text-two-step {
+        width: auto;
+        margin-left: 0px;
+        padding: 3px;
+        border-radius: 15px;
+    } 
+
+    .video-text-header, .video-text-end {
+        width: auto;
+        border-radius: 10px;
+        background-color: #466672c9;
+    }
+    .video-text-title {
+        width: auto;
+        color: #001628;
+        border-radius: 5px;
+    }
+
+    .welcomeText{
+        padding: 3px;
+    }
+    .video-text-header {
+      margin-bottom: 10px;
+    }
+    .video-text-end {
+        margin-top: 10px;
+    }
+  }
+
+  @media only screen and (width: 360px) {
     
     .imgCarousel {
         height: 10rem;
