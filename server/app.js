@@ -39,6 +39,8 @@ const sessionConfig = {
   },
 };
 
+app.use(require('prerender-node').set('prerenderToken', '9K4AjWeqvqw9U8GnCibg'));
+
 app.use(session(sessionConfig));
 app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
