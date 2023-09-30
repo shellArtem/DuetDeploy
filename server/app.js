@@ -1,6 +1,6 @@
 require('@babel/register');
 
-export const botUserAgents = [
+const botUserAgents = [
   'googlebot',
   'bingbot',
   'linkedinbot',
