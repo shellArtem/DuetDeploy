@@ -28,7 +28,7 @@ app.set('trust proxy', 1);
 const PORT = 3003;
 const host = 'duet-marriage.ru';
 
-const HTTPS_PORT = 443;
+const HTTPS_PORT = 8443;
 
 const sessionConfig = {
   name: 'Marriage',
