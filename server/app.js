@@ -2,6 +2,7 @@ require('@babel/register');
 
 const https = require('https');
 const http = require('http');
+
 const YooKassa = require('yookassa');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
@@ -42,6 +43,8 @@ const sessionConfig = {
     path: '/', // установка пути
   },
 };
+
+app.use(require('prerender-node').set('prerenderToken', '9K4AjWeqvqw9U8GnCibg'));
 
 app.use(session(sessionConfig));
 app.use(logger('dev'));
