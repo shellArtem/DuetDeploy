@@ -45,11 +45,11 @@ const MyLayout: React.FC = ({ children }) => {
         className="headerLayout">
         {user ? 
         <>
-          <img onClick={() => navigate("/")} src='http://duet-marriage.ru/logo2.png' style={{width:'90px', height:'72px', cursor: 'pointer'}}></img>
+          <img onClick={() => navigate("/")} src='https://duet-marriage.ru/logo2.png' style={{width:'90px', height:'72px', cursor: 'pointer'}}></img>
           <a href="tel:+79201083306">
           <Button className='layoutBtn'>Позвонить нам!</Button>
           </a>
-          <Button className='layoutBtn accBtn' onClick={() => navigate('/account')} style={{borderRadius:'50%', width:'72px', height:'72px', backgroundColor:'white', backgroundImage: `url("http://77.222.53.7:3003${photo}")`}}></Button>
+          <Button className='layoutBtn accBtn' onClick={() => navigate('/account')} style={{borderRadius:'50%', width:'72px', height:'72px', backgroundColor:'white', backgroundImage: `url("https://77.222.53.7:8443${photo}")`}}></Button>
           {/* <div className="burgerMenu" onclick={toggleSidebar()}>
           <span></span>
           <span></span>
@@ -58,7 +58,7 @@ const MyLayout: React.FC = ({ children }) => {
         </>
         :
         <>
-          <img src='http://duet-marriage.ru/logo2.png' onClick={() => navigate("/")} style={{width:'90px', height:'72px', cursor: 'pointer'}}></img>
+          <img src='https://duet-marriage.ru/logo2.png' onClick={() => navigate("/")} style={{width:'90px', height:'72px', cursor: 'pointer'}}></img>
           <a href="tel:+79201083306">
           <Button className='layoutBtn'>Позвонить нам!</Button>
       
@@ -140,9 +140,9 @@ const MyLayout: React.FC = ({ children }) => {
           <div>Телефон: +7 (920) 108-33-06</div>
           </a>
           <div>            
-            <a href="https://wa.me/79201083306"><img  style={{width: '50px'}} src='http://duet-marriage.ru/WhatsApp_Logo_1_t.png' /></a>
-            <a href="https://vk.com/marriegeagancy?z=article_edit-166046433_72908"> <img style={{width: '37px', marginBottom: '1px'}} src='http://duet-marriage.ru/free-png.ru-307.png' /></a>
-            <a href="https://t.me/Nadya887"> <img style={{width: '42px'}} src='http://duet-marriage.ru/telegram_cvet-d23c11fa.png' /></a>
+            <a href="https://wa.me/79201083306"><img  style={{width: '50px'}} src='https://duet-marriage.ru/WhatsApp_Logo_1_t.png' /></a>
+            <a href="https://vk.com/marriegeagancy?z=article_edit-166046433_72908"> <img style={{width: '37px', marginBottom: '1px'}} src='https://duet-marriage.ru/free-png.ru-307.png' /></a>
+            <a href="https://t.me/Nadya887"> <img style={{width: '42px'}} src='https://duet-marriage.ru/telegram_cvet-d23c11fa.png' /></a>
             </div>
           <div className="links"></div>
           </Footer>

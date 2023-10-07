@@ -18,16 +18,11 @@ export default function MyDate () {
     const [dates, setDates] = useState([]);
     const dispatch = useDispatch()
 
-
-
-
-
-    
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     const changeHandler = async (value, id) => {
       try {
-        await fetch(`http://duet-marriage.ru:3003/newRating`, {
+        await fetch(`https://duet-marriage.ru:8443/newRating`, {
           method: 'POST',
           headers: { 'Content-type': 'application/json' },
           body: JSON.stringify({value, id}),
@@ -39,7 +34,7 @@ export default function MyDate () {
 
     const deleteHandler = async (id) => {
       try {
-        await fetch(`http://duet-marriage.ru:3003/createDate/deleteDate`, {
+        await fetch(`https://duet-marriage.ru:8443/createDate/deleteDate`, {
           method: 'DELETE',
           headers: { 'Content-type': 'application/json' },
           body: JSON.stringify({id}),
@@ -87,7 +82,7 @@ export default function MyDate () {
     cover={
       <img
         alt="example"
-        src={`http://duet-marriage.ru:3003${date.img}`}
+        src={`https://duet-marriage.ru:8443${date.img}`}
         height='400px'
       />
     }

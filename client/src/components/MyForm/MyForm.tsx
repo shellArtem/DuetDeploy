@@ -101,7 +101,7 @@ export default function MyForm() {
     setButtons(() => !buttons);
     console.log(values);
     try {
-      const responce = await fetch('http://duet-marriage.ru:3003/form', {
+      const responce = await fetch('https://duet-marriage.ru:8443/form', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -125,7 +125,7 @@ export default function MyForm() {
   const handlePay = async (values) => {
 
     try {
-      const respons = await fetch("http://duet-marriage.ru:3003/payForm", {
+      const respons = await fetch("https://duet-marriage.ru:8443/payForm", {
         method: "POST",
         headers: { "Content-type": "application/json" },
       });
