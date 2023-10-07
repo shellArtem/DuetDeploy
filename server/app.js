@@ -1,5 +1,7 @@
 require('@babel/register');
 
+const https = require('https');
+const http = require('http');
 const YooKassa = require('yookassa');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
@@ -24,6 +26,8 @@ const app = express();
 app.set('trust proxy', 1); 
 const PORT = 3003;
 const host = 'duet-marriage.ru';
+
+const HTTPS_PORT = 443;
 
 const sessionConfig = {
   name: 'Marriage',
@@ -144,7 +148,23 @@ app.post('/yookassaFeedback', (req, resp) => {
 });
 
 
+// HTTPS server configuration
+const httpsOptions = {
+  key: fs.readFileSync(path.join(__dirname, '/certs/privkey.pem')),
+  cert: fs.readFileSync(path.join(__dirname, '/certs/fullchain.pem')),
+};
 
-app.listen(PORT, host, () => {
-  console.log(`Server listens http://${host}:${PORT}`);
+// Create the HTTPS server
+const httpsServer = https.createServer(httpsOptions, app);
+
+// Start both HTTP and HTTPS servers to handle both protocols
+http.createServer(app).listen(PORT, () => {
+  console.log(`HTTP server started on PORT: ${PORT}`);
 });
+
+httpsServer.listen(443, () => {
+  console.log(`HTTPS server started on PORT: ${HTTPS_PORT}`);
+});
+// app.listen(PORT, host, () => {
+//   console.log(`Server listens http://${host}:${PORT}`);
+// });

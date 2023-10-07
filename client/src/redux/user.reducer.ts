@@ -1,6 +1,4 @@
 import { AnyAction } from "@reduxjs/toolkit";
-// import { StateType } from './types/state';
-// import { ADD_TO_FAVORITES, DEL_FROM_FAVORITES } from './type.redux';
 
 const initialState = {
   name: "",
@@ -20,13 +18,10 @@ const UserReducer = (state = initialState, action: AnyAction) => {
       return { ...state, name: payload, auth: false, img: '' };
     case "LOG_USER":
       return { ...state, name: payload.name, auth: true, img: payload.photo, phone: payload.phone};
-      // return { ...state, auth: true, img: payload.photo, phone: payload.phone};
       case "SAVE_USER":
       return { ...state, name: payload.name, img: payload.img, phone: payload.phone, auth: true };
       case "CHANGE_IMG":
         return { ...state, img: payload.photo};
-        // case "CHANGE_IMG2":
-        //   return { ...state, img2: payload.photo2};
     default:
       return state;
   }
