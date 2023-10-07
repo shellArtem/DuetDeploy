@@ -2,7 +2,7 @@ require('@babel/register');
 
 const https = require('https');
 const http = require('http');
-
+const fs = require('fs');
 const YooKassa = require('yookassa');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
