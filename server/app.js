@@ -58,6 +58,13 @@ app.use(cors({
   credentials: true }
 ));
 
+app.use((req, res, next) => {
+  if (req.headers.host === 'http://duet-marriage.ru') {
+    return res.redirect(301, 'https://duet-marriage.ru');
+  }
+  return next();
+});
+
 app.use('/', router);
 app.use('/register', regRouter);
 app.use('/login', loginRouter);
@@ -66,11 +73,6 @@ app.use('/', adminRouter);
 app.use('/createDate', newDateRouter)
 
 app.use('/profile', profileRouter)
-
-
-
-
-
 
 const yooKassa = new YooKassa({
   shopId: '240995',
@@ -150,7 +152,6 @@ app.post('/yookassaFeedback', (req, resp) => {
   resp.json({event, metadata});
 });
 
-
 // HTTPS server configuration
 const httpsOptions = {
   key: fs.readFileSync(path.join(__dirname, '/certs/privkey.pem')),
@@ -168,6 +169,14 @@ http.createServer(app).listen(PORT, () => {
 httpsServer.listen(HTTPS_PORT, () => {
   console.log(`HTTPS server started on PORT: ${HTTPS_PORT}`);
 });
-// app.listen(PORT, host, () => {
-//   console.log(`Server listens http://${host}:${PORT}`);
+// app.use((req, res, next) => {
+//   if (!req.secure && req.protocol !== 'https') {
+//     const { host } = req.headers;
+//     const parts = host.split(':');
+//     const hostname = parts[0];
+//     res.redirect(https://${hostname}${req.url});
+//   } else {
+//     next();
+//   }
 // });
+

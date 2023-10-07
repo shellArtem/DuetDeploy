@@ -49,7 +49,7 @@ const MyLayout: React.FC = ({ children }) => {
           <a href="tel:+79201083306">
           <Button className='layoutBtn'>Позвонить нам!</Button>
           </a>
-          <Button className='layoutBtn accBtn' onClick={() => navigate('/account')} style={{borderRadius:'50%', width:'72px', height:'72px', backgroundColor:'white', backgroundImage: `url("https://77.222.53.7:8443${photo}")`}}></Button>
+          <Button className='layoutBtn accBtn' onClick={() => navigate('/account')} style={{borderRadius:'50%', width:'72px', height:'72px', backgroundColor:'white', backgroundImage: `url("https://duet-marriage.ru:8443${photo}")`}}></Button>
           {/* <div className="burgerMenu" onclick={toggleSidebar()}>
           <span></span>
           <span></span>
