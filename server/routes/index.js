@@ -370,8 +370,8 @@ router.post("/form", async (req, res) => {
     text: " ",
 
     html: `
-    Фото: http://77.222.53.7:3003${photo}<br>
-    Фото_в_полный_рост: http://77.222.53.7:3003${photo2}<br>
+    Фото: https://duet-marriage.ru:8443${photo}<br>
+    Фото_в_полный_рост: https://duet-marriage.ru:8443${photo2}<br>
     Фамилия:  ${Фамилия}<br>
     Имя: ${Имя}<br>
     Отчество: ${Отчество}<br>
