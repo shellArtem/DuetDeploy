@@ -303,6 +303,8 @@ export default function OneDate() {
           onFinishFailed={onFinishFailed}
           autoComplete="off"
         >
+
+          <div className="extra-option">
           <h1 style={{fontSize: '20px', textAlign:'left', marginRight: '5%' }}>Дополнительные услуги:</h1>
           {extraOptions.map((extraOption) => (
             <Form.Item <FieldType>
@@ -310,12 +312,11 @@ export default function OneDate() {
               name={extraOption.title}
               key={extraOption.id}
             >
-                <div style={{display:'flex', fontSize: '20px'}}>
+                <div style={{display:'flex', justifyContent: 'center', width: '100%', fontSize: '20px', overflow: 'inherit'}}>
               <Checkbox className="checkbox"
                 id={extraOption.price}
                 name={extraOption.title}
                 onChange={onChange}
-                style={{marginRight:'5%'}}
                 />
                 <div>От {extraOption.price} р.</div>
                 </div>
@@ -324,13 +325,14 @@ export default function OneDate() {
                   )}
             </Form.Item>
           ))}
+        </div>
         </Form>
       </div>
       <div
         className="lowerOneDate"
       >
                 <div className="price">
-          <h2 style={{fontSize: '20px',}}>Предварительная итоговая стоимость</h2>
+          <h3 style={{fontSize: '20px',}}>Предварительная итоговая стоимость</h3>
           <h3 style={{ border: "3px solid black", borderRadius: "10px" }}>
             {" "}
             {finalPrice}р.{" "}

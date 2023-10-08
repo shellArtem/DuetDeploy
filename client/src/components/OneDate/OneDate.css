@@ -24,6 +24,11 @@
     margin-left: 2%;
 }
 
+:where(.css-fpg3f5).ant-form-item .ant-form-item-label >label {
+    font-size: 17px;
+
+}
+
 .ant-alert {
     background-color: #C0D2D8;
 }
@@ -34,6 +39,8 @@
 }
 
 .price{
+    display: flex;
+    flex-direction: column;
     width: 50%;
     margin-left: auto;
     margin-right: auto;
@@ -64,6 +71,16 @@ h1{
     width: 90%;
     margin-left: auto; 
     margin-right: auto;
+}
+
+:where(.css-dev-only-do-not-override-fpg3f5).ant-form-item .ant-form-item-label {
+    overflow: inherit;
+
+}
+
+:where(.css-dev-only-do-not-override-fpg3f5).ant-form-item .ant-form-item-label >label {
+    display: inline-flex;
+    justify-content: space-evenly;
 }
 
 .oneDateTitle{
@@ -110,5 +127,14 @@ h1{
 
     .upperOneDate{
 width: 100%;
+    }
+
+    :where(.css-dev-only-do-not-override-fpg3f5).ant-form-item .ant-form-item-label {
+        overflow: inherit;
+        margin-right: 0%;
+    }
+    
+    :where(.css-dev-only-do-not-override-fpg3f5).ant-row {
+        margin-right: 0%;
     }
 }
