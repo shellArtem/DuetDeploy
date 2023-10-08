@@ -126,9 +126,9 @@ justify-content: space-around;
         height: 600px;
     }
 
-    :where(.css-fpg3f5).ant-input:placeholder-shown {
+    /* :where(.css-fpg3f5).ant-input:placeholder-shown {
         width: 40%;
-    }
+    } */
 
     .feedback-ans{
         width: 50%;
