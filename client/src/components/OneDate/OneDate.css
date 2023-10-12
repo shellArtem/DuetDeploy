@@ -73,19 +73,19 @@ h1{
     margin-right: auto;
 }
 
-:where(.css-dev-only-do-not-override-fpg3f5).ant-form-item .ant-form-item-label {
+/* :where(.css-dev-only-do-not-override-fpg3f5).ant-form-item .ant-form-item-label {
     overflow: inherit;
 }
 
 :where(.css-fpg3f5).ant-form-horizontal .ant-form-item-label {
     overflow: inherit;
-}
+} */
 
-:where(.css-dev-only-do-not-override-fpg3f5).ant-form-item .ant-form-item-label >label {
+/* :where(.css-dev-only-do-not-override-fpg3f5).ant-form-item .ant-form-item-label >label {
     display: inline-flex;
     justify-content: space-evenly;
     margin-right: 28%;
-}
+} */
 
 .oneDateTitle{
     border:1px solid black; 
