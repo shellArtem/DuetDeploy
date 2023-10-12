@@ -111,25 +111,20 @@ const onFinishFailed = (errorInfo: any) => {
           />
         </Form.Item>
 
-        <div className="check-btn">
-
         <Form.Item<FieldType>
-           className="reg-check"
+           className="regForm"
           name="remember"
           valuePropName="checked"
-          // wrapperCol={{ offset: 8, span: 16 }}
         >
           <Checkbox>Запомнить меня</Checkbox>
         </Form.Item>
 
-        <Form.Item 
-        // wrapperCol={{ offset: 8, span: 16 }}  
-        className="reg-btn">
+        <Form.Item wrapperCol={{ offset: 8, span: 16 }}  className="regForm">
           <Button type="primary" htmlType="submit" style={{backgroundColor:'#628191'}}>
           Отправить
           </Button>
         </Form.Item>
-        </div>
+      </Form>
       {error && <h2 style={{color:'black'}}>Такой пользователь уже существует</h2>}
     </>
   );
