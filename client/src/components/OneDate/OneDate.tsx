@@ -295,8 +295,8 @@ export default function OneDate() {
             </div>
         <Form
           name="basic"
-          labelCol={{ span: 8 }}
-          wrapperCol={{ span: 16 }}
+          // labelCol={{ span: 8 }}
+          // wrapperCol={{ span: 16 }}
           style={{fontSize: '20px' }}
           initialValues={{ remember: true }}
           onFinish={onFinish}
