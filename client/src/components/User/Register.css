@@ -2,6 +2,12 @@
     max-width: 75%;
 }
 
+.check-btn{
+    display: flex;
+    margin-left: 20%;
+    flex-direction: column;
+}
+
 
 @media only screen and (max-width: 450px) {
 
@@ -10,5 +16,9 @@
     }
     :where(.css-dev-only-do-not-override-fpg3f5).ant-col-offset-8 {
         margin-inline-start: 0;
+    }
+
+    .check-btn{
+        margin-left: 5%;
     }
 }
