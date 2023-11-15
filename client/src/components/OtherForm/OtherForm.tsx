@@ -46,9 +46,10 @@ export default function OtherForm() {
   };
 
   const [otherAnketa, setotherAnketa] = useState(initState);
+  const [buttons, setButtons] = useState(false);
   const [form] = useForm();
   const onFinish = async (values) => {
-
+    setButtons(() => !buttons);
     console.log(setotherAnketa)
     try {
       const responce = await fetch("https://duet-marriage.ru:8443/partner", {
@@ -61,7 +62,7 @@ export default function OtherForm() {
       });
       const data = await responce.json();
       console.log(data)
-      navigate("/account");
+      // navigate("/account");
     } catch (error) {
       console.log("error", error);
     }
@@ -69,6 +70,22 @@ export default function OtherForm() {
 
   const onFinishFailed = (errorInfo: any) => {
     console.log("error:", errorInfo);
+  };
+
+  const handlePay = async (values) => {
+
+    try {
+      const respons = await fetch("https://duet-marriage.ru:8443/payForm", {
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+      });
+      const resul = await respons.json();
+      location.href = resul.ssilka;
+
+    } catch (error) {
+      console.log("error", error);
+    }
+
   };
 
   return (
@@ -386,12 +403,29 @@ export default function OtherForm() {
           <Input value={otherAnketa.Дополнительные_пожелания} type="text" />
         </Form.Item>
 
+        {buttons ? 
+      
+      <p style={{ fontSize: '3rem', margin: 'auto'}}>
+        Выберите способ оплаты
+      </p>
+        :
+
         <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-          <Button className={styles.otherFormBtn} htmlType="submit">
+          <Button className='sendFormBtn' htmlType="submit">
             Отправить
           </Button>
         </Form.Item>
+      }
       </Form>
+      {buttons ? (
+        <div className={styles.payBtnForm}>
+          <Button className='payBtn'  onClick={handlePay}>Онлайн оплата</Button>
+
+          <Button className='payBtn'  onClick={() => navigate('/account')}>Оплата в офисе</Button>
+        </div>
+      ) : (
+        <span> </span>
+      )}
     </>
   );
 }

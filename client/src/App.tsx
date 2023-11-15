@@ -64,7 +64,8 @@ function App() {
          <Route element={<ProtectedRouteNoAuth user={user} redirectTo={'/'}/>}>
           <Route path="/account" element={<Account />} />
           <Route path="/form" element={<MyForm />} />
-          <Route path="/partner" element={<OtherForm />} />
+          {/* <Route path="/partner" element={<OtherForm />} /> */}
+          <Route path="/form" element={<OtherForm />} />
         </Route>
          
 
