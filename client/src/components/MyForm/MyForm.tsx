@@ -96,9 +96,10 @@ export default function MyForm() {
     // @ts-ignore
   const [anketa, setAnketa] = useState(initState);
   const [form] = useForm();
+  
 
   const onFinish = async (values) => {
-
+    setNone(false)
     console.log(values);
     try {
       const responce = await fetch('https://duet-marriage.ru:8443/form', {
@@ -608,7 +609,10 @@ export default function MyForm() {
       </Form.Item>
 
             <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-        <Button onClick={() => setNone(false)} className={styles.otherFormBtn} htmlType="submit">
+        {/* <Button onClick={() => setNone(false)} className={styles.otherFormBtn} htmlType="button">
+Отправить
+</Button> */}
+        <Button className={styles.otherFormBtn} htmlType="submit">
 Отправить
 </Button>
       </Form.Item>
