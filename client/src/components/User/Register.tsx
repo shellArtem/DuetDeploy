@@ -34,7 +34,7 @@ export default function Register() {
 
   const onFinish = async (values) => {
     try {
-      const responce = await fetch("https://duet-marriage.ru:8443/register", {
+      const responce = await fetch("http://duet-marriage.ru:8443/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
