@@ -60,7 +60,7 @@ app.use(cors({
 
 app.use((req, res, next) => {
   if (req.headers.host === 'http://duet-marriage.ru') {
-    return res.redirect(301, 'https://duet-marriage.ru');
+    return res.redirect(301, 'http://duet-marriage.ru');
   }
   return next();
 });

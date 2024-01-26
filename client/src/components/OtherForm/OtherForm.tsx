@@ -52,7 +52,7 @@ export default function OtherForm() {
     setButtons(() => !buttons);
     console.log(setotherAnketa)
     try {
-      const responce = await fetch("https://duet-marriage.ru:8443/partner", {
+      const responce = await fetch("http://duet-marriage.ru:8443/partner", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -75,7 +75,7 @@ export default function OtherForm() {
   const handlePay = async (values) => {
 
     try {
-      const respons = await fetch("https://duet-marriage.ru:8443/payForm", {
+      const respons = await fetch("http://duet-marriage.ru:8443/payForm", {
         method: "POST",
         headers: { "Content-type": "application/json" },
       });
