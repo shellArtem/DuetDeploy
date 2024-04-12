@@ -6,11 +6,11 @@ import { Image } from 'antd';
 export default function About() {
   return (
     <div className={styles.main} >
-        <img alt='влюблённая пара' className={styles.mainPhoto} src='https://duet-marriage.ru/IMG_2491 — копия.jpg'/>
+        <img alt='влюблённая пара' className={styles.mainPhoto} src='http://duet-marriage.ru/IMG_2491 — копия.jpg'/>
 
 <link href="https://fonts.googleapis.com/css2?family=Arsenal&family=Forum&family=Inconsolata:wght@400;500;600;800&family=Montserrat:ital,wght@1,200&family=Open+Sans:wght@500&family=REM:ital,wght@1,800&family=Roboto:wght@500&display=swap" crossOrigin="anonymous" rel="stylesheet"></link>
       <div className={styles.text} >
-      <img alt='найти свою любовь'  className={styles.logo} src='https://duet-marriage.ru/Прозрачный фон (1).png'/>
+      <img alt='найти свою любовь'  className={styles.logo} src='http://duet-marriage.ru/Прозрачный фон (1).png'/>
         <h2 className={styles.h2}>"Брачное агентство ДУЭТ | Рыбинск"</h2>
   <div className={styles.citati} >
           <h4 className={styles.credo} style={{ float: 'left', marginRight: '10px', fontSize:'17px' }}><br/><br/>Люди - как музыкальные инструменты: их звучание зависит от того, кто к ним прикасается. </h4>
@@ -23,18 +23,18 @@ export default function About() {
 
 Мы сочетаем профессионализм и индивидуальный подход, чтобы учесть ваши пожелания и предпочтения.
           </p>
-          <img alt='вечер знакомств' className={styles.logo3} src='https://duet-marriage.ru/Прозрачный фон (1).png'/>
+          <img alt='вечер знакомств' className={styles.logo3} src='http://duet-marriage.ru/Прозрачный фон (1).png'/>
           </div>
           <p className={styles.two} style={{fontSize:'17px'}}>
           Наш полный каталог кандидатов позволяет вам выбирать идеального партнера, совместимого с вашими интересами, ценностями и целями. Наша база клиентов представляет разнообразие возрастов, профессий и культур, охватывая широкий спектр возможностей для вас.
           </p>
-          <img alt='ищу мужа' className={styles.logo4} src='https://duet-marriage.ru/Прозрачный фон (1).png'/>
+          <img alt='ищу мужа' className={styles.logo4} src='http://duet-marriage.ru/Прозрачный фон (1).png'/>
           <p className={styles.tree} style={{fontSize:'17px'}}>
           Но наша миссия не ограничивается только нахождением идеальной пары - мы также предлагаем уникальные услуги организации романтических свиданий. Мы создаем атмосферу, в которой любовь может расти и процветать, чтобы добавить в вашу повседневную жизнь немного волшебства и романтики.
           </p>
           <p className={styles.four} style={{fontSize:'17px'}}>Наша команда гарантирует вам конфиденциальность, индивидуальный подход и возможность найти свою вторую половинку. Мы стремимся сделать ваше путешествие к любви легким, захватывающим и запоминающимся.</p>
           <div className={styles.ps}>
-          <img alt='ищу жену' className={styles.logo5} src='https://duet-marriage.ru/Прозрачный фон (1).png'/>
+          <img alt='ищу жену' className={styles.logo5} src='http://duet-marriage.ru/Прозрачный фон (1).png'/>
           <div className={styles.psText} style={{fontSize:'17px'}}>
           Не упустите возможность найти свою истинную любовь с нашим брачным агентством «Дуэт» - ваше счастливое будущее ждет вас прямо здесь!
           </div>
@@ -51,7 +51,7 @@ export default function About() {
   >
     <Image
       width={400}
-      src="https://duet-marriage.ru/Nadya.jpg"
+      src="http://duet-marriage.ru/Nadya.jpg"
     />
   </Image.PreviewGroup>
       </div>
@@ -66,9 +66,9 @@ export default function About() {
             <p> График работы: c 10:00 до 20:00 </p>
             <p> Адрес: г. Рыбинск, ул. Герцена 34, 3 этаж , офис 7 </p>
             <p> Еmail: nadya_rodionova_85@mail.ru </p>
-            <p> <a href="https://wa.me/9206506055"><img alt='заказать свидание' style={{width: '50px'}} src='https://duet-marriage.ru/WhatsApp_Logo_1_t.png' /></a></p>
-            <p > <a href="https://vk.com/marriegeagancy?z=article_edit-166046433_72908"> <img alt='брачное агентство' style={{width: '35px'}} src='https://duet-marriage.ru/free-png.ru-307.png' /></a></p>
-            <p> <a href="https://t.me/Nadya887"> <img alt='контакты брачного агентства' style={{width: '40px'}} src='https://duet-marriage.ru/telegram_cvet-d23c11fa.png' /></a></p>
+            <p> <a href="https://wa.me/9206506055"><img alt='заказать свидание' style={{width: '50px'}} src='http://duet-marriage.ru/WhatsApp_Logo_1_t.png' /></a></p>
+            <p > <a href="https://vk.com/marriegeagancy?z=article_edit-166046433_72908"> <img alt='брачное агентство' style={{width: '35px'}} src='http://duet-marriage.ru/free-png.ru-307.png' /></a></p>
+            <p> <a href="https://t.me/Nadya887"> <img alt='контакты брачного агентства' style={{width: '40px'}} src='http://duet-marriage.ru/telegram_cvet-d23c11fa.png' /></a></p>
             {/* </p> */}
 
         </div>

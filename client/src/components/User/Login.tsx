@@ -35,7 +35,7 @@ export default function Login() {
     // if (values.name && values.password && values.phone.phoneNumber) {
       if (values.password && values.phone.phoneNumber) {
     try {
-      const responce = await fetch("https://duet-marriage.ru:8443/login", {
+      const responce = await fetch("http://duet-marriage.ru:8443/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -117,20 +117,24 @@ const onFinishFailed = (errorInfo: any) => {
         </Form.Item>
         <p onClick={() => navigate("/register")} style={{marginLeft:'auto'}}>Если у Вас ещё нет аккаунта - <Button className='' onClick={() => navigate("/register")}>Зарегистрироваться</Button> </p>
         
+        <div className="check-btn">
         <Form.Item<FieldType>
-           className="loginForm"
+           className="login-check"
           name="remember"
           valuePropName="checked"
-          wrapperCol={{ offset: 8, span: 16 }}
+          // wrapperCol={{ offset: 8, span: 16 }}
         >
           <Checkbox>Запомнить меня</Checkbox>
         </Form.Item>
 
-        <Form.Item wrapperCol={{ offset: 8, span: 16 }}  className="loginForm">
+        <Form.Item 
+        // wrapperCol={{ offset: 8, span: 16 }}  
+        className="login-btn">
           <Button type="primary" htmlType="submit" style={{backgroundColor:'#628191'}}>
           Отправить
           </Button>
         </Form.Item>
+        </div>
       </Form>
       {error && <h2 style={{color:'black'}}>Имя пользователя или пароль неверные</h2> }
       {err && <h2 style={{color:'black'}}>Пожалуйста, введите Ваш номер телефона!</h2>}

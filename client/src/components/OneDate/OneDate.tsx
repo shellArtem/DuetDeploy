@@ -58,14 +58,14 @@ export default function OneDate() {
   useEffect(() => {
     (async () => {
       try {
-        const response = await fetch("https://duet-marriage.ru:8443/extra", {
+        const response = await fetch("http://duet-marriage.ru:8443/extra", {
           method: "GET",
           headers: { "Content-type": "application/json" },
         });
         const result = await response.json();
         setExtraOptions([...extraOptions, ...result]);
 
-        const resp = await fetch("https://duet-marriage.ru:8443/oneDate", {
+        const resp = await fetch("http://duet-marriage.ru:8443/oneDate", {
           method: "POST",
           headers: { "Content-type": "application/json" },
           body: JSON.stringify({ id }),
@@ -91,7 +91,7 @@ export default function OneDate() {
     setValue(newValue);
     setSelectedValue(newValue);
     if (user === "admin") {
-      const response = await fetch("https://duet-marriage.ru:8443/disabledDate", {
+      const response = await fetch("http://duet-marriage.ru:8443/disabledDate", {
         method: "POST",
         headers: { "Content-type": "application/json" },
         body: JSON.stringify({
@@ -106,7 +106,7 @@ export default function OneDate() {
   useEffect(() => {
     (async () => {
       try {
-        const response = await fetch("https://duet-marriage.ru:8443/disabledDate", {
+        const response = await fetch("http://duet-marriage.ru:8443/disabledDate", {
           method: "GET",
           headers: { "Content-type": "application/json" },
         });
@@ -205,7 +205,7 @@ export default function OneDate() {
         phone: values.phone || null,
       };
 //fetch to  create an order
-      const response = await fetch("https://duet-marriage.ru:8443/order", {
+      const response = await fetch("http://duet-marriage.ru:8443/order", {
         method: "POST",
         headers: { "Content-type": "application/json" },
         body: JSON.stringify(allValues),
@@ -213,7 +213,7 @@ export default function OneDate() {
       });
 //fetch to disable date
       await response.json();
-      const resp = await fetch("https://duet-marriage.ru:8443/disabledDate", {
+      const resp = await fetch("http://duet-marriage.ru:8443/disabledDate", {
         method: "POST",
         headers: { "Content-type": "application/json" },
         body: JSON.stringify({ date: selectedValue.$d.toLocaleDateString() }),
@@ -221,7 +221,7 @@ export default function OneDate() {
       const res = await resp.json();
       setDisabledDatesArr([...disabledDatesArr, res]);
 //oplata
-      const respons = await fetch("https://duet-marriage.ru:8443/pay", {
+      const respons = await fetch("http://duet-marriage.ru:8443/pay", {
         method: "POST",
         headers: { "Content-type": "application/json" },
         body: JSON.stringify({ allValues }),
@@ -238,7 +238,7 @@ export default function OneDate() {
   const deleteHandler = async (id) => {
     try {
       await fetch(
-        `https://duet-marriage.ru:8443/createDate/deleteExtra`,
+        `http://duet-marriage.ru:8443/createDate/deleteExtra`,
         {
           method: "DELETE",
           headers: { "Content-type": "application/json" },
@@ -268,7 +268,7 @@ export default function OneDate() {
       <h2 className='text'> <img
             className='img'
               alt="example"
-              src={`https://duet-marriage.ru:8443${oneDate.img}`}
+              src={`http://duet-marriage.ru:8443${oneDate.img}`}
               height="400px"
             />{oneDate.description}</h2>
           </div>
@@ -285,18 +285,18 @@ export default function OneDate() {
                   flexDirection: "column",
                 }}
               >
-               <div style={{display: 'flex', gap: '5%'}}><img style={{width: '30px', height: '30px'}} src="https://duet-marriage.ru:8443/icons8-heart-balloon-64.png"></img><h3 style={{fontSize: '20px' }}> романтический декор</h3></div> 
-               <div style={{display: 'flex', gap: '5%'}}><img style={{width: '30px', height: '30px'}} src="https://duet-marriage.ru:8443/icons8-table-64.png"></img><h3 style={{fontSize: '20px' }}> стол, стулья</h3></div> 
-               <div style={{display: 'flex', gap: '5%'}}><img style={{width: '30px', height: '30px'}} src="https://duet-marriage.ru:8443/icons8-fireplace-64.png"></img><h3 style={{fontSize: '20px' }}>пледы</h3></div>
-               <div style={{display: 'flex', gap: '5%'}}><img style={{width: '30px', height: '30px'}} src="https://duet-marriage.ru:8443/icons8-champagne-64.png"></img><h3 style={{fontSize: '20px' }}> шампанское</h3></div>
-              <div style={{display: 'flex', gap: '5%'}}><img style={{width: '30px', height: '30px'}} src="https://duet-marriage.ru:8443/icons8-water-64.png"></img><h3 style={{fontSize: '20px' }}>вода</h3></div>
-              <div style={{display: 'flex', gap: '5%'}}><img style={{width: '30px', height: '30px'}} src="https://duet-marriage.ru:8443/icons8-raspberry-64.png"></img><h3 style={{fontSize: '20px' }}> фруктовая тарелка</h3></div>
+               <div style={{display: 'flex', gap: '5%'}}><img style={{width: '30px', height: '30px'}} src="http://duet-marriage.ru:8443/icons8-heart-balloon-64.png"></img><h3 style={{fontSize: '20px' }}> романтический декор</h3></div> 
+               <div style={{display: 'flex', gap: '5%'}}><img style={{width: '30px', height: '30px'}} src="http://duet-marriage.ru:8443/icons8-table-64.png"></img><h3 style={{fontSize: '20px' }}> стол, стулья</h3></div> 
+               <div style={{display: 'flex', gap: '5%'}}><img style={{width: '30px', height: '30px'}} src="http://duet-marriage.ru:8443/icons8-fireplace-64.png"></img><h3 style={{fontSize: '20px' }}>пледы</h3></div>
+               <div style={{display: 'flex', gap: '5%'}}><img style={{width: '30px', height: '30px'}} src="http://duet-marriage.ru:8443/icons8-champagne-64.png"></img><h3 style={{fontSize: '20px' }}> шампанское</h3></div>
+              <div style={{display: 'flex', gap: '5%'}}><img style={{width: '30px', height: '30px'}} src="http://duet-marriage.ru:8443/icons8-water-64.png"></img><h3 style={{fontSize: '20px' }}>вода</h3></div>
+              <div style={{display: 'flex', gap: '5%'}}><img style={{width: '30px', height: '30px'}} src="http://duet-marriage.ru:8443/icons8-raspberry-64.png"></img><h3 style={{fontSize: '20px' }}> фруктовая тарелка</h3></div>
               </div>
             </div>
         <Form
           name="basic"
-          labelCol={{ span: 8 }}
-          wrapperCol={{ span: 16 }}
+          // labelCol={{ span: 8 }}
+          // wrapperCol={{ span: 16 }}
           style={{fontSize: '20px' }}
           initialValues={{ remember: true }}
           onFinish={onFinish}

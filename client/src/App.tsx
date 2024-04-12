@@ -33,7 +33,7 @@ function App() {
 
   useEffect(() => {
     (async function () {
-      const response = await fetch("https://duet-marriage.ru:8443/user", {
+      const response = await fetch("http://duet-marriage.ru:8443/user", {
         credentials: "include",
       });
       const result = await response.json();
@@ -64,7 +64,8 @@ function App() {
          <Route element={<ProtectedRouteNoAuth user={user} redirectTo={'/'}/>}>
           <Route path="/account" element={<Account />} />
           <Route path="/form" element={<MyForm />} />
-          <Route path="/partner" element={<OtherForm />} />
+          {/* <Route path="/partner" element={<OtherForm />} /> */}
+          <Route path="/form" element={<OtherForm />} />
         </Route>
          
 

@@ -28,7 +28,7 @@ const FeedbackReducer = (state = initialState, action: AnyAction) => {
       };
 
     case "DELETE_FEEDBACK":
-      return { ...state, feedbacks: state.feedbacks.filter((e) => e.id !== payload) };
+      return { ...state, feedbacks: state.feedbacks.filter((e) => e.id !== payload)};
     default:
       return state;
   }

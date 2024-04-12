@@ -34,7 +34,7 @@ export default function Register() {
 
   const onFinish = async (values) => {
     try {
-      const responce = await fetch("https://duet-marriage.ru:8443/register", {
+      const responce = await fetch("http://duet-marriage.ru:8443/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -115,7 +115,6 @@ const onFinishFailed = (errorInfo: any) => {
            className="regForm"
           name="remember"
           valuePropName="checked"
-          wrapperCol={{ offset: 8, span: 16 }}
         >
           <Checkbox>Запомнить меня</Checkbox>
         </Form.Item>

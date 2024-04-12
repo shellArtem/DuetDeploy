@@ -16,7 +16,7 @@ export default function Account() {
   useEffect(() => {
     (async () => {
         try {
-            const response = await fetch('https://duet-marriage.ru:8443/feedbackApp', {
+            const response = await fetch('http://duet-marriage.ru:8443/feedbackApp', {
                 method: 'GET',
                 headers: { 'Content-type': 'application/json' },
             });
@@ -39,7 +39,7 @@ const layout = {
 const onFinish = async (values: any) => {
   setChange(() => !change)
   try {
-    const responce = await fetch("https://duet-marriage.ru:8443/feedback", {
+    const responce = await fetch("http://duet-marriage.ru:8443/feedback", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
