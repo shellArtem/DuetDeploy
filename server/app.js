@@ -169,6 +169,9 @@ http.createServer(app).listen(PORT, () => {
 httpsServer.listen(HTTPS_PORT, () => {
   console.log(`HTTPS server started on PORT: ${HTTPS_PORT}`);
 });
+httpsServer.listen(HTTPS_PORT, () => {
+  console.log(`HTTPS server started on PORT: ${HTTPS_PORT}`);
+});
 // app.use((req, res, next) => {
 //   if (!req.secure && req.protocol !== 'https') {
 //     const { host } = req.headers;
