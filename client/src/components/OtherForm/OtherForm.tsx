@@ -71,6 +71,22 @@ export default function OtherForm() {
     console.log("error:", errorInfo);
   };
 
+  const handlePay = async (values) => {
+
+    try {
+      const respons = await fetch("https://duet-marriage.ru:8443/payForm", {
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+      });
+      const resul = await respons.json();
+      location.href = resul.ssilka;
+
+    } catch (error) {
+      console.log("error", error);
+    }
+
+  };
+
   return (
     <>
     <h1 className={styles.title} style={{ height: '50px', fontSize: '25px', }}>ПОЖЕЛАНИЯ К ПАРТНЕРУ</h1>
