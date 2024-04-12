@@ -28,7 +28,7 @@ app.set('trust proxy', 1);
 const PORT = 3003;
 const host = 'duet-marriage.ru';
 
-// const HTTPS_PORT = 8443;
+const HTTPS_PORT = 8443;
 
 const sessionConfig = {
   name: 'Marriage',
@@ -166,9 +166,9 @@ http.createServer(app).listen(PORT, () => {
   console.log(`HTTP server started on PORT: ${PORT}`);
 });
 
-// httpsServer.listen(HTTPS_PORT, () => {
-//   console.log(`HTTPS server started on PORT: ${HTTPS_PORT}`);
-// });
+httpsServer.listen(HTTPS_PORT, () => {
+  console.log(`HTTPS server started on PORT: ${HTTPS_PORT}`);
+});
 
 // app.use((req, res, next) => {
 //   if (!req.secure && req.protocol !== 'https') {
