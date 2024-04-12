@@ -22,7 +22,7 @@ export default function MyDate () {
     // @ts-ignore
     const changeHandler = async (value, id) => {
       try {
-        await fetch(`http://duet-marriage.ru:8443/newRating`, {
+        await fetch(`https://duet-marriage.ru:8443/newRating`, {
           method: 'POST',
           headers: { 'Content-type': 'application/json' },
           body: JSON.stringify({value, id}),
@@ -34,7 +34,7 @@ export default function MyDate () {
 
     const deleteHandler = async (id) => {
       try {
-        await fetch(`http://duet-marriage.ru:8443/createDate/deleteDate`, {
+        await fetch(`https://duet-marriage.ru:8443/createDate/deleteDate`, {
           method: 'DELETE',
           headers: { 'Content-type': 'application/json' },
           body: JSON.stringify({id}),
@@ -48,7 +48,7 @@ export default function MyDate () {
     useEffect(() => {
         (async () => {
             try {
-                const response = await fetch('http://duet-marriage.ru:8443/dateTypes', {
+                const response = await fetch('https://duet-marriage.ru:8443/dateTypes', {
                     method: 'GET',
                     headers: { 'Content-type': 'application/json' },
                 });
@@ -82,7 +82,7 @@ export default function MyDate () {
     cover={
       <img
         alt="example"
-        src={`http://duet-marriage.ru:8443${date.img}`}
+        src={`https://duet-marriage.ru:8443${date.img}`}
         height='400px'
       />
     }

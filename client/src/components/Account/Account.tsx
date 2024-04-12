@@ -31,14 +31,14 @@ export default function Account() {
   useEffect(() => {
     (async function () {
       try {
-        const resp = await fetch('http://duet-marriage.ru:8443/usersEvent', {
+        const resp = await fetch('https://duet-marriage.ru:8443/usersEvent', {
           method: 'GET',
           credentials: 'include',
         });
         const res = await resp.json();
         setEvents(res);
 
-        const response = await fetch('http://duet-marriage.ru:8443/yookassaFeedback', {
+        const response = await fetch('https://duet-marriage.ru:8443/yookassaFeedback', {
           method: 'POST',
           credentials: 'include',
         });
@@ -61,7 +61,7 @@ export default function Account() {
     // @ts-ignore
     data.append('photo', img);
 
-    const response = await axios.put('http://duet-marriage.ru:8443/profile', data, {
+    const response = await axios.put('https://duet-marriage.ru:8443/profile', data, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
@@ -73,7 +73,7 @@ export default function Account() {
     // @ts-ignore
     data2.append('photo2', img2);
     const response2 = await axios.put(
-      'http://duet-marriage.ru:8443/profile/2',
+      'https://duet-marriage.ru:8443/profile/2',
       data2,
       {
         headers: {
@@ -89,7 +89,7 @@ export default function Account() {
 
   const logoutHandler = async () => {
     try {
-      const response = await fetch('http://duet-marriage.ru:8443/logout', {
+      const response = await fetch('https://duet-marriage.ru:8443/logout', {
         credentials: 'include',
       });
       dispatch({ type: 'LOGOUT_USER', payload: '' });
@@ -126,7 +126,7 @@ export default function Account() {
                   width: '40%',
                   borderRadius: '10%',
                 }}
-                src={`http://duet-marriage.ru:8443${photo}`}
+                src={`https://duet-marriage.ru:8443${photo}`}
                 alt=""
               />
             ) : (
@@ -136,7 +136,7 @@ export default function Account() {
                   width: '40%',
                   borderRadius: '10%',
                 }}
-                src={'http://duet-marriage.ru:8443/avatar.png'}
+                src={'https://duet-marriage.ru:8443/avatar.png'}
                 alt=""
               />
             )}

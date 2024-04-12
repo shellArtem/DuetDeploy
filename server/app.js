@@ -28,7 +28,7 @@ app.set('trust proxy', 1);
 const PORT = 3003;
 const host = 'duet-marriage.ru';
 
-const HTTPS_PORT = 8443;
+// const HTTPS_PORT = 8443;
 
 const sessionConfig = {
   name: 'Marriage',
@@ -60,7 +60,7 @@ app.use(cors({
 
 app.use((req, res, next) => {
   if (req.headers.host === 'http://duet-marriage.ru') {
-    return res.redirect(301, 'http://duet-marriage.ru'); //тут был https!
+    return res.redirect(301, 'https://duet-marriage.ru'); 
   }
   return next();
 });
@@ -170,9 +170,6 @@ http.createServer(app).listen(PORT, () => {
 //   console.log(`HTTPS server started on PORT: ${HTTPS_PORT}`);
 // });
 
-httpsServer.listen(HTTPS_PORT, () => {
-  console.log(`HTTPS server started on PORT: ${HTTPS_PORT}`);
-});
 // app.use((req, res, next) => {
 //   if (!req.secure && req.protocol !== 'https') {
 //     const { host } = req.headers;
